@@ -2,7 +2,7 @@
 <bpws:process exitOnStandardFault="no"
     name="SecurityManagement.DataAccess.MySQL.UpdateAccessProfileByRole"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20200206204249"
+    targetNamespace="http://xmlns.example.com/20200210144614"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://xmlns.example.com/20160314124903PLT"

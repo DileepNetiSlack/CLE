@@ -2,7 +2,7 @@
 <bpws:process exitOnStandardFault="no"
     name="Administration.DataAccess.ApplicationConfiguration.MySQL.RetrieveApplicationConfigurationList"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20200206204240"
+    targetNamespace="http://xmlns.example.com/20200210144610"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://xmlns.example.com/20150703194620PLT"

@@ -2,7 +2,7 @@
 <bpws:process exitOnStandardFault="no"
     name="ExceptionManagement.DataAccess.MySQL.RetrieveExceptionsByEventType"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20200206204247"
+    targetNamespace="http://xmlns.example.com/20200210144612"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://xmlns.example.com/20150712055632PLT"
