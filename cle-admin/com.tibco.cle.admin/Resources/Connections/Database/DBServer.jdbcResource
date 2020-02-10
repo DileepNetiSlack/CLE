@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_pGGJIEZ9EeWveuA5IzukjQ" name="Connections.Database.DBServer" type="jdbc:JdbcDataSource">
-  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_pGGJIUZ9EeWveuA5IzukjQ" username="system" password="#!uny2UistBUKBg0s7kbWhaQK9A1ZpOcLr">
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_pGGJIUZ9EeWveuA5IzukjQ">
     <substitutionBindings xmi:id="_SljPEFHbEeWY49zkK7hi9Q" template="maxConnections" propName="Database/MIG_MaxConnection"/>
-    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_pGGJIkZ9EeWveuA5IzukjQ" jdbcDriver="oracle.jdbc.OracleDriver" dbURL="jdbc:oracle:thin:@localhost:1521:xe">
+    <substitutionBindings xmi:id="_xZgeYEvrEeqGYc0st52O-Q" template="username" propName="Database/MIG_User"/>
+    <substitutionBindings xmi:id="_zFopAEvrEeqGYc0st52O-Q" template="password" propName="Database/MIG_Password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_pGGJIkZ9EeWveuA5IzukjQ">
       <substitutionBindings xmi:id="_UibLcFHbEeWY49zkK7hi9Q" template="loginTimeout" propName="Database/MIG_Timeout"/>
+      <substitutionBindings xmi:id="_TmceQEvrEeqGYc0st52O-Q" template="jdbcDriver" propName="Database/MIG_DB_Driver"/>
+      <substitutionBindings xmi:id="_fpKCMEvrEeqGYc0st52O-Q" template="dbURL" propName="Database/MIG_DBURL"/>
     </connectionConfig>
-    <connectionProperties xmi:id="_1OXPkDwSEeqBWb9jESO31w" key="jarFile" value="ojdbc"/>
+    <connectionProperties xmi:id="_-VLSUEvlEeqGYc0st52O-Q" key="jarFile" value="ojdbc"/>
   </jndi:configuration>
 </jndi:namedResource>

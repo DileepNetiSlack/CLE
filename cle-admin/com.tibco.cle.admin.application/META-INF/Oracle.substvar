@@ -683,7 +683,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_Timeout</name>
-			<value>0</value>
+			<value>60</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>
@@ -1211,7 +1211,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIUser</name>
-			<value>cleuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -1227,7 +1227,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIContextURL</name>
-			<value>tibjmsnaming://wsesbemsdev01:7226</value>
+			<value>tibjmsnaming://localhost:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -1267,7 +1267,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_UserName</name>
-			<value>cleuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

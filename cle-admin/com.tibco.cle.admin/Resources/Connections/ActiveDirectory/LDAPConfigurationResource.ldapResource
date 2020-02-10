@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:ldapauth="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/auth/ldap" xmlns:sp="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/securityprovider" xmi:id="_IGcPYRvREeifKuiv6XH_ZQ" name="Connections.ActiveDirectory.LDAPConfigurationResource" type="ldapauth:LDAPConfiguration">
   <jndi:reference xmi:id="_vSzVIEbzEemt1Iin36hx9g" key="loginAsAdministratorCredential" type="sp:CredentialSecurityProvider" value="Connections.ActiveDirectory.IdentityProvider"/>
-  <jndi:configuration xsi:type="ldapauth:LDAPConfiguration" xmi:id="_IGcPYhvREeifKuiv6XH_ZQ" serverURL="ldap://B1-PNETDC01.ULTAINC.LCL:389" userSearchBaseDN="DC=ultainc,DC=lcl" userSearchExpression="(&amp;(cn={0})(objectclass=user))"/>
+  <jndi:configuration xsi:type="ldapauth:LDAPConfiguration" xmi:id="_IGcPYhvREeifKuiv6XH_ZQ">
+    <substitutionBindings xmi:id="_z6-yEEvqEeqGYc0st52O-Q" template="serverURL" propName="/ActiveDirectory/ServerURL"/>
+    <substitutionBindings xmi:id="_2aqgkEvqEeqGYc0st52O-Q" template="userSearchExpression" propName="/ActiveDirectory/UserSearchExpression"/>
+    <substitutionBindings xmi:id="_5mkb4EvqEeqGYc0st52O-Q" template="userSearchBaseDN" propName="/ActiveDirectory/UserSearchBaseDN"/>
+  </jndi:configuration>
 </jndi:namedResource>

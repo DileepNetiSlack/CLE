@@ -1940,12 +1940,17 @@ $JDBCSQLException/sqlState = $sqlIntegrityState]]></bpws:transitionCondition>
                                 xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
                                 xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
                                 xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                <attributeBindings
+                                    bindingType="moduleProperty"
+                                    eAttributeName="timeout" processProperty="Timeout"/>
+                                <attributeBindings
+                                    bindingType="moduleProperty"
+                                    eAttributeName="maxRows" processProperty="MaxRows"/>
                                 <activityConfig>
                                     <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//SQLDirectActivity"/>
-                                    <value maxRows="100"
-                                    sharedResourceProperty="jdbcProperty"
-                                    timeout="10" xsi:type="jdbcPalette:SQLDirectActivity"/>
+                                    <value
+                                    sharedResourceProperty="jdbcProperty" xsi:type="jdbcPalette:SQLDirectActivity"/>
                                     </properties>
                                 </activityConfig>
                             </bwext:BWActivity>
@@ -1988,14 +1993,16 @@ $JDBCSQLException/sqlState = $sqlIntegrityState]]></bpws:transitionCondition>
                                 xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
                                 xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
                                 xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                <attributeBindings
+                                    bindingType="moduleProperty"
+                                    eAttributeName="timeout" processProperty="Timeout"/>
                                 <activityConfig>
                                     <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
                                     <value
                                     interpretEmptyStringAsNull="true"
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="insert into LOG (LogID, ApplicationID, ComponentName,Hostname, TransactionDomain, &#xa;TransactionID,TransactionType,Time_Stamp, TimeDuration, Category,Status, Transaction, Filename,&#xa;Dataencoding,CorrelationID, Message, RenderID, TransactionSize, InterfaceID, LogAudit) &#xa;values (?, ?, ?, ?, ?, ?, ?, to_timestamp_tz(?,'YYYY-MM-DD HH24:MI:SS.FFTZH:TZM'), ?, ?, ?, ?, ?, ?,?,?,?,?, ?, ?)"
-                                    timeout="10" xsi:type="jdbcPalette:JDBCUpdateActivity">
+                                    sqlStatement="insert into LOG (LogID, ApplicationID, ComponentName,Hostname, TransactionDomain, &#xa;TransactionID,TransactionType,Time_Stamp, TimeDuration, Category,Status, Transaction, Filename,&#xa;Dataencoding,CorrelationID, Message, RenderID, TransactionSize, InterfaceID, LogAudit) &#xa;values (?, ?, ?, ?, ?, ?, ?, to_timestamp_tz(?,'YYYY-MM-DD HH24:MI:SS.FFTZH:TZM'), ?, ?, ?, ?, ?, ?,?,?,?,?, ?, ?)" xsi:type="jdbcPalette:JDBCUpdateActivity">
                                     <PreparedParameters
                                     DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="LogID"/>

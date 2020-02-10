@@ -541,6 +541,12 @@
                 <bpws:literal>Connections.Database.DBServer</bpws:literal>
             </bpws:from>
         </bpws:variable>
+        <bpws:variable name="MIG_Timeout" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="Database/MIG_Timeout" type="xsd:int"/>
+        <bpws:variable name="MIG_MAXROWS" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="Database/MIG_MAXROWS" type="xsd:int"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -625,13 +631,18 @@
                             xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
                             xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
                             xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="timeout" processProperty="MIG_Timeout"/>
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="maxRows" processProperty="MIG_MAXROWS"/>
                             <activityConfig>
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
-                                    <value maxRows="100"
+                                    <value
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="SELECT USERNAME&#xa;  FROM USERS WHERE USERNAME=? and PASSWD=?&#xa;"
-                                    timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    sqlStatement="SELECT USERNAME&#xa;  FROM USERS WHERE USERNAME=? and PASSWD=?&#xa;" xsi:type="jdbcPalette:JDBCQueryActivity">
                                     <PreparedParameters
                                     DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="USERNAME"/>

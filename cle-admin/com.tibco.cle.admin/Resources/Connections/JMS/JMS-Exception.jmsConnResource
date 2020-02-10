@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_ZmZJQUiTEeWU1qIj_L2Lfg" name="Connections.JMS.JMS-Exception" type="jms:JMSConnectionFactory">
-  <jndi:configuration xsi:type="jms:DirectConnectionFactory" xmi:id="_VFM1QEbyEempCsIAQn6RSw" factoryType="Queue/Topic" providerURL="tcp://localhost:7222"/>
+  <jndi:reference xmi:id="_qlFroEvoEeqGYc0st52O-Q" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="Connections.JMS.JNDIConfiguration"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_qRs1kEvoEeqGYc0st52O-Q" factoryType="Queue/Topic">
+    <substitutionBindings xmi:id="_sZawAEvoEeqGYc0st52O-Q" template="jndiName" propName="/JMSServer/MIG_QueueConnectionFactory"/>
+    <substitutionBindings xmi:id="_ug-5cEvoEeqGYc0st52O-Q" template="topicFactoryJNDIName" propName="/JMSServer/MIG_TopicConnectionFactory"/>
+    <userCredentials xmi:id="_ZyfbsEvpEeqGYc0st52O-Q">
+      <substitutionBindings xmi:id="_aZ2WoEvpEeqGYc0st52O-Q" template="username" propName="/JMSServer/MIG_UserName"/>
+      <substitutionBindings xmi:id="_dPV9EEvpEeqGYc0st52O-Q" template="password" propName="/JMSServer/MIG_Password"/>
+    </userCredentials>
+  </jndi:configuration>
 </jndi:namedResource>

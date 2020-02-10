@@ -2,5 +2,6 @@
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_pQO8kEZ9EeWveuA5IzukjQ" name="Connections.SOAP.HTTP-GUIServicesAdministration" type="httpconnector:HttpConnectorConfiguration">
   <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_pQO8kUZ9EeWveuA5IzukjQ" lingerTime="60000" uriEncoding="">
     <substitutionBindings xmi:id="_SN3QAElIEemxhr96tBjVNw" template="port" propName="/SOAPServer/GUIServices/MIG_AdministrationPort"/>
+    <substitutionBindings xmi:id="_WPWVAEv9Eeq1tM5WR01Kxg" template="host" propName="/SOAPServer/GUIServices/MIG_AdministrationHost"/>
   </jndi:configuration>
 </jndi:namedResource>

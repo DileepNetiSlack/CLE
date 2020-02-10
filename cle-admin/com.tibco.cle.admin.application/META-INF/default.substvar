@@ -659,7 +659,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_DatabaseType</name>
-			<value>MySQL</value>
+			<value>Oracle</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -675,7 +675,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_DBURL</name>
-			<value>jdbc:mysql://35.236.128.135:3306/cledb</value>
+			<value>jdbc:oracle:thin:@localhost:1521:xe</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -683,7 +683,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_Timeout</name>
-			<value>0</value>
+			<value>60</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>
@@ -707,7 +707,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_DB_Driver</name>
-			<value>com.mysql.jdbc.Driver</value>
+			<value>oracle.jdbc.OracleDriver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -715,7 +715,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_User</name>
-			<value>ESBSMAdminDev</value>
+			<value>system</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -1211,7 +1211,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIUser</name>
-			<value>cleuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -1227,7 +1227,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIContextURL</name>
-			<value>tibjmsnaming://wsesbemsdev01:7226</value>
+			<value>tibjmsnaming://localhost:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -1267,7 +1267,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_UserName</name>
-			<value>cleuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

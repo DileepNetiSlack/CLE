@@ -610,10 +610,13 @@
                             <attributeBindings
                                 bindingType="moduleProperty"
                                 eAttributeName="timeout" processProperty="Timeout"/>
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="maxRows" processProperty="MIG_MAXROWS"/>
                             <activityConfig>
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
-                                    <value maxRows="1"
+                                    <value
                                     sharedResourceProperty="jdbcProperty"
                                     sqlStatement="SELECT XSLT, CSS&#xa;  FROM TRANSACTIONRENDERCONFIG&#xa;  WHERE APPLICATIONID = ? AND RENDERID = ?&#xa;" xsi:type="jdbcPalette:JDBCQueryActivity">
                                     <PreparedParameters
