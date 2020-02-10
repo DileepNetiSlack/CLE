@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Exception" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.example.org/wsdl/1436919561854" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SaveExceptionInstance" targetNamespace="http://www.example.org/wsdl/1436919561854">
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/Private/Exception"
+  			schemaLocation="../../../../Schemas/Private/Exception/QueryUpdate.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+  			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/Private/Exception"
+  			schemaLocation="../../../../Schemas/Private/Exception/ExceptionRequestExt.xsd">
+  		</xsd:import></xsd:schema><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/wsdl/1436919561854">
+	<xsd:element name="saveFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="saveFault1" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema></wsdl:types>
+  <wsdl:message name="ExceptionRequestExt">
+    <wsdl:part element="extns:ExceptionRequestExt" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part element="extns:ExceptionID" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="operationfault">
+    <wsdl:part element="part:DBError" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="saveFault1">
+  	<wsdl:part name="parameters" element="part:IDNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SaveExceptionInstance">
+    <wsdl:operation name="save">
+      <wsdl:input message="tns:ExceptionRequestExt" name="operationinput"/>
+      <wsdl:output message="tns:saveResponse" name="operationoutput"/>
+      <wsdl:fault message="tns:operationfault" name="fault"/>
+            <wsdl:fault name="fault1" message="tns:saveFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

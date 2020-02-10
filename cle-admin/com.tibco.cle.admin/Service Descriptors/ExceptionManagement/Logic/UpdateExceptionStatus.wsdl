@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1456810428308" xmlns:extns1="http://www.tibco.com/CommonLE2/Private/Exception" xmlns:extns2="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.example.org/wsdl/1456810428221" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateExceptionStatus" targetNamespace="http://www.example.org/wsdl/1456810428221">
+    <wsdl:import location="../../../Schemas/Private/Exception/QueryUpdate.xsd" namespace="http://www.tibco.com/CommonLE2/Private/Exception"/>
+    <wsdl:import location="../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+    <wsdl:message name="operationRequest">
+    <wsdl:part element="extns1:ExceptionStatusUpdate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationResponse">
+  </wsdl:message>
+  <wsdl:message name="operationFault">
+        <wsdl:part element="extns2:ExceptionRecordNotFound" name="parameters"/>
+    </wsdl:message>
+  <wsdl:portType name="UpdateExceptionStatus">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+      <wsdl:output message="tns:operationResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:operationFault" name="Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

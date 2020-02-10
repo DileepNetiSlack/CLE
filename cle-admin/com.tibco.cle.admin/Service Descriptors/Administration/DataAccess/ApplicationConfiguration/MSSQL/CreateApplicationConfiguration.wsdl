@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/CreateApplicationConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateApplicationConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/CreateApplicationConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/CreateApplicationConfiguration.wsdl">
+            <xsd:element name="createResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+</xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    			schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="ApplicationUpdate">
+    <wsdl:part element="extns:ApplicationUpdate" name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="createFault">
+  	<wsdl:part name="parameters" element="xsd1:IDNotUnique"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+  	<wsdl:part name="parameters" element="tns:createResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createFault1">
+        <wsdl:part name="parameters" element="xsd1:DBError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CreateApplicationConfiguration">
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:ApplicationUpdate" name="createinput"/>
+      <wsdl:output message="tns:createResponse"></wsdl:output>
+      <wsdl:fault name="fault" message="tns:createFault"></wsdl:fault>
+      <wsdl:fault name="fault1" message="tns:createFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

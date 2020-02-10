@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/MSSQL/RetrieveRenderConfig.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveRenderConfig" targetNamespace="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/MSSQL/RetrieveRenderConfig.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfig" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/MSSQL/RetrieveRenderConfig.wsdl">
+      <xsd:element name="retrieve">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="retrieveFault" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ConfigurationQuery.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfig"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/RenderConfig.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="retrieveRequest">
+    <wsdl:part element="xsd1:Query" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+    <wsdl:part element="xsd2:RenderConfigs" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="retrieveFault">
+  	<wsdl:part name="parameters" element="xsd3:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RetrieveRenderConfig">
+    <wsdl:operation name="retrieve">
+      <wsdl:input message="tns:retrieveRequest"/>
+      <wsdl:output message="tns:retrieveResponse"/>
+            <wsdl:fault name="fault" message="tns:retrieveFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RetrieveRenderConfigSOAP" type="tns:RetrieveRenderConfig">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="retrieve">
+      <soap:operation soapAction="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/MSSQL/RetrieveRenderConfig.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RetrieveRenderConfig">
+    <wsdl:port binding="tns:RetrieveRenderConfigSOAP" name="RetrieveRenderConfigSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

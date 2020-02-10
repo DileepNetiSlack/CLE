@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateSertAccessProfileByRole" targetNamespace="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl" xmlns:xsd1="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl">
+      <xsd:element name="UpdateSertAccessProfileByRole">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateSertAccessProfileByRoleResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Success" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"
+    		schemaLocation="../../../../Schemas/Private/SecurityConfiguration/AccessControl.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="UpdateSertAccessProfileByRoleRequest">
+    <wsdl:part element="xsd1:RoleAccessProfile" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateSertAccessProfileByRoleResponse">
+    <wsdl:part element="tns:UpdateSertAccessProfileByRoleResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateSertAccessProfileByRole">
+    <wsdl:operation name="UpdateSertAccessProfileByRole">
+      <wsdl:input message="tns:UpdateSertAccessProfileByRoleRequest"/>
+      <wsdl:output message="tns:UpdateSertAccessProfileByRoleResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UpdateSertAccessProfileByRoleSOAP" type="tns:UpdateSertAccessProfileByRole">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UpdateSertAccessProfileByRole">
+      <soap:operation soapAction="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateSertAccessProfileByRole">
+    <wsdl:port binding="tns:UpdateSertAccessProfileByRoleSOAP" name="UpdateSertAccessProfileByRoleSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

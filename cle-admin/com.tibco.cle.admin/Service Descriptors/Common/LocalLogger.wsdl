@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Common/LocalLogger.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LocalLogger" targetNamespace="http://www.tibco.com/ServiceDescriptors/Common/LocalLogger.wsdl">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Common/LocalLogger.wsdl"><xsd:element name="NewElement" type="xsd:string"></xsd:element>
+            <xsd:element name="log">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="Component"
+            				type="xsd:string" maxOccurs="1" minOccurs="1">
+            			</xsd:element>
+            			<xsd:element name="info"
+            				type="xsd:string" maxOccurs="1" minOccurs="1">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType></xsd:element>
+        
+            <xsd:element name="message" type="xsd:string"></xsd:element>
+        </xsd:schema></wsdl:types>
+    <wsdl:message name="logRequest">
+        <wsdl:part element="tns:log" name="parameters"/>
+    </wsdl:message>
+  <wsdl:message name="logResponse">
+    <wsdl:part element="tns:message" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="LocalLogger">
+    <wsdl:operation name="log">
+      <wsdl:input message="tns:logRequest"/>
+      <wsdl:output message="tns:logResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+
+</wsdl:definitions>

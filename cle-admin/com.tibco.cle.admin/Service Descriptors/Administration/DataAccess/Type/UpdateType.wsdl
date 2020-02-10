@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/UpdateType.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateType" targetNamespace="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/UpdateType.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Type" xmlns:xsd2="http://www.tibco.com/CommonLE2/Public/Common/Dummy" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/UpdateType.wsdl">
+      <xsd:element name="update">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="updateFault" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Type"
+    		schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ExceptionType.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Public/Common/Dummy"
+    		schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/DummyReturnMessage.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="updateRequest">
+    <wsdl:part element="xsd1:ExceptionTypes" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part element="xsd2:Dummy" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="updateFault">
+  	<wsdl:part name="parameters" element="xsd3:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UpdateType">
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateRequest"/>
+      <wsdl:output message="tns:updateResponse"/>
+            <wsdl:fault name="fault" message="tns:updateFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

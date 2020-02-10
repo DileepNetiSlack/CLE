@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
+  <moduleSharedVariables>
+    <moduleSharedVariable name="ExceptionConfigurationCache" type="{http://www.tibco.com/CommonLE2/Private/Administration}ExceptionConfigurationResults" initialValueMode="none"/>
+    <moduleSharedVariable name="CurrentLogLevelStore" type="{http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd}LogLevels" initialValueMode="none"/>
+  </moduleSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/CommonLE2/Private/Administration" location="../Schemas/Private/Administration/QueryResults.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd" location="../Schemas/Public/Logging/LogLevelRequest.xsd"/>
+</msv:DocumentRoot>

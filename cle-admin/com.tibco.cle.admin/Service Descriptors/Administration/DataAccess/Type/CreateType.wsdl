@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/CreateType.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateType" targetNamespace="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/CreateType.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Administration/DataAccess/Type/MSSQL/CreateType.wsdl">
+      <xsd:element name="create">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="createFault" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="createRequest">
+    <wsdl:part element="xsd1:TypeUpdate" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part element="tns:createResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createFault">
+  	<wsdl:part name="parameters"
+  		element="xsd2:ApplicationIDNotFound">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CreateType">
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createRequest"/>
+      <wsdl:output message="tns:createResponse"/>
+            <wsdl:fault name="fault" message="tns:createFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

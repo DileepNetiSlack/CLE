@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl.xsd="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:AllRolesRetrievalResponse="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" xmlns:Applications="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Applications" xmlns:Applications_1="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Applications" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:Category="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Category" xmlns:Category_1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Category" xmlns:Common="http://www.tibco.com/CommonLE2/Public/Common" xmlns:Common_1="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:Common_2="http://www.tibco.com/CommonLE2/namespace/Public//Pluggable/GUI/Common" xmlns:DeleteQuery="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Common/DeleteQuery" xmlns:Dummy="http://www.tibco.com/CommonLE2/Public/Common/Dummy" xmlns:ExceptionConfig="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfig" xmlns:ExceptionConfigDetail="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigDetail" xmlns:ExceptionConfigDetailQuery="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigDetailQuery" xmlns:ExceptionConfigList="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigList" xmlns:ExceptionConfiguration="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/ExceptionConfiguration" xmlns:ExceptionDetailQuery="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement/ExceptionDetailQuery" xmlns:ExceptionIDList="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Exception/ExceptionIDList" xmlns:ExceptionList="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Exception/ExceptionList" xmlns:ExceptionManagement="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement" xmlns:ExceptionResolution="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Exception/ExceptionResolution" xmlns:GUIServices="http://www.tibco.com/CommonLE2/namespace/SecurityManagement/GUIServices" xmlns:GUIServices_1="http://www.tibco.com/CommonLE2/namespace/ExceptionManagement/GUIServices" xmlns:GUIServices_2="http://www.tibco.com/CommonLE2/namespace/Logging/LogLevel/GUIServices" xmlns:GUIServices_3="http://www.tibco.com/CLE/SecurityManagement/GUIServices" xmlns:InterfaceConfigDetail="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail" xmlns:InterfaceConfigList="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigList" xmlns:ListQuery.xsd="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd" xmlns:LogDetail="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetail" xmlns:LogDetailQuery="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetailQuery" xmlns:LogLevelRequest.xsd="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd" xmlns:LogLevelResponse.xsd="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelResponse.xsd" xmlns:LogList="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogList" xmlns:Procedure="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Procedure" xmlns:Procedure_1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Procedure" xmlns:Query="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query" xmlns:RenderConfig="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfig" xmlns:RenderConfigDelete="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfigDelete" xmlns:RenderConfigs="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/RenderConfigs" xmlns:RolePermissionInformation="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/RolePermissionInformation" xmlns:RolePermissionInformationRequest="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/RolePermissionInformationRequest" xmlns:Schema.xsd="http://www.tibco.com/schemas/COMMONLE2011/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/Schema.xsd" xmlns:Severity="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Severity" xmlns:Severity_1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Severity" xmlns:Type="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Type" xmlns:Type_1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Type" xmlns:UserAuthenticationRequest="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationRequest" xmlns:UserAuthenticationResponse="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationResponse" xmlns:UserRolesRequest="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserRolesRequest" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:intfInterfaceConfiguration.wsdl="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl" xmlns:intfRetrieve_Log.wsdl="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_nZ9GIEibEeWsWfaB5Qq7Sw" targetNamespace="http://tns.tibco.com/bw/composite/com.tibco.cle.admin" name="com.tibco.cle.admin" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_yubz0EtIEeWNff-CR7F-ZA" name="ApplicationConfigurationServicePortType" promote="ComponentintfUpdate_ApplicationConfiguration-service/ApplicationConfigurationServicePortType">
+    <sca:interface.wsdl xmi:id="_yujIkEtIEeWNff-CR7F-ZA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Applications#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_Coqb4EtJEeWNff-CR7F-ZA" name="SOAPServiceBinding1" targetNamespace="http://www.tibco.com/16f5aa035a884c2bba9ca94751352977/SOAPServiceBinding1" portTypeQName="Applications_1:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+      <bindingType xmi:id="_CotfMEtJEeWNff-CR7F-ZA"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_K3sS0EtJEeWNff-CR7F-ZA" endpointURI="/Administration/GUIServices/ApplicationServices/intfUpdate_ApplicationConfiguration-service.serviceagent/intfwsUpdate_ApplicationConfigurationEndpoint2" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_CotfMUtJEeWNff-CR7F-ZA" description="" operationName="Update_sp_ApplicationConfigurationOp" action="/Administration/GUIServices/intfUpdate_ApplicationConfiguration-service.serviceagent/intfwsUpdate_ApplicationConfigurationEndpoint2/Update_sp_ApplicationConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_CotfMktJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_CotfM0tJEeWNff-CR7F-ZA" messageQName="Applications_1:Applications" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CotfNEtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Applications:Applications"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_CotfNUtJEeWNff-CR7F-ZA" messageQName="Applications_1:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl"/>
+        <messageConfiguration xmi:id="_CotfNktJEeWNff-CR7F-ZA" messageQName="Applications_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CotfN0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_CouGTktJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_CouGT0tJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_CouGUEtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_CouGUUtJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_CotfOEtJEeWNff-CR7F-ZA" description="" operationName="Retrieve_sp_ApplicationConfiguration_sp_ListOp" action="/Administration/GUIServices/intfUpdate_ApplicationConfiguration-service.serviceagent/intfwsUpdate_ApplicationConfigurationEndpoint2/Retrieve_sp_ApplicationConfiguration_sp_ListOp" actionNeeded="true">
+        <bindingType xmi:id="_CotfOUtJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_CotfOktJEeWNff-CR7F-ZA" messageQName="Applications_1:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CotfO0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_CotfPEtJEeWNff-CR7F-ZA" messageQName="Applications_1:Applications" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CotfPUtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Applications:Applications"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_CotfPktJEeWNff-CR7F-ZA" messageQName="Applications_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CotfP0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_CouGUktJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_CouGU0tJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_CouGVEtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_CouGVUtJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_CouGQEtJEeWNff-CR7F-ZA" description="" operationName="Delete_sp_ApplicationConfigurationOp" action="/Administration/GUIServices/intfUpdate_ApplicationConfiguration-service.serviceagent/intfwsUpdate_ApplicationConfigurationEndpoint2/Delete_sp_ApplicationConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_CouGQUtJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_CouGQktJEeWNff-CR7F-ZA" messageQName="Applications_1:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CouGQ0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_CouGREtJEeWNff-CR7F-ZA" messageQName="Applications_1:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl"/>
+        <messageConfiguration xmi:id="_CouGRUtJEeWNff-CR7F-ZA" messageQName="Applications_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CouGRktJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_CouGVktJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_CouGV0tJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_CoutUEtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_CoutUUtJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_CouGR0tJEeWNff-CR7F-ZA" description="" operationName="CreateApplicationConfigurationOp" action="/Administration/GUIServices/intfUpdate_ApplicationConfiguration-service.serviceagent/intfwsUpdate_ApplicationConfigurationEndpoint2/CreateApplicationConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_CouGSEtJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_CouGSUtJEeWNff-CR7F-ZA" messageQName="Applications_1:Applications" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CouGSktJEeWNff-CR7F-ZA" partName="parameters" partElementName="Applications:Applications"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_CouGS0tJEeWNff-CR7F-ZA" messageQName="Applications_1:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl"/>
+        <messageConfiguration xmi:id="_CouGTEtJEeWNff-CR7F-ZA" messageQName="Applications_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_CouGTUtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_CoutUktJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_CoutU0tJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_CoutVEtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_CoutVUtJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_CoutVktJEeWNff-CR7F-ZA" bindingName="SOAPServiceBinding1">
+      <sca:property xmi:id="_F-KGIEtLEeWNff-CR7F-ZA" name="endpointURI" scaext:simpleValue="/EndpointURI/ApplicationConfigurationServiceEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_44xPIktIEeWNff-CR7F-ZA" name="ExceptionConfigurationPortType" promote="ComponentintfExceptionConfiguration-service/ExceptionConfigurationPortType">
+    <sca:interface.wsdl xmi:id="_44x2MUtIEeWNff-CR7F-ZA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/ExceptionConfiguration#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_GzbMIEtJEeWNff-CR7F-ZA" name="SOAPServiceBinding2" targetNamespace="http://www.tibco.com/a999e347910d43ab8ee633ae03bcd9bb/SOAPServiceBinding2" portTypeQName="ExceptionConfiguration:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+      <bindingType xmi:id="_GzbMIUtJEeWNff-CR7F-ZA"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_VbAgkEtJEeWNff-CR7F-ZA" endpointURI="/Administration/GUIServices/ExceptionConfigurationServices/intfExceptionConfiguration-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_GzbMIktJEeWNff-CR7F-ZA" description="" operationName="RetrieveSpecificExceptionConfigurationListOp" action="/Administration/GUIServices/ExceptionConfigurationServices/intfRetrieveSpecificExceptionConfigurationList-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0/RetrieveSpecificExceptionConfigurationListOp" actionNeeded="true">
+        <bindingType xmi:id="_GzbMI0tJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_GzbMJEtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMJUtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMJktJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:ExceptionConfigList" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMJ0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="ExceptionConfigList:ExceptionConfigList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMKEtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMKUtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_GzbzN0tJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_GzbzOEtJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_GzbzOUtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_GzbzOktJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_GzbMKktJEeWNff-CR7F-ZA" description="" operationName="UpdateExceptionConfigurationOp" action="/Administration/GUIServices/ExceptionConfigurationServices/intfRetrieveSpecificExceptionConfigurationList-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0/UpdateExceptionConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_GzbMK0tJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_GzbMLEtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:ExceptionConfigs" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMLUtJEeWNff-CR7F-ZA" partName="parameters" partElementName="ExceptionConfig:ExceptionConfigs"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMLktJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl"/>
+        <messageConfiguration xmi:id="_GzbML0tJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMMEtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_GzbzO0tJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_GzbzPEtJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_GzbzPUtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_GzbzPktJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_GzbMMUtJEeWNff-CR7F-ZA" description="" operationName="RetrieveSpecificExceptionConfigurationOp" action="/Administration/GUIServices/ExceptionConfigurationServices/intfRetrieveSpecificExceptionConfigurationList-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0/RetrieveSpecificExceptionConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_GzbMMktJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_GzbMM0tJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:ExceptionConfigDetailQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMNEtJEeWNff-CR7F-ZA" partName="part1" partElementName="ExceptionConfigDetailQuery:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMNUtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:ExceptionConfigDetail" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMNktJEeWNff-CR7F-ZA" partName="parameters" partElementName="ExceptionConfigDetail:ExceptionConfigDetail"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMN0tJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMOEtJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_GzbzP0tJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_GzbzQEtJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_GzbzQUtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_GzbzQktJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_GzbMOUtJEeWNff-CR7F-ZA" description="" operationName="DeleteExceptionConfigurationOp" action="/Administration/GUIServices/ExceptionConfigurationServices/intfRetrieveSpecificExceptionConfigurationList-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0/DeleteExceptionConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_GzbMOktJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_GzbMO0tJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:DeleteQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMPEtJEeWNff-CR7F-ZA" partName="part1" partElementName="DeleteQuery:DeleteQueries"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbMPUtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl"/>
+        <messageConfiguration xmi:id="_GzbMPktJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbMP0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_GzbzQ0tJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_GzbzREtJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_GzbzRUtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_GzbzRktJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_GzbzMEtJEeWNff-CR7F-ZA" description="" operationName="CreateExceptionConfigurationOp" action="/Administration/GUIServices/ExceptionConfigurationServices/intfRetrieveSpecificExceptionConfigurationList-service.serviceagent/intfwsRetrieveSpecificExceptionConfigurationListEndpoint0/CreateExceptionConfigurationOp" actionNeeded="true">
+        <bindingType xmi:id="_GzbzMUtJEeWNff-CR7F-ZA"/>
+        <messageConfiguration xmi:id="_GzbzMktJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:ExceptionConfigs" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbzM0tJEeWNff-CR7F-ZA" partName="parameters" partElementName="ExceptionConfig:ExceptionConfigs"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_GzbzNEtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl"/>
+        <messageConfiguration xmi:id="_GzbzNUtJEeWNff-CR7F-ZA" messageQName="ExceptionConfiguration:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_GzbzNktJEeWNff-CR7F-ZA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_GzbzR0tJEeWNff-CR7F-ZA">
+          <inputMapping xmi:id="_GzbzSEtJEeWNff-CR7F-ZA"/>
+          <outputMapping xmi:id="_GzbzSUtJEeWNff-CR7F-ZA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_GzbzSktJEeWNff-CR7F-ZA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_GzbzS0tJEeWNff-CR7F-ZA" bindingName="SOAPServiceBinding2">
+      <sca:property xmi:id="_J2ozkEtLEeWNff-CR7F-ZA" name="endpointURI" scaext:simpleValue="/EndpointURI/ExceptionConfigurationServiceEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_Ym1bsEyvEeW-Ev3Usv2upA" name="InterfaceConfigurationPortType" promote="ComponentintfInterfaceConfiguration-service/InterfaceConfigurationPortType">
+    <sca:interface.wsdl xmi:id="_YnjNYEyvEeW-Ev3Usv2upA" interface="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl#wsdl.interface(intfInterfaceConfiguration)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_gDPi4EyvEeW-Ev3Usv2upA" name="SOAPServiceBinding3" targetNamespace="http://www.tibco.com/1006b2c1d4ae46cea5e0e147d185e18f/SOAPServiceBinding3" portTypeQName="intfInterfaceConfiguration.wsdl:intfInterfaceConfiguration" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+      <bindingType xmi:id="_gDUbYEyvEeW-Ev3Usv2upA"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_jBCJsEyvEeW-Ev3Usv2upA" endpointURI="" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_gDVCcEyvEeW-Ev3Usv2upA" description="" operationName="wsCreateInterfaceConfiguration" action="/Administration/GUIServices/InterfaceConfigurationServices/Service.serviceagent//CreateInterfaceConfiguration" actionNeeded="true">
+        <bindingType xmi:id="_gDVCcUyvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVCckyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsCreateInterfaceConfigurationRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCc0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="InterfaceConfigDetail:InterfaceConfig"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCdEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsCreateInterfaceConfigurationResponse1" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCdUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Schema.xsd:StatusMessage"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCdkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsCreateInterfaceConfigurationFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCd0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCeEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsCreateInterfaceConfigurationFault1" messageDirection="FAULT" action="fault" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCeUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:IDNotUnique"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCekyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsCreateInterfaceConfigurationFault11" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCe0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:ReferencialIntegrityViolation"/>
+        </messageConfiguration>
+        <context xmi:id="_gDVpnEyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDVpnUyvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDVpnkyvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDVpn0yvEeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+          <faultMappings xmi:id="_gDVpoEyvEeW-Ev3Usv2upA" direction="FAULT" faultName="fault"/>
+          <faultMappings xmi:id="_gDVpoUyvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gDVCfEyvEeW-Ev3Usv2upA" description="" operationName="wsDeleteInterfaceConfiguration" action="/Administration/GUIServices/InterfaceConfigurationServices/Service.serviceagent//DeleteInterfaceConfigurations" actionNeeded="true">
+        <bindingType xmi:id="_gDVCfUyvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVCfkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsDeleteInterfaceConfigurationRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCf0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="DeleteQuery:DeleteQueries"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCgEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsDeleteInterfaceConfigurationResponse1" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCgUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Schema.xsd:StatusMessage"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCgkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsDeleteInterfaceConfigurationFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCg0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVChEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsDeleteInterfaceConfigurationFault1" messageDirection="FAULT" action="DBRecordNotFound" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVChUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:DBRecordNotFound"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVChkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsDeleteInterfaceConfigurationFault11" messageDirection="FAULT" action="RefereencialIntegrityViolation" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCh0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:ReferencialIntegrityViolation"/>
+        </messageConfiguration>
+        <context xmi:id="_gDVpokyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDVpo0yvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDWQkEyvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDWQkUyvEeW-Ev3Usv2upA" direction="FAULT" faultName="RefereencialIntegrityViolation"/>
+          <faultMappings xmi:id="_gDWQkkyvEeW-Ev3Usv2upA" direction="FAULT" faultName="DBRecordNotFound"/>
+          <faultMappings xmi:id="_gDWQk0yvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gDVCiEyvEeW-Ev3Usv2upA" description="" operationName="wsRetrieveInterfaceConfigList" action="/Administration/GUIServices/InterfaceConfigurationServices/Service.serviceagent/PortTypeEndpoint1/RetrieveInterfaceConfigurationList" actionNeeded="true">
+        <bindingType xmi:id="_gDVCiUyvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVCikyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigListRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCi0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCjEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigListResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCjUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="InterfaceConfigDetail:InterfaceList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCjkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigListFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCj0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVCkEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigListFault1" messageDirection="FAULT" action="DBRecordNotFound" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVCkUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:DBRecordNotFound"/>
+        </messageConfiguration>
+        <context xmi:id="_gDWQlEyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDWQlUyvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDWQlkyvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDWQl0yvEeW-Ev3Usv2upA" direction="FAULT" faultName="DBRecordNotFound"/>
+          <faultMappings xmi:id="_gDWQmEyvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gDVpgEyvEeW-Ev3Usv2upA" description="" operationName="wsRetrieveInterfaceConfigurationDetail" action="/Administration/GUIServices/InterfaceConfigurationServices/InterfaceConfigurationService.serviceagent//RetrieveInterfaceConfigurationDetail" actionNeeded="true">
+        <bindingType xmi:id="_gDVpgUyvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVpgkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigurationDetailRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpg0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="ExceptionConfigDetailQuery:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVphEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigurationDetailResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVphUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="InterfaceConfigDetail:InterfaceConfig"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVphkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigurationDetailFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVph0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVpiEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveInterfaceConfigurationDetailFault1" messageDirection="FAULT" action="IDNotFound" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpiUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:IDNotFound"/>
+        </messageConfiguration>
+        <context xmi:id="_gDWQmUyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDWQmkyvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDWQm0yvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDWQnEyvEeW-Ev3Usv2upA" direction="FAULT" faultName="IDNotFound"/>
+          <faultMappings xmi:id="_gDWQnUyvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gDVpikyvEeW-Ev3Usv2upA" description="" operationName="wsRetrieveParentInterfaceList" action="/Administration/GUIServices/InterfaceConfigurationServices/Service.serviceagent//RetrieveInterfaceParentList" actionNeeded="true">
+        <bindingType xmi:id="_gDVpi0yvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVpjEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveParentInterfaceListRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpjUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVpjkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveParentInterfaceListResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpj0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="InterfaceConfigList:InterfaceParentList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVpkEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsRetrieveParentInterfaceListFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpkUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_gDWQnkyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDWQn0yvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDWQoEyvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDWQoUyvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gDVpkkyvEeW-Ev3Usv2upA" description="" operationName="wsUpdateInterfaceConfiguration" action="/Administration/GUIServices/InterfaceConfigurationServices/Service.serviceagent//UpdateInterfaceConfiguration" actionNeeded="true">
+        <bindingType xmi:id="_gDVpk0yvEeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_gDVplEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsUpdateInterfaceConfigurationRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVplUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="InterfaceConfigDetail:InterfaceConfig"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVplkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsUpdateInterfaceConfigurationResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpl0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Dummy:Dummy"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVpmEyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsUpdateInterfaceConfigurationFault" messageDirection="FAULT" action="Error" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpmUyvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gDVpmkyvEeW-Ev3Usv2upA" messageQName="intfInterfaceConfiguration.wsdl:wsUpdateInterfaceConfigurationFault1" messageDirection="FAULT" action="DBRecordNotFound" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gDVpm0yvEeW-Ev3Usv2upA" partName="parameters" partElementName="Common_1:DBRecordNotFound"/>
+        </messageConfiguration>
+        <context xmi:id="_gDWQokyvEeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_gDWQo0yvEeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_gDWQpEyvEeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gDWQpUyvEeW-Ev3Usv2upA" direction="FAULT" faultName="DBRecordNotFound"/>
+          <faultMappings xmi:id="_gDWQpkyvEeW-Ev3Usv2upA" direction="FAULT" faultName="Error"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_gDWQp0yvEeW-Ev3Usv2upA" bindingName="SOAPServiceBinding3">
+      <sca:property xmi:id="_GxTvIEywEeW-Ev3Usv2upA" name="endpointURI" scaext:simpleValue="/EndpointURI/InterfaceConfigurationServiceEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_PBrJMEy4EeW-Ev3Usv2upA" name="CategoryServicesPortType" promote="ComponentintfCategory-service/CategoryServicesPortType">
+    <sca:interface.wsdl xmi:id="_PBrJNEy4EeW-Ev3Usv2upA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Category#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_7-R7UEy4EeW-Ev3Usv2upA" name="SOAPServiceBinding5" targetNamespace="http://www.tibco.com/98783d0dcf234828b5f2039ed3de63bc/SOAPServiceBinding5" portTypeQName="Category:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+      <bindingType xmi:id="_7-R7UUy4EeW-Ev3Usv2upA"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_9rYWUEy4EeW-Ev3Usv2upA" endpointURI="/SOAPServiceBinding5/portType2/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_7-R7Uky4EeW-Ev3Usv2upA" description="" operationName="UpdateCategoryOp" action="/Administration/GUIServices/CategoryServices/intfUpdateCategory-service.serviceagent/intfwsUpdateCategoryEndpoint0/UpdateCategoryOp" actionNeeded="true">
+        <bindingType xmi:id="_7-R7U0y4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_7-R7VEy4EeW-Ev3Usv2upA" messageQName="Category:ExceptionCategories" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-R7VUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Category_1:ExceptionCategories"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-R7Vky4EeW-Ev3Usv2upA" messageQName="Category:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl"/>
+        <messageConfiguration xmi:id="_7-R7V0y4EeW-Ev3Usv2upA" messageQName="Category:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-R7WEy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7-Sidky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_7-Sid0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_7-SieEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7-SieUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7-R7WUy4EeW-Ev3Usv2upA" description="" operationName="RetrieveCategoryDetailOp" action="/Administration/GUIServices/CategoryServices/intfUpdateCategory-service.serviceagent/intfwsUpdateCategoryEndpoint0/RetrieveCategoryDetailOp" actionNeeded="true">
+        <bindingType xmi:id="_7-R7Wky4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_7-R7W0y4EeW-Ev3Usv2upA" messageQName="Category:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-R7XEy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-R7XUy4EeW-Ev3Usv2upA" messageQName="Category:ExceptionCategories" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-R7Xky4EeW-Ev3Usv2upA" partName="parameters" partElementName="Category_1:ExceptionCategories"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-R7X0y4EeW-Ev3Usv2upA" messageQName="Category:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-R7YEy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7-Sieky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_7-Sie0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_7-SifEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7-SifUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7-SiYEy4EeW-Ev3Usv2upA" description="" operationName="DeleteCategoryOp" action="/Administration/GUIServices/CategoryServices/intfUpdateCategory-service.serviceagent/intfwsUpdateCategoryEndpoint0/DeleteCategoryOp" actionNeeded="true">
+        <bindingType xmi:id="_7-SiYUy4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_7-SiYky4EeW-Ev3Usv2upA" messageQName="Category:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-SiY0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-SiZEy4EeW-Ev3Usv2upA" messageQName="Category:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl"/>
+        <messageConfiguration xmi:id="_7-SiZUy4EeW-Ev3Usv2upA" messageQName="Category:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-SiZky4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7-Sifky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_7-Sif0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_7-SigEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7-SigUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7-SiZ0y4EeW-Ev3Usv2upA" description="" operationName="CreateCategoryOp" action="/Administration/GUIServices/CategoryServices/intfUpdateCategory-service.serviceagent/intfwsUpdateCategoryEndpoint0/CreateCategoryOp" actionNeeded="true">
+        <bindingType xmi:id="_7-SiaEy4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_7-SiaUy4EeW-Ev3Usv2upA" messageQName="Category:ExceptionCategories" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-Siaky4EeW-Ev3Usv2upA" partName="parameters" partElementName="Category_1:ExceptionCategories"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-Sia0y4EeW-Ev3Usv2upA" messageQName="Category:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl"/>
+        <messageConfiguration xmi:id="_7-SibEy4EeW-Ev3Usv2upA" messageQName="Category:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-SibUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7-Sigky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_7-Sig0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_7-SihEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7-SihUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7-Sibky4EeW-Ev3Usv2upA" description="" operationName="RetrieveCategoryListWithSysIDOp" action="/Administration/GUIServices/CategoryServices/intfCategory-service.serviceagent//RetrieveCategoryListWithSysIDOp" actionNeeded="true">
+        <bindingType xmi:id="_7-Sib0y4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_7-SicEy4EeW-Ev3Usv2upA" messageQName="Category:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-SicUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-Sicky4EeW-Ev3Usv2upA" messageQName="Category:ExceptionCategories" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-Sic0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Category_1:ExceptionCategories"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7-SidEy4EeW-Ev3Usv2upA" messageQName="Category:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7-SidUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7-Sihky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_7-Sih0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_7-SiiEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7-SiiUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_7-Siiky4EeW-Ev3Usv2upA" bindingName="SOAPServiceBinding5">
+      <sca:property xmi:id="_B9Wh0Ey5EeW-Ev3Usv2upA" name="endpointURI" scaext:simpleValue="/EndpointURI/CategoryServiceEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_QNrCQUy4EeW-Ev3Usv2upA" name="ProcedureServicesPortType" promote="ComponentintfProcedure-service/ProcedureServicesPortType">
+    <sca:interface.wsdl xmi:id="_QNrCRUy4EeW-Ev3Usv2upA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Procedure#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_S9CykEy4EeW-Ev3Usv2upA" name="SOAPServiceBinding4" targetNamespace="http://www.tibco.com/b5a676fec6e14f0c8ee0368681b42a07/SOAPServiceBinding4" portTypeQName="Procedure:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+      <bindingType xmi:id="_S9CykUy4EeW-Ev3Usv2upA"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_UCmFYEy4EeW-Ev3Usv2upA" endpointURI="/SOAPServiceBinding4/portType3/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_S9Cykky4EeW-Ev3Usv2upA" description="" operationName="UpdateProcedureOp" action="/Administration/GUIServices/ProcedureServices/intfUpdateProcedure-service.serviceagent/intfwsUpdateProcedureEndpoint2/UpdateProcedureOp" actionNeeded="true">
+        <bindingType xmi:id="_S9Cyk0y4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_S9CylEy4EeW-Ev3Usv2upA" messageQName="Procedure:ExceptionProcedures" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9CylUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Procedure_1:ExceptionProcedures"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9Cylky4EeW-Ev3Usv2upA" messageQName="Procedure:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl"/>
+        <messageConfiguration xmi:id="_S9Cyl0y4EeW-Ev3Usv2upA" messageQName="Procedure:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9CymEy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_S9DZvky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_S9DZv0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_S9DZwEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_S9DZwUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_S9DZoEy4EeW-Ev3Usv2upA" description="" operationName="RetrieveSpecificProcedureOp" action="/Administration/GUIServices/ProcedureServices/intfUpdateProcedure-service.serviceagent/intfwsUpdateProcedureEndpoint2/RetrieveSpecificProcedureOp" actionNeeded="true">
+        <bindingType xmi:id="_S9DZoUy4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_S9DZoky4EeW-Ev3Usv2upA" messageQName="Procedure:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZo0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZpEy4EeW-Ev3Usv2upA" messageQName="Procedure:ExceptionProcedures" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZpUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Procedure_1:ExceptionProcedures"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZpky4EeW-Ev3Usv2upA" messageQName="Procedure:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZp0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_S9DZwky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_S9DZw0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_S9DZxEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_S9DZxUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_S9DZqEy4EeW-Ev3Usv2upA" description="" operationName="DeleteProcedureOp" action="/Administration/GUIServices/ProcedureServices/intfUpdateProcedure-service.serviceagent/intfwsUpdateProcedureEndpoint2/DeleteProcedureOp" actionNeeded="true">
+        <bindingType xmi:id="_S9DZqUy4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_S9DZqky4EeW-Ev3Usv2upA" messageQName="Procedure:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZq0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZrEy4EeW-Ev3Usv2upA" messageQName="Procedure:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl"/>
+        <messageConfiguration xmi:id="_S9DZrUy4EeW-Ev3Usv2upA" messageQName="Procedure:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZrky4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_S9DZxky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_S9DZx0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_S9DZyEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_S9DZyUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_S9DZr0y4EeW-Ev3Usv2upA" description="" operationName="CreateProcedureOp" action="/Administration/GUIServices/ProcedureServices/intfUpdateProcedure-service.serviceagent/intfwsUpdateProcedureEndpoint2/CreateProcedureOp" actionNeeded="true">
+        <bindingType xmi:id="_S9DZsEy4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_S9DZsUy4EeW-Ev3Usv2upA" messageQName="Procedure:ExceptionProcedures" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZsky4EeW-Ev3Usv2upA" partName="parameters" partElementName="Procedure_1:ExceptionProcedures"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZs0y4EeW-Ev3Usv2upA" messageQName="Procedure:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl"/>
+        <messageConfiguration xmi:id="_S9DZtEy4EeW-Ev3Usv2upA" messageQName="Procedure:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZtUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_S9DZyky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_S9DZy0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_S9DZzEy4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_S9DZzUy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_S9DZtky4EeW-Ev3Usv2upA" description="" operationName="RetrieveProcedureListWithSysIDOp" action="/Administration/GUIServices/ProcedureServices/intfProcedure-service.serviceagent//RetrieveProcedureListWithSysIDOp" actionNeeded="true">
+        <bindingType xmi:id="_S9DZt0y4EeW-Ev3Usv2upA"/>
+        <messageConfiguration xmi:id="_S9DZuEy4EeW-Ev3Usv2upA" messageQName="Procedure:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZuUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZuky4EeW-Ev3Usv2upA" messageQName="Procedure:ExceptionProcedures" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZu0y4EeW-Ev3Usv2upA" partName="parameters" partElementName="Procedure_1:ExceptionProcedures"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_S9DZvEy4EeW-Ev3Usv2upA" messageQName="Procedure:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_S9DZvUy4EeW-Ev3Usv2upA" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_S9DZzky4EeW-Ev3Usv2upA">
+          <inputMapping xmi:id="_S9DZz0y4EeW-Ev3Usv2upA"/>
+          <outputMapping xmi:id="_S9DZ0Ey4EeW-Ev3Usv2upA" direction="OUTPUT"/>
+          <faultMappings xmi:id="_S9EAsEy4EeW-Ev3Usv2upA" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_S9EAsUy4EeW-Ev3Usv2upA" bindingName="SOAPServiceBinding4">
+      <sca:property xmi:id="_myPbYEy4EeW-Ev3Usv2upA" name="endpointURI" scaext:simpleValue="/EndpointURI/ProcedureServicesEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_mkxfsE1_EeW7ws-zpvyvWw" name="TypeServicePortType" promote="ComponentintfUpdateType/TypeServicePortType">
+    <sca:interface.wsdl xmi:id="_mk3mUE1_EeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Type#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_nCN-wE2BEeW7ws-zpvyvWw" name="SOAPServiceBinding7" targetNamespace="http://www.tibco.com/950a1e82701848dfb1bd2b0c113523f0/SOAPServiceBinding7" portTypeQName="Type:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+      <bindingType xmi:id="_nCOl0E2BEeW7ws-zpvyvWw"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_oiuIME2BEeW7ws-zpvyvWw" endpointURI="/SOAPServiceBinding7/typeServicePortType/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_nCOl0U2BEeW7ws-zpvyvWw" description="" operationName="UpdateTypeOp" action="/Administration/GUIServices/TypeServices/intfUpdateType-service.serviceagent/intfwsUpdateTypeEndpoint1/UpdateTypeOp" actionNeeded="true">
+        <bindingType xmi:id="_nCOl0k2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_nCOl002BEeW7ws-zpvyvWw" messageQName="Type:ExceptionTypes" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl1E2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Type_1:ExceptionTypes"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl1U2BEeW7ws-zpvyvWw" messageQName="Type:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl"/>
+        <messageConfiguration xmi:id="_nCOl1k2BEeW7ws-zpvyvWw" messageQName="Type:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl102BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_nCPM4E2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_nCPM4U2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_nCPM4k2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_nCPM402BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_nCOl2E2BEeW7ws-zpvyvWw" description="" operationName="RetrieveSpecificTypeOp" action="/Administration/GUIServices/TypeServices/intfUpdateType-service.serviceagent/intfwsUpdateTypeEndpoint1/RetrieveSpecificTypeOp" actionNeeded="true">
+        <bindingType xmi:id="_nCOl2U2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_nCOl2k2BEeW7ws-zpvyvWw" messageQName="Type:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl202BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl3E2BEeW7ws-zpvyvWw" messageQName="Type:ExceptionTypes" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl3U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Type_1:ExceptionTypes"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl3k2BEeW7ws-zpvyvWw" messageQName="Type:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl302BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_nCPM5E2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_nCPM5U2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_nCPM5k2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_nCPM502BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_nCOl4E2BEeW7ws-zpvyvWw" description="" operationName="DeleteTypeOp" action="/Administration/GUIServices/TypeServices/intfUpdateType-service.serviceagent/intfwsUpdateTypeEndpoint1/DeleteTypeOp" actionNeeded="true">
+        <bindingType xmi:id="_nCOl4U2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_nCOl4k2BEeW7ws-zpvyvWw" messageQName="Type:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl402BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl5E2BEeW7ws-zpvyvWw" messageQName="Type:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl"/>
+        <messageConfiguration xmi:id="_nCOl5U2BEeW7ws-zpvyvWw" messageQName="Type:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl5k2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_nCPM6E2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_nCPM6U2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_nCPM6k2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_nCPM602BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_nCOl502BEeW7ws-zpvyvWw" description="" operationName="CreateTypeOp" action="/Administration/GUIServices/TypeServices/intfUpdateType-service.serviceagent/intfwsUpdateTypeEndpoint1/CreateTypeOp" actionNeeded="true">
+        <bindingType xmi:id="_nCOl6E2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_nCOl6U2BEeW7ws-zpvyvWw" messageQName="Type:ExceptionTypes" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl6k2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Type_1:ExceptionTypes"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl602BEeW7ws-zpvyvWw" messageQName="Type:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl"/>
+        <messageConfiguration xmi:id="_nCOl7E2BEeW7ws-zpvyvWw" messageQName="Type:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl7U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_nCPM7E2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_nCPM7U2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_nCPM7k2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_nCPM702BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_nCOl7k2BEeW7ws-zpvyvWw" description="" operationName="RetrieveTypeListWithSysIDOp" action="/Administration/GUIServices/TypeServices/intfType-service.serviceagent//RetrieveTypeListWithSysIDOp" actionNeeded="true">
+        <bindingType xmi:id="_nCOl702BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_nCOl8E2BEeW7ws-zpvyvWw" messageQName="Type:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl8U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl8k2BEeW7ws-zpvyvWw" messageQName="Type:ExceptionTypes" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl802BEeW7ws-zpvyvWw" partName="parameters" partElementName="Type_1:ExceptionTypes"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_nCOl9E2BEeW7ws-zpvyvWw" messageQName="Type:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_nCOl9U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_nCPM8E2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_nCPM8U2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_nCPM8k2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_nCPz8E2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_nCPz8U2BEeW7ws-zpvyvWw" bindingName="SOAPServiceBinding7">
+      <sca:property xmi:id="_sk1SwE2BEeW7ws-zpvyvWw" name="endpointURI" scaext:simpleValue="/EndpointURI/TypeServicesEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_FGv-0k2BEeW7ws-zpvyvWw" name="RenderConfigurationPortType" promote="ComponentintfRenderConfig-service/RenderConfigurationPortType">
+    <sca:interface.wsdl xmi:id="_FGv-1k2BEeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/RenderConfigs#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_RDUegE2BEeW7ws-zpvyvWw" name="SOAPServiceBinding6" targetNamespace="http://www.tibco.com/c4aeb4f3e9ed443aaf2ac24583dfc535/SOAPServiceBinding6" portTypeQName="RenderConfigs:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+      <bindingType xmi:id="_RDW6wE2BEeW7ws-zpvyvWw"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_aB6KIE2BEeW7ws-zpvyvWw" endpointURI="/SOAPServiceBinding6/renderConfigurationPortType/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_RDXh0E2BEeW7ws-zpvyvWw" description="" operationName="UpdateRenderConfigOp" action="/Administration/GUIServices/RenderServices/intfRenderConfig-service.serviceagent/portTypeEndpoint1/UpdateRenderConfigOp" actionNeeded="true">
+        <bindingType xmi:id="_RDXh0U2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_RDXh0k2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:RenderConfigs" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh002BEeW7ws-zpvyvWw" partName="parameters" partElementName="RenderConfig:RenderConfigs"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_RDXh1E2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl"/>
+        <messageConfiguration xmi:id="_RDXh1U2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh1k2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_RDXh7U2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_RDXh7k2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_RDXh702BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_RDYI4E2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_RDXh102BEeW7ws-zpvyvWw" description="" operationName="RetrieveAppSpecificRenderConfigOp" action="/Administration/GUIServices/RenderServices/intfRenderConfig-service.serviceagent/portTypeEndpoint1/RetrieveAppSpecificRenderConfigOp" actionNeeded="true">
+        <bindingType xmi:id="_RDXh2E2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_RDXh2U2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh2k2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_RDXh202BEeW7ws-zpvyvWw" messageQName="RenderConfigs:RenderConfigs" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh3E2BEeW7ws-zpvyvWw" partName="parameters" partElementName="RenderConfig:RenderConfigs"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_RDXh3U2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh3k2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_RDYI4U2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_RDYI4k2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_RDYI402BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_RDYI5E2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_RDXh302BEeW7ws-zpvyvWw" description="" operationName="DeleteRenderConfigOp" action="/Administration/GUIServices/RenderServices/intfRenderConfig-service.serviceagent/portTypeEndpoint1/DeleteRenderConfigOp" actionNeeded="true">
+        <bindingType xmi:id="_RDXh4E2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_RDXh4U2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:DeleteQueries" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh4k2BEeW7ws-zpvyvWw" partName="part1" partElementName="RenderConfigDelete:DeleteQueries"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_RDXh402BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl"/>
+        <messageConfiguration xmi:id="_RDXh5E2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh5U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_RDYI5U2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_RDYI5k2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_RDYI502BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_RDYI6E2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_RDXh5k2BEeW7ws-zpvyvWw" description="" operationName="CreateRenderConfigOp" action="/Administration/GUIServices/RenderServices/intfRenderConfig-service.serviceagent/portTypeEndpoint1/CreateRenderConfigOp" actionNeeded="true">
+        <bindingType xmi:id="_RDXh502BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_RDXh6E2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:RenderConfigs" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh6U2BEeW7ws-zpvyvWw" partName="parameters" partElementName="RenderConfig:RenderConfigs"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_RDXh6k2BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl"/>
+        <messageConfiguration xmi:id="_RDXh602BEeW7ws-zpvyvWw" messageQName="RenderConfigs:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_RDXh7E2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_RDYI6U2BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_RDYI6k2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_RDYI602BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_RDYI7E2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_RDYI7U2BEeW7ws-zpvyvWw" bindingName="SOAPServiceBinding6">
+      <sca:property xmi:id="_cWvTgE2BEeW7ws-zpvyvWw" name="endpointURI" scaext:simpleValue="/EndpointURI/RenderServicesEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_Gjpaok2BEeW7ws-zpvyvWw" name="SeverityServicesPortType" promote="ComponentintfUpdateSeverity/SeverityServicesPortType">
+    <sca:interface.wsdl xmi:id="_GjqBsk2BEeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Severity#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_7hqecE2BEeW7ws-zpvyvWw" name="SOAPServiceBinding8" targetNamespace="http://www.tibco.com/5f8287002a54407ea7ac0649e211eb15/SOAPServiceBinding8" portTypeQName="Severity:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+      <bindingType xmi:id="_7hqecU2BEeW7ws-zpvyvWw"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_8UIdME2BEeW7ws-zpvyvWw" endpointURI="/SOAPServiceBinding8/severityServicesPortType/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_7hqeck2BEeW7ws-zpvyvWw" description="" operationName="UpdateSeverityOp" action="/Administration/GUIServices/SeverityServices/intfUpdateSeverity-service.serviceagent/intfwsUpdateSeverityEndpoint0/UpdateSeverityOp" actionNeeded="true">
+        <bindingType xmi:id="_7hqec02BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_7hqedE2BEeW7ws-zpvyvWw" messageQName="Severity:ExceptionSeverities" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqedU2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Severity_1:ExceptionSeverities"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqedk2BEeW7ws-zpvyvWw" messageQName="Severity:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl"/>
+        <messageConfiguration xmi:id="_7hqed02BEeW7ws-zpvyvWw" messageQName="Severity:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqeeE2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7hqel02BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_7hrFgE2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_7hrFgU2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7hrFgk2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7hqeeU2BEeW7ws-zpvyvWw" description="" operationName="RetrieveSpecificSeverityOp" action="/Administration/GUIServices/SeverityServices/intfUpdateSeverity-service.serviceagent/intfwsUpdateSeverityEndpoint0/RetrieveSpecificSeverityOp" actionNeeded="true">
+        <bindingType xmi:id="_7hqeek2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_7hqee02BEeW7ws-zpvyvWw" messageQName="Severity:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqefE2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqefU2BEeW7ws-zpvyvWw" messageQName="Severity:ExceptionSeverities" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqefk2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Severity_1:ExceptionSeverities"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqef02BEeW7ws-zpvyvWw" messageQName="Severity:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqegE2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7hrFg02BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_7hrFhE2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_7hrFhU2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7hrFhk2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7hqegU2BEeW7ws-zpvyvWw" description="" operationName="DeleteSeverityOp" action="/Administration/GUIServices/SeverityServices/intfUpdateSeverity-service.serviceagent/intfwsUpdateSeverityEndpoint0/DeleteSeverityOp" actionNeeded="true">
+        <bindingType xmi:id="_7hqegk2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_7hqeg02BEeW7ws-zpvyvWw" messageQName="Severity:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqehE2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqehU2BEeW7ws-zpvyvWw" messageQName="Severity:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl"/>
+        <messageConfiguration xmi:id="_7hqehk2BEeW7ws-zpvyvWw" messageQName="Severity:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqeh02BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7hrFh02BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_7hrFiE2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_7hrFiU2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7hrFik2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7hqeiE2BEeW7ws-zpvyvWw" description="" operationName="CreateSeverityOp" action="/Administration/GUIServices/SeverityServices/intfUpdateSeverity-service.serviceagent/intfwsUpdateSeverityEndpoint0/CreateSeverityOp" actionNeeded="true">
+        <bindingType xmi:id="_7hqeiU2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_7hqeik2BEeW7ws-zpvyvWw" messageQName="Severity:ExceptionSeverities" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqei02BEeW7ws-zpvyvWw" partName="parameters" partElementName="Severity_1:ExceptionSeverities"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqejE2BEeW7ws-zpvyvWw" messageQName="Severity:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl"/>
+        <messageConfiguration xmi:id="_7hqejU2BEeW7ws-zpvyvWw" messageQName="Severity:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqejk2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7hrFi02BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_7hrFjE2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_7hrFjU2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7hrFjk2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_7hqej02BEeW7ws-zpvyvWw" description="" operationName="RetrieveSeverityListWithSysIDOp" action="/Administration/GUIServices/SeverityServices/intfSeverity-service.serviceagent//RetrieveSeverityListWithSysIDOp" actionNeeded="true">
+        <bindingType xmi:id="_7hqekE2BEeW7ws-zpvyvWw"/>
+        <messageConfiguration xmi:id="_7hqekU2BEeW7ws-zpvyvWw" messageQName="Severity:Query" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqekk2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Query:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqek02BEeW7ws-zpvyvWw" messageQName="Severity:ExceptionSeverities" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqelE2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Severity_1:ExceptionSeverities"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7hqelU2BEeW7ws-zpvyvWw" messageQName="Severity:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7hqelk2BEeW7ws-zpvyvWw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_7hrFj02BEeW7ws-zpvyvWw">
+          <inputMapping xmi:id="_7hrFkE2BEeW7ws-zpvyvWw"/>
+          <outputMapping xmi:id="_7hrFkU2BEeW7ws-zpvyvWw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_7hrFkk2BEeW7ws-zpvyvWw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_7hrskE2BEeW7ws-zpvyvWw" bindingName="SOAPServiceBinding8">
+      <sca:property xmi:id="_-aqr4E2BEeW7ws-zpvyvWw" name="endpointURI" scaext:simpleValue="/EndpointURI/SeverityServicesEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_KtTGcMgpEeWX6NhhQB0njg" name="ResolveException" promote="ComponentintfException_Service/ResolveException">
+    <sca:interface.wsdl xmi:id="_K3vb4MgpEeWX6NhhQB0njg" interface="http://www.tibco.com/CommonLE2/namespace/ExceptionManagement/GUIServices#wsdl.interface(ResolveException)" scaext:wsdlLocation="../Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_MMUCIMgpEeWX6NhhQB0njg" name="SOAPServiceBinding9" targetNamespace="http://www.tibco.com/5d0eb1932850447fa4f3cd94b0958270/SOAPServiceBinding9" portTypeQName="GUIServices_1:ResolveException" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+      <bindingType xmi:id="_MNGFQMgpEeWX6NhhQB0njg"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_NPDRgMgpEeWX6NhhQB0njg" endpointURI="/SOAPServiceBinding9/resolveException/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_MNH6cMgpEeWX6NhhQB0njg" description="" operationName="ResolveExceptionsOp" action="/ExceptionManagement/GUIServices/intfResolveExceptions-service.serviceagent/intfwsResolveExceptionsEndpoint1/ResolveExceptionsOp" actionNeeded="true">
+        <bindingType xmi:id="_MNH6ccgpEeWX6NhhQB0njg"/>
+        <messageConfiguration xmi:id="_MNH6csgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionResolutionRecordList" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6c8gpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionResolution:ExceptionResolutionRecordList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6dMgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl"/>
+        <messageConfiguration xmi:id="_MNH6dcgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6dsgpEeWX6NhhQB0njg" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_MNH6lsgpEeWX6NhhQB0njg">
+          <inputMapping xmi:id="_MNJIkMgpEeWX6NhhQB0njg"/>
+          <outputMapping xmi:id="_MNJIkcgpEeWX6NhhQB0njg" direction="OUTPUT"/>
+          <faultMappings xmi:id="_MNJIksgpEeWX6NhhQB0njg" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_MNH6d8gpEeWX6NhhQB0njg" description="" operationName="RetrieveExceptionDetailOp" action="/ExceptionManagement/GUIServices/intfResolveExceptions-service.serviceagent/intfwsResolveExceptionsEndpoint1/RetrieveExceptionDetailOp" actionNeeded="true">
+        <bindingType xmi:id="_MNH6eMgpEeWX6NhhQB0njg"/>
+        <messageConfiguration xmi:id="_MNH6ecgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionDetailQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6esgpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionDetailQuery:ExceptionDetailQuery"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6e8gpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionDetail" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6fMgpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionManagement:ExceptionDetail"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6fcgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6fsgpEeWX6NhhQB0njg" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_MNJIk8gpEeWX6NhhQB0njg">
+          <inputMapping xmi:id="_MNJIlMgpEeWX6NhhQB0njg"/>
+          <outputMapping xmi:id="_MNJIlcgpEeWX6NhhQB0njg" direction="OUTPUT"/>
+          <faultMappings xmi:id="_MNJIlsgpEeWX6NhhQB0njg" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_MNH6f8gpEeWX6NhhQB0njg" description="" operationName="RetrieveExceptionListOp" action="/ExceptionManagement/GUIServices/intfResolveExceptions-service.serviceagent/intfwsResolveExceptionsEndpoint1/RetrieveExceptionListOp" actionNeeded="true">
+        <bindingType xmi:id="_MNH6gMgpEeWX6NhhQB0njg"/>
+        <messageConfiguration xmi:id="_MNH6gcgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionListQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6gsgpEeWX6NhhQB0njg" partName="parameters" partElementName="ListQuery.xsd:ListQuery"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6g8gpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionList" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6hMgpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionList:ExceptionList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6hcgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6hsgpEeWX6NhhQB0njg" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_MNJIl8gpEeWX6NhhQB0njg">
+          <inputMapping xmi:id="_MNJImMgpEeWX6NhhQB0njg"/>
+          <outputMapping xmi:id="_MNJImcgpEeWX6NhhQB0njg" direction="OUTPUT"/>
+          <faultMappings xmi:id="_MNJImsgpEeWX6NhhQB0njg" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_MNH6h8gpEeWX6NhhQB0njg" description="" operationName="DeleteExceptionsOp" action="/ExceptionManagement/GUIServices/intfExceptions-service.serviceagent/DeleteExceptionsOp" actionNeeded="true">
+        <bindingType xmi:id="_MNH6iMgpEeWX6NhhQB0njg"/>
+        <messageConfiguration xmi:id="_MNH6icgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionIDList" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6isgpEeWX6NhhQB0njg" partName="part1" partElementName="ExceptionIDList:ExceptionIDList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6i8gpEeWX6NhhQB0njg" messageQName="GUIServices_1:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl"/>
+        <messageConfiguration xmi:id="_MNH6jMgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6jcgpEeWX6NhhQB0njg" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_MNJIm8gpEeWX6NhhQB0njg">
+          <inputMapping xmi:id="_MNJInMgpEeWX6NhhQB0njg"/>
+          <outputMapping xmi:id="_MNJIncgpEeWX6NhhQB0njg" direction="OUTPUT"/>
+          <faultMappings xmi:id="_MNJInsgpEeWX6NhhQB0njg" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_MNH6jsgpEeWX6NhhQB0njg" description="" operationName="RetrieveExceptionDetailNoRenderingOp" action="/ExceptionManagement/GUIServices/intfExceptions-service.serviceagent//RetrieveExceptionDetailNoRenderingOp" actionNeeded="true">
+        <bindingType xmi:id="_MNH6j8gpEeWX6NhhQB0njg"/>
+        <messageConfiguration xmi:id="_MNH6kMgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionDetailQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6kcgpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionDetailQuery:ExceptionDetailQuery"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6ksgpEeWX6NhhQB0njg" messageQName="GUIServices_1:ExceptionDetail" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6k8gpEeWX6NhhQB0njg" partName="parameters" partElementName="ExceptionManagement:ExceptionDetail"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MNH6lMgpEeWX6NhhQB0njg" messageQName="GUIServices_1:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MNH6lcgpEeWX6NhhQB0njg" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_MNJIn8gpEeWX6NhhQB0njg">
+          <inputMapping xmi:id="_MNK9wMgpEeWX6NhhQB0njg"/>
+          <outputMapping xmi:id="_MNK9wcgpEeWX6NhhQB0njg" direction="OUTPUT"/>
+          <faultMappings xmi:id="_MNK9wsgpEeWX6NhhQB0njg" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_MNK9w8gpEeWX6NhhQB0njg" bindingName="SOAPServiceBinding9">
+      <sca:property xmi:id="_PjFJoMgpEeWX6NhhQB0njg" name="endpointURI" scaext:simpleValue="/EndpointURI/intfExceptionService"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_4TJhEMixEeWsuPzl5pB9Ng" name="RetrieveLog" promote="ComponentRetrieve_Log_service/RetrieveLog">
+    <sca:interface.wsdl xmi:id="_4ToCMMixEeWsuPzl5pB9Ng" interface="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl#wsdl.interface(RetrieveLog)" scaext:wsdlLocation="../Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_VgXpMMiyEeWsuPzl5pB9Ng" name="SOAPServiceBinding10" targetNamespace="http://www.tibco.com/50394b7a57b547ae9444ab3509ece6f6/SOAPServiceBinding10" portTypeQName="intfRetrieve_Log.wsdl:RetrieveLog" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+      <bindingType xmi:id="_Vg_7UMiyEeWsuPzl5pB9Ng"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_lXzb8MiyEeWsuPzl5pB9Ng" endpointURI="/SOAPServiceBinding10/retrieveLog/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_VhBJcMiyEeWsuPzl5pB9Ng" description="" operationName="Retrieve_sp_Log_sp_DetailOp" action="/Logging/GUIServices/intfRetrieve_Log_Detail-service.serviceagent/intfwsRetrieve_Log_DetailEndpoint2/Retrieve_sp_Log_sp_DetailOp" actionNeeded="true">
+        <bindingType xmi:id="_VhBJcciyEeWsuPzl5pB9Ng"/>
+        <messageConfiguration xmi:id="_VhBJcsiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_DetailOpRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJc8iyEeWsuPzl5pB9Ng" partName="parameters" partElementName="LogDetailQuery:LogDetailQuery"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJdMiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_DetailOpResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJdciyEeWsuPzl5pB9Ng" partName="parameters" partElementName="LogDetail:LogDetail"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJdsiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_DetailOpFault" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJd8iyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJeMiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Error" messageDirection="FAULT" action="fault2" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJeciyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_VhBJjciyEeWsuPzl5pB9Ng">
+          <inputMapping xmi:id="_VhBwgMiyEeWsuPzl5pB9Ng"/>
+          <outputMapping xmi:id="_VhBwgciyEeWsuPzl5pB9Ng" direction="OUTPUT"/>
+          <faultMappings xmi:id="_VhBwgsiyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault2"/>
+          <faultMappings xmi:id="_VhBwg8iyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_VhBJesiyEeWsuPzl5pB9Ng" description="" operationName="Retrieve_sp_Log_sp_ListOp" action="/Logging/GUIServices/intfRetrieve_Log_Detail-service.serviceagent/intfwsRetrieve_Log_DetailEndpoint2/Retrieve_sp_Log_sp_ListOp" actionNeeded="true">
+        <bindingType xmi:id="_VhBJe8iyEeWsuPzl5pB9Ng"/>
+        <messageConfiguration xmi:id="_VhBJfMiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_ListOpRequest" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJfciyEeWsuPzl5pB9Ng" partName="parameters" partElementName="ListQuery.xsd:ListQuery"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJfsiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_ListOpResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJf8iyEeWsuPzl5pB9Ng" partName="parameters" partElementName="LogList:LogList"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJgMiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Retrieve_sp_Log_sp_ListOpFault" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJgciyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJgsiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Error" messageDirection="FAULT" action="fault2" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJg8iyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_VhBwhMiyEeWsuPzl5pB9Ng">
+          <inputMapping xmi:id="_VhBwhciyEeWsuPzl5pB9Ng"/>
+          <outputMapping xmi:id="_VhBwhsiyEeWsuPzl5pB9Ng" direction="OUTPUT"/>
+          <faultMappings xmi:id="_VhBwh8iyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault2"/>
+          <faultMappings xmi:id="_VhBwiMiyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_VhBJhMiyEeWsuPzl5pB9Ng" description="" operationName="DeleteLogOp" action="/Logging/GUIServices/Retrieve_Log_service.serviceagent//DeleteLogOp" actionNeeded="true">
+        <bindingType xmi:id="_VhBJhciyEeWsuPzl5pB9Ng"/>
+        <messageConfiguration xmi:id="_VhBJhsiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:LogDeleteQuery" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJh8iyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common_2:Query"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJiMiyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl"/>
+        <messageConfiguration xmi:id="_VhBJiciyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:DeleteLogOpFault" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJisiyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_VhBJi8iyEeWsuPzl5pB9Ng" messageQName="intfRetrieve_Log.wsdl:Error" messageDirection="FAULT" action="fault2" wsdlLocation="platform:/resource/CLE_ADMIN/Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_VhBJjMiyEeWsuPzl5pB9Ng" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_VhBwiciyEeWsuPzl5pB9Ng">
+          <inputMapping xmi:id="_VhBwisiyEeWsuPzl5pB9Ng"/>
+          <outputMapping xmi:id="_VhCXkMiyEeWsuPzl5pB9Ng" direction="OUTPUT"/>
+          <faultMappings xmi:id="_VhCXkciyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault2"/>
+          <faultMappings xmi:id="_VhCXksiyEeWsuPzl5pB9Ng" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_VhCXk8iyEeWsuPzl5pB9Ng" bindingName="SOAPServiceBinding10">
+      <sca:property xmi:id="_hzEa0Mi7EeWsuPzl5pB9Ng" name="endpointURI" scaext:simpleValue="/EndpointURI/intfRetrieveLogService"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_RKlccdoQEeWo7thRj6kafQ" name="Services" promote="ComponentSecurityServices/Services">
+    <sca:interface.wsdl xmi:id="_RLVDUNoQEeWo7thRj6kafQ" interface="http://www.tibco.com/CLE/SecurityManagement/GUIServices#wsdl.interface(Services)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_kvXDoNoQEeWo7thRj6kafQ" name="SOAPServiceBinding11" targetNamespace="http://www.tibco.com/a1927ec16d2a4b16a42bb0928db2ebf0/SOAPServiceBinding11" portTypeQName="GUIServices_3:Services" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+      <bindingType xmi:id="_kvzvkNoQEeWo7thRj6kafQ"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_mjrg8NoQEeWo7thRj6kafQ" endpointURI="/SOAPServiceBinding11/services/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_kvzvkdoQEeWo7thRj6kafQ" description="" operationName="UpSertAccessProfileByRoleOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint" actionNeeded="true">
+        <bindingType xmi:id="_kvzvktoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvk9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:RoleAccessProfile" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvlNoQEeWo7thRj6kafQ" partName="RoleAccessProfile" partElementName="AccessControl.xsd:RoleAccessProfile"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvldoQEeWo7thRj6kafQ" messageQName="GUIServices_3:Success" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvltoQEeWo7thRj6kafQ" partName="Success" partTypeName="XMLSchema:boolean"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvl9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvmNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzvwdoQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzvwtoQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzvw9oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzvxNoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_kvzvmdoQEeWo7thRj6kafQ" description="" operationName="GetAccessProfileByRoleOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint/GetAccessProfileByRoleOp" actionNeeded="true">
+        <bindingType xmi:id="_kvzvmtoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvm9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Role" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvnNoQEeWo7thRj6kafQ" partName="Role" partTypeName="XMLSchema:string"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvndoQEeWo7thRj6kafQ" messageQName="GUIServices_3:RoleAccessProfile" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvntoQEeWo7thRj6kafQ" partName="RoleAccessProfile" partElementName="AccessControl.xsd:RoleAccessProfile"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvn9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvoNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzvxdoQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzvxtoQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzvx9oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzvyNoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_kvzvodoQEeWo7thRj6kafQ" description="" operationName="RemoveAccessProfileByRoleOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint/RemoveAccessProfileByRoleOp" actionNeeded="true">
+        <bindingType xmi:id="_kvzvotoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvo9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Role" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvpNoQEeWo7thRj6kafQ" partName="Role" partTypeName="XMLSchema:string"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvpdoQEeWo7thRj6kafQ" messageQName="GUIServices_3:Success" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvptoQEeWo7thRj6kafQ" partName="Success" partTypeName="XMLSchema:boolean"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvp9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvqNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzvydoQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzvytoQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzvy9oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzvzNoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_kvzvqdoQEeWo7thRj6kafQ" description="" operationName="AuthenticateUserOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint/AuthenticateUserOp" actionNeeded="true">
+        <bindingType xmi:id="_kvzvqtoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvq9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:UserCredential" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvrNoQEeWo7thRj6kafQ" partName="UserCredential" partElementName="AccessControl.xsd:UserCredential"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvrdoQEeWo7thRj6kafQ" messageQName="GUIServices_3:Authentication" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvrtoQEeWo7thRj6kafQ" partName="Granted" partTypeName="XMLSchema:boolean"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvr9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvsNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzvzdoQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzvztoQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzvz9oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzv0NoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_kvzvsdoQEeWo7thRj6kafQ" description="" operationName="GetAllRolesOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint/GetAllRolesOp" actionNeeded="true">
+        <bindingType xmi:id="_kvzvstoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvs9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:AnyInput" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvtNoQEeWo7thRj6kafQ" partName="Any" partTypeName="XMLSchema:string"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvtdoQEeWo7thRj6kafQ" messageQName="GUIServices_3:Roles" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvttoQEeWo7thRj6kafQ" partName="Roles" partElementName="AccessControl.xsd:Roles"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvt9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvuNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzv0doQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzv0toQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzv09oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzv1NoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_kvzvudoQEeWo7thRj6kafQ" description="" operationName="GetAccessProfileByUserOp" action="/SecurityManagement/GUIServices/SecurityServices.serviceagent/SecurityServicesEndpoint/GetAccessProfileByUserOp" actionNeeded="true">
+        <bindingType xmi:id="_kvzvutoQEeWo7thRj6kafQ"/>
+        <messageConfiguration xmi:id="_kvzvu9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Username" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvvNoQEeWo7thRj6kafQ" partName="username" partTypeName="XMLSchema:string"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvvdoQEeWo7thRj6kafQ" messageQName="GUIServices_3:UserAccessProfile" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvvtoQEeWo7thRj6kafQ" partName="UserAccessProfile" partElementName="AccessControl.xsd:UserAccessProfile"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_kvzvv9oQEeWo7thRj6kafQ" messageQName="GUIServices_3:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_kvzvwNoQEeWo7thRj6kafQ" partName="Error" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_kvzv1doQEeWo7thRj6kafQ">
+          <inputMapping xmi:id="_kvzv1toQEeWo7thRj6kafQ"/>
+          <outputMapping xmi:id="_kvzv19oQEeWo7thRj6kafQ" direction="OUTPUT"/>
+          <faultMappings xmi:id="_kvzv2NoQEeWo7thRj6kafQ" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_kvzv2doQEeWo7thRj6kafQ" bindingName="SOAPServiceBinding11">
+      <sca:property xmi:id="_8m9ekEcOEembRpZGE12bqg" name="endpointURI" scaext:simpleValue="/EndpointURI/SecurityManagementServiceEP"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_VMNi4NuREeWm4_0Vsjvzlw" name="portType" promote="ComponentIntfLogLevelParameters/portType">
+    <sca:interface.wsdl xmi:id="_VMpnwNuREeWm4_0Vsjvzlw" interface="http://www.tibco.com/CommonLE2/namespace/Logging/LogLevel/GUIServices#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_Xb4fcNuREeWm4_0Vsjvzlw" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/80d6c7390f9b4c8d9dd85b0a9a4681c1/SOAPServiceBinding" portTypeQName="GUIServices_2:portType" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+      <bindingType xmi:id="_XceVUNuREeWm4_0Vsjvzlw"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_YdrToNuREeWm4_0Vsjvzlw" endpointURI="/SOAPServiceBinding/portType/" httpConnector="Connections.SOAP.HTTP-GUIServicesAdministration"/>
+      <operationConfiguration xmi:id="_XceVUduREeWm4_0Vsjvzlw" description="" operationName="GetLogLevelOp" action="/Logging/GUIServices/Configure_LogLevel_Settings.serviceagent/portTypeEndpoint1/GetLogLevelOp" actionNeeded="true">
+        <bindingType xmi:id="_XceVUtuREeWm4_0Vsjvzlw"/>
+        <messageConfiguration xmi:id="_XceVU9uREeWm4_0Vsjvzlw" messageQName="GUIServices_2:GetLogLevelRequest" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XceVVNuREeWm4_0Vsjvzlw" partName="parameters" partElementName="LogLevelRequest.xsd:GetLogLevelRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_XceVVduREeWm4_0Vsjvzlw" messageQName="GUIServices_2:GetLogLevelResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XceVVtuREeWm4_0Vsjvzlw" partName="parameters" partElementName="LogLevelResponse.xsd:GetLogLevelResponse"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_XceVV9uREeWm4_0Vsjvzlw" messageQName="GUIServices_2:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XceVWNuREeWm4_0Vsjvzlw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_XceVYNuREeWm4_0Vsjvzlw">
+          <inputMapping xmi:id="_XceVYduREeWm4_0Vsjvzlw"/>
+          <outputMapping xmi:id="_XceVYtuREeWm4_0Vsjvzlw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_XceVY9uREeWm4_0Vsjvzlw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_XceVWduREeWm4_0Vsjvzlw" description="" operationName="SetLogLevelOp" action="/Logging/GUIServices/Configure_LogLevel_Settings.serviceagent/portTypeEndpoint1/SetLogLevelOp" actionNeeded="true">
+        <bindingType xmi:id="_XceVWtuREeWm4_0Vsjvzlw"/>
+        <messageConfiguration xmi:id="_XceVW9uREeWm4_0Vsjvzlw" messageQName="GUIServices_2:SetLogLevelRequest" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XceVXNuREeWm4_0Vsjvzlw" partName="parameters" partElementName="LogLevelRequest.xsd:SetLogLevelRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_XceVXduREeWm4_0Vsjvzlw" messageQName="GUIServices_2:Dummy" messageDirection="OUTPUT" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl"/>
+        <messageConfiguration xmi:id="_XceVXtuREeWm4_0Vsjvzlw" messageQName="GUIServices_2:Error" messageDirection="FAULT" action="fault1" wsdlLocation="platform:/resource/CommonLE/Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XceVX9uREeWm4_0Vsjvzlw" partName="parameters" partElementName="Common:Error"/>
+        </messageConfiguration>
+        <context xmi:id="_XceVZNuREeWm4_0Vsjvzlw">
+          <inputMapping xmi:id="_XceVZduREeWm4_0Vsjvzlw"/>
+          <outputMapping xmi:id="_XceVZtuREeWm4_0Vsjvzlw" direction="OUTPUT"/>
+          <faultMappings xmi:id="_XceVZ9uREeWm4_0Vsjvzlw" direction="FAULT" faultName="fault1"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_XceVaNuREeWm4_0Vsjvzlw" bindingName="SOAPServiceBinding">
+      <sca:property xmi:id="_bUyqsNuREeWm4_0Vsjvzlw" name="endpointURI" scaext:simpleValue="/EndpointURI/intfLog_Level_Service"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_QpanAOwBEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-create" promote="ComponentUserManagementService/CommonLE-Services-UserManagement-create">
+    <sca:interface.wsdl xmi:id="_Qp4hEOwBEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-create)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_QqRioOwBEeWutOhqNrXrlA" name="RestService" path="/CommonLE/Services/UserManagement/create" docBasePath="http://localhost:7777/com.tibco.cle.admin" docResourcePath="UserManagementService" connector="Connections.SOAP.HTTP-GUIServicesAdministration" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json">
+      <operation xmi:id="_QqXpQOwBEeWutOhqNrXrlA" operationName="post" nickname="post-CommonLE-Services-UserManagement-create" httpMethod="POST"/>
+      <parameters xmi:id="_Qqdv4OwBEeWutOhqNrXrlA"/>
+      <clientFormat>xml</clientFormat>
+      <clientFormat>json</clientFormat>
+      <clientRequestFormat>json</clientRequestFormat>
+      <clientRequestFormat>xml</clientRequestFormat>
+      <advancedConfig xmi:id="_fa7-wPk6EeiXqe-smuIRJg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_QqXpQewBEeWutOhqNrXrlA" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_s9m1YuwBEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-Update" promote="ComponentUserManagementService/CommonLE-Services-UserManagement-Update">
+    <sca:interface.wsdl xmi:id="_s9nccuwBEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-Update)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_s9oqkOwBEeWutOhqNrXrlA" name="RestService1" path="/CommonLE/Services/UserManagement/Update" docBasePath="http://localhost:7777/com.tibco.cle.admin" docResourcePath="UserManagementService" connector="Connections.SOAP.HTTP-GUIServicesAdministration" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json">
+      <operation xmi:id="_s9p4sOwBEeWutOhqNrXrlA" operationName="put" nickname="put-CommonLE-Services-UserManagement-Update" httpMethod="PUT"/>
+      <parameters xmi:id="_s9qfwOwBEeWutOhqNrXrlA"/>
+      <clientFormat>xml</clientFormat>
+      <clientFormat>json</clientFormat>
+      <clientRequestFormat>json</clientRequestFormat>
+      <clientRequestFormat>xml</clientRequestFormat>
+      <advancedConfig xmi:id="_fbEhoPk6EeiXqe-smuIRJg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_s9p4sewBEeWutOhqNrXrlA" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_Ve7H8OwCEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-users" promote="ComponentUserManagementService/CommonLE-Services-UserManagement-users">
+    <sca:interface.wsdl xmi:id="_Ve7H9OwCEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-users)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Ve-LQOwCEeWutOhqNrXrlA" name="RestService2" path="/CommonLE/Services/UserManagement/users" docBasePath="http://localhost:7777/com.tibco.cle.admin" docResourcePath="UserManagementService" connector="Connections.SOAP.HTTP-GUIServicesAdministration" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json">
+      <operation xmi:id="_Ve_ZYOwCEeWutOhqNrXrlA" operationName="get" nickname="get-CommonLE-Services-UserManagement-users" httpMethod="GET"/>
+      <parameters xmi:id="_VfAngOwCEeWutOhqNrXrlA"/>
+      <clientFormat>xml</clientFormat>
+      <clientFormat>json</clientFormat>
+      <clientRequestFormat>json</clientRequestFormat>
+      <clientRequestFormat>xml</clientRequestFormat>
+      <advancedConfig xmi:id="_fbEhofk6EeiXqe-smuIRJg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Ve_ZYewCEeWutOhqNrXrlA" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_705AcOwGEeWUtv9Kta-QCw" name="CommonLE-Services-UserManagement-delete" promote="ComponentUserManagementService/CommonLE-Services-UserManagement-delete">
+    <sca:interface.wsdl xmi:id="_70948OwGEeWUtv9Kta-QCw" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-delete)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_71F0wOwGEeWUtv9Kta-QCw" name="RestService3" path="/CommonLE/Services/UserManagement/delete/{username}" docBasePath="http://localhost:7777/com.tibco.cle.admin" docResourcePath="UserManagementService" connector="Connections.SOAP.HTTP-GUIServicesAdministration" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json">
+      <operation xmi:id="_71IRAOwGEeWUtv9Kta-QCw" operationName="delete" nickname="delete-CommonLE-Services-UserManagement-delete" httpMethod="DELETE"/>
+      <parameters xmi:id="_71NwkOwGEeWUtv9Kta-QCw">
+        <parameterMapping xmi:id="_71OXoOwGEeWUtv9Kta-QCw" parameterName="username" parameterType="Path"/>
+      </parameters>
+      <clientFormat>xml</clientFormat>
+      <clientFormat>json</clientFormat>
+      <clientRequestFormat>json</clientRequestFormat>
+      <clientRequestFormat>xml</clientRequestFormat>
+      <advancedConfig xmi:id="_fbEhovk6EeiXqe-smuIRJg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_71IRAewGEeWUtv9Kta-QCw" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_WWjPMPJzEeWOCbbk59leww" name="CommonLE-Services-UserManagement" promote="ComponentUserManagementService/CommonLE-Services-UserManagement">
+    <sca:interface.wsdl xmi:id="_WWryEPJzEeWOCbbk59leww" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_WW3_UPJzEeWOCbbk59leww" name="RestService4" path="/CommonLE/Services/UserManagement/{username}/Roles" docBasePath="http://localhost:7777/com.tibco.cle.admin" docResourcePath="UserManagementService" connector="Connections.SOAP.HTTP-GUIServicesAdministration" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json">
+      <operation xmi:id="_WW7CoPJzEeWOCbbk59leww" operationName="get" nickname="get-CommonLE-Services-UserManagement-UserRolesRetrieval" httpMethod="GET"/>
+      <parameters xmi:id="_WXGBwPJzEeWOCbbk59leww">
+        <parameterMapping xmi:id="_WXGBwfJzEeWOCbbk59leww" parameterName="username" parameterType="Path"/>
+      </parameters>
+      <clientFormat>JSON</clientFormat>
+      <advancedConfig xmi:id="_fbFvwPk6EeiXqe-smuIRJg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_WW7CofJzEeWOCbbk59leww" bindingName="RestService4"/>
+  </sca:service>
+  <sca:property xmi:id="_nZ_jFEibEeWsWfaB5Qq7Sw" name="BW.APPNODE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jFUibEeWsWfaB5Qq7Sw" name="BW.DOMAIN.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jFkibEeWsWfaB5Qq7Sw" name="BW.HOST.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jF0ibEeWsWfaB5Qq7Sw" name="BW.MODULE.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jGEibEeWsWfaB5Qq7Sw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jGUibEeWsWfaB5Qq7Sw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jGkibEeWsWfaB5Qq7Sw" name="BW.APPSPACE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jG0ibEeWsWfaB5Qq7Sw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_jHEibEeWsWfaB5Qq7Sw" name="BW.MODULE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZwhcsEZ1EemYbYByx-N3FQ" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_nZ_iakibEeWsWfaB5Qq7Sw" name="Database/MIG_DBURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ia0ibEeWsWfaB5Qq7Sw" name="Database/MIG_DatabaseType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ibEibEeWsWfaB5Qq7Sw" name="Database/MIG_MAXROWS" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ibUibEeWsWfaB5Qq7Sw" name="Database/MIG_MaxConnection" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ibkibEeWsWfaB5Qq7Sw" name="Database/MIG_Password" type="property:password" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ib0ibEeWsWfaB5Qq7Sw" name="Database/MIG_Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_icEibEeWsWfaB5Qq7Sw" name="Database/MIG_User" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_icUibEeWsWfaB5Qq7Sw" name="Database/RetryOnError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gMG0ANGCEeWyWqNtnqnbfg" name="Database/MIG_DB_Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ickibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/ApplicationIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ic0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/ApplicationRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_idEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/InterfaceIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_idUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/InternalError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_idkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/InvalidDestination" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_id0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/JMSConnectionError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ieEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/RenderingIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ieUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/RenderingRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iekibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/RenderingXSLTError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ie0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/SystemIDErrorCode" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ifEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/TIBCOAdminConnectionError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ifUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/TIBCOAdminUserFRolesRetrievalError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ifkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/TooManyRecords" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_if0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/UserAuthenticationError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_igEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/UserAuthorizationError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_igUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Codes/XMLValidationErrorCode" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_igkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/ApplicationIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ig0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/ApplicationRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ihEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/InterfaceIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ihUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/InternalError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ihkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/InvalidDestination" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ih0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/JMSConnectionError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iiEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/NoUserApps" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iiUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/NoUserPermissionsFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iikibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/RenderingIDNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ii0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/RenderingRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ijEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/RenderingXSLTError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ijUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/SystemIDDeletionError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ijkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/TIBCOAdminAllRolesRetrievalError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ij0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/TIBCOAdminAuthenticationError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ikEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/TIBCOAdminConnectionError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ikUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/TIBCOAdminUserFRolesRetrievalError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ikkibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/TooManyRecords" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ik0ibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/UserAuthenticationError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ilEibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/UserAuthorizatoinError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ilUibEeWsWfaB5Qq7Sw" name="Exceptions/Common/Messages/XMLValidationError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ilkibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Common/Codes/ReplayInfoNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_il0ibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Common/Messages/ReplayInfoNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_imEibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Codes/EmailNotSent" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_imUibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Codes/NoRecordUpdated" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_imkibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Codes/NotificationNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_im0ibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Messages/EmailNotSent" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_inEibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Messages/NoRecordUpdated" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_inUibEeWsWfaB5Qq7Sw" name="Exceptions/Connectors/Notifications/Messages/NotificationNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_inkibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/BWRFIntMsg" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_in0ibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/DatabaseError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ioEibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/InvalidInputSQLState" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ioUibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/SQLIntegrityError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iokibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/SQLIntegrityState" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_io0ibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/SQLRecordExists" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ipEibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/SQLRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ipUibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Codes/SQLReferencedIntegrityState" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ipkibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/AppIDNotExist" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ip0ibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/DBFieldTooLong" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iqEibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/DBIntegrityError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iqUibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/DBRecordExists" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iqkibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/DBRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iq0ibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/DatabaseError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_irEibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/InvalidInput" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_irUibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/NoUserApps" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_irkibEeWsWfaB5Qq7Sw" name="Exceptions/DB/Messages/SecurityNotExist" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ir0ibEeWsWfaB5Qq7Sw" name="Exceptions/Exception/Code/ExceptionConfigNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_isEibEeWsWfaB5Qq7Sw" name="Exceptions/Exception/Code/ExceptionRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_isUibEeWsWfaB5Qq7Sw" name="Exceptions/Exception/Message/ExceptionConfigNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iskibEeWsWfaB5Qq7Sw" name="Exceptions/Exception/Message/ExceptionRecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_is0ibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Codes/LogDetailRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_itEibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Codes/LogListRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_itUibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Codes/RecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_itkibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Messages/LogDetailRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_it0ibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Messages/LogListRecNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iuEibEeWsWfaB5Qq7Sw" name="Exceptions/Log/Messages/RecordNotFound" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iuUibEeWsWfaB5Qq7Sw" name="ExceptionService/ExceptionRequestType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iukibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionAuto" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_LrIQgCtbEeiG7rZllhQOyQ" name="ExceptionService/SchedulerTimeInterval" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gmD9wPntEeiXqe-smuIRJg" name="ExceptionService/MaxSessions" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ivUibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Canceled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ivkibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Error" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iv0ibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/New" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iwEibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Notified" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iwUibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/PendingProcedure" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iwkibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Replied" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iw0ibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Resolved" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ixEibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Scheduled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ixUibEeWsWfaB5Qq7Sw" name="ExceptionService/ResolutionStatus/Suppressed" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_ix0ibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_EventHandler" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iyEibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_ExceptionCache" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iyUibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_ExceptionQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iykibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_InterfaceCache" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iy0ibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_LogLevelReplyQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_izEibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_LogLevelRequestTopic" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_izUibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_LogQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_izkibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_NotificationQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_iz0ibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_ResolutionQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i0EibEeWsWfaB5Qq7Sw" name="JMSDestinationNames/MIG_WorkflowRequestQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i40ibEeWsWfaB5Qq7Sw" name="LogService/LogRequestType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i5EibEeWsWfaB5Qq7Sw" name="LogService/UIConfigType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HzpAQCCUEeiZJoDrI0p6bA" name="LogService/LogPersistenceType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ycl8QPntEeiXqe-smuIRJg" name="LogService/MaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_TzEjgCCQEeiZJoDrI0p6bA" name="LogService/LogAsJSONPersistence/MaximumLogFileSizeInKB" type="XMLSchema:long" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_eghksCCQEeiZJoDrI0p6bA" name="LogService/LogAsJSONPersistence/LogFilePathAndNamePrefix" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_xna1sCCTEeiZJoDrI0p6bA" name="LogService/LogAsJSONPersistence/LogFileRotationCount" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i5UibEeWsWfaB5Qq7Sw" name="Notification/Email/MIG_From" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i5kibEeWsWfaB5Qq7Sw" name="Notification/Email/MIG_Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i50ibEeWsWfaB5Qq7Sw" name="Notification/Email/MIG_SubjectPrefix" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0jnl8Ck3EeiFuc1uarJNkA" name="Notification/Email/MIG_UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0o68sCk3EeiFuc1uarJNkA" name="Notification/Email/MIG_Password" type="property:password" scaext:simpleValue="#!Hr/5vzn1u52aRTl+pvNEaA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0rAnYCk3EeiFuc1uarJNkA" name="Notification/Email/MIG_Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__kq4kCk3EeiFuc1uarJNkA" name="Notification/Email/MIG_PortNumber" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i6EibEeWsWfaB5Qq7Sw" name="Rendering/HTMLBody" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i6UibEeWsWfaB5Qq7Sw" name="Rendering/HTMLBodyClose" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i6kibEeWsWfaB5Qq7Sw" name="Rendering/HTMLHead" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i60ibEeWsWfaB5Qq7Sw" name="Rendering/HTMLHeadClose" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i7EibEeWsWfaB5Qq7Sw" name="ReservedIDs/CLEUsageError" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i7UibEeWsWfaB5Qq7Sw" name="ReservedIDs/DummyID" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i7kibEeWsWfaB5Qq7Sw" name="ReservedIDs/ReservedApplicationID" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nZ_i70ibEeWsWfaB5Qq7Sw" name="ReservedIDs/RetrieveEverything" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_l0JfYPDjEeW2MNvSaJLXdQ" name="Security/AdministratorRoleName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gE1joBtMEeifKuiv6XH_ZQ" name="Security/PrimaryAuthType" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_EwcboPDoEeWheMHLWmBcTw" name="/Testing/Debug" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_b3APgEcOEembRpZGE12bqg" name="/EndpointURI/SecurityManagementServiceEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_eubvoEcOEembRpZGE12bqg" name="/EndpointURI/ApplicationConfigurationServiceEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ev69YEcOEembRpZGE12bqg" name="/EndpointURI/ExceptionConfigurationServiceEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_exRBMEcOEembRpZGE12bqg" name="/EndpointURI/InterfaceConfigurationServiceEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_eywO8EcOEembRpZGE12bqg" name="/EndpointURI/CategoryServiceEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_e0GSwEcOEembRpZGE12bqg" name="/EndpointURI/ProcedureServicesEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_e1vRgEcOEembRpZGE12bqg" name="/EndpointURI/RenderServicesEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sPaBUEcOEembRpZGE12bqg" name="/EndpointURI/SeverityServicesEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sRDAEEcOEembRpZGE12bqg" name="/EndpointURI/TypeServicesEP" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sS-5wEcOEembRpZGE12bqg" name="/EndpointURI/intfRetrieveLogService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sUn4gEcOEembRpZGE12bqg" name="/EndpointURI/intfExceptionService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sWtjMEcOEembRpZGE12bqg" name="/EndpointURI/intfLog_Level_Service" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_AL0rEElBEemxhr96tBjVNw" name="/JMSServer/MIG_ClientID" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_G379wElBEemxhr96tBjVNw" name="/JMSServer/MIG_JMSExpiration" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_G72NYElBEemxhr96tBjVNw" name="/JMSServer/MIG_JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HBEEkElBEemxhr96tBjVNw" name="/JMSServer/MIG_JNDIPassword" type="property:password" scaext:simpleValue="#!W4AS2JXdU3NNAo/TagHylg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HFRPIElBEemxhr96tBjVNw" name="/JMSServer/MIG_JNDIUser" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HI_4kElBEemxhr96tBjVNw" name="/JMSServer/MIG_Password" type="property:password" scaext:simpleValue="#!u2G2LacalbiM/dE1wWcdag==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HMgfkElBEemxhr96tBjVNw" name="/JMSServer/MIG_QueueConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HQ7skElBEemxhr96tBjVNw" name="/JMSServer/MIG_TopicConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_H9zZoElBEemxhr96tBjVNw" name="/JMSServer/MIG_UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3MslMElGEemxhr96tBjVNw" name="/SOAPServer/GUIServices/MIG_AdministrationHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5eVQoElGEemxhr96tBjVNw" name="/SOAPServer/GUIServices/MIG_AdministrationPort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YZ6YAElHEemxhr96tBjVNw" name="/Utilities/ConfigMigrationFileName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rN6pkElHEemxhr96tBjVNw" name="/ActiveDirectory/ServerURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ujdCAElHEemxhr96tBjVNw" name="/ActiveDirectory/UserSearchExpression" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_um9B8ElHEemxhr96tBjVNw" name="/ActiveDirectory/UserSearchBaseDN" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_upoigElHEemxhr96tBjVNw" name="/ActiveDirectory/AdminIdentityUser" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ushecElHEemxhr96tBjVNw" name="/ActiveDirectory/AdminIdentityPassword" type="property:password" scaext:simpleValue="#!gT+UruzOr+Xuij3WR2AVnw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_uwWOgElHEemxhr96tBjVNw" name="/ActiveDirectory/AuthenticateUserHTTPPort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_u0AmgElHEemxhr96tBjVNw" name="/ActiveDirectory/ADUserDefaultRole" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_yuT4AEtIEeWNff-CR7F-ZA" name="ComponentintfUpdate_ApplicationConfiguration-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yuT4AUtIEeWNff-CR7F-ZA" processName="Administration.GUIServices.ApplicationServices.intfUpdate_ApplicationConfiguration-service"/>
+    <sca:service xmi:id="_yuXiYEtIEeWNff-CR7F-ZA" name="ApplicationConfigurationServicePortType">
+      <sca:interface.wsdl xmi:id="_yuYwgEtIEeWNff-CR7F-ZA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Applications#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdate_ApplicationConfiguration.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_44wBAEtIEeWNff-CR7F-ZA" name="ComponentintfExceptionConfiguration-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_44wBAUtIEeWNff-CR7F-ZA" processName="Administration.GUIServices.ExceptionConfigurationServices.intfExceptionConfiguration-service"/>
+    <sca:service xmi:id="_44xPIEtIEeWNff-CR7F-ZA" name="ExceptionConfigurationPortType">
+      <sca:interface.wsdl xmi:id="_44xPIUtIEeWNff-CR7F-ZA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/ExceptionConfiguration#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfRetrieveSpecificExceptionConfigurationList.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_YmqckEyvEeW-Ev3Usv2upA" name="ComponentintfInterfaceConfiguration-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_YmqckUyvEeW-Ev3Usv2upA" processName="Administration.GUIServices.InterfaceConfigurationServices.intfInterfaceConfiguration-service"/>
+    <sca:service xmi:id="_YmwjMEyvEeW-Ev3Usv2upA" name="InterfaceConfigurationPortType">
+      <sca:interface.wsdl xmi:id="_YmxKQEyvEeW-Ev3Usv2upA" interface="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl#wsdl.interface(intfInterfaceConfiguration)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfInterfaceConfiguration.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_PBp7EEy4EeW-Ev3Usv2upA" name="ComponentintfCategory-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_PBp7EUy4EeW-Ev3Usv2upA" processName="Administration.GUIServices.CategoryServices.intfCategory-service"/>
+    <sca:service xmi:id="_PBqiIEy4EeW-Ev3Usv2upA" name="CategoryServicesPortType">
+      <sca:interface.wsdl xmi:id="_PBqiIUy4EeW-Ev3Usv2upA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Category#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateCategory.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_QNp0IEy4EeW-Ev3Usv2upA" name="ComponentintfProcedure-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_QNp0IUy4EeW-Ev3Usv2upA" processName="Administration.GUIServices.ProcedureServices.intfProcedure-service"/>
+    <sca:service xmi:id="_QNqbMEy4EeW-Ev3Usv2upA" name="ProcedureServicesPortType">
+      <sca:interface.wsdl xmi:id="_QNrCQEy4EeW-Ev3Usv2upA" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Procedure#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateProcedure.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_mkqyAE1_EeW7ws-zpvyvWw" name="ComponentintfUpdateType" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_mkqyAU1_EeW7ws-zpvyvWw" processName="Administration.GUIServices.TypeServices.intfUpdateType"/>
+    <sca:service xmi:id="_mkvDcE1_EeW7ws-zpvyvWw" name="TypeServicePortType">
+      <sca:interface.wsdl xmi:id="_mkvqgE1_EeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Type#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateType.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_FGvXwE2BEeW7ws-zpvyvWw" name="ComponentintfRenderConfig-service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FGvXwU2BEeW7ws-zpvyvWw" processName="Administration.GUIServices.RenderConfigurationServices.intfRenderConfig-service"/>
+    <sca:service xmi:id="_FGv-0E2BEeW7ws-zpvyvWw" name="RenderConfigurationPortType">
+      <sca:interface.wsdl xmi:id="_FGv-0U2BEeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/RenderConfigs#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateRenderConfig.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_GjozkE2BEeW7ws-zpvyvWw" name="ComponentintfUpdateSeverity" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GjozkU2BEeW7ws-zpvyvWw" processName="Administration.GUIServices.SeverityServices.intfUpdateSeverity"/>
+    <sca:service xmi:id="_GjpaoE2BEeW7ws-zpvyvWw" name="SeverityServicesPortType">
+      <sca:interface.wsdl xmi:id="_GjpaoU2BEeW7ws-zpvyvWw" interface="http://www.tibco.com/CommonLE2/namespace/Administration/GUIServices/Severity#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/Administration/intfUpdateSeverity.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_KsiRcMgpEeWX6NhhQB0njg" name="ComponentintfException_Service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_KsiRccgpEeWX6NhhQB0njg" processName="ExceptionManagement.GUIServices.intfException_Service"/>
+    <sca:service xmi:id="_KtIuYMgpEeWX6NhhQB0njg" name="ResolveException">
+      <sca:interface.wsdl xmi:id="_KtJ8gMgpEeWX6NhhQB0njg" interface="http://www.tibco.com/CommonLE2/namespace/ExceptionManagement/GUIServices#wsdl.interface(ResolveException)" scaext:wsdlLocation="../Service%20Descriptors/ExceptionManagement/GUIServices/intfResolveExceptions.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_4SHmUMixEeWsuPzl5pB9Ng" name="ComponentRetrieve_Log_service" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_4SHmUcixEeWsuPzl5pB9Ng" processName="Logging.GUIServices.Retrieve_Log_service"/>
+    <sca:service xmi:id="_4TBlQMixEeWsuPzl5pB9Ng" name="RetrieveLog">
+      <sca:interface.wsdl xmi:id="_4TF2sMixEeWsuPzl5pB9Ng" interface="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl#wsdl.interface(RetrieveLog)" scaext:wsdlLocation="../Service%20Descriptors/Logging/GUIServices/intfRetrieve_Log.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_NgOaoNn8EeWo7thRj6kafQ" name="ComponentSecurityServices" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NgOaodn8EeWo7thRj6kafQ" processName="SecurityManagement.GUIServices.SecurityServices"/>
+    <sca:service xmi:id="_RKbrcNoQEeWo7thRj6kafQ" name="Services">
+      <sca:interface.wsdl xmi:id="_RKlccNoQEeWo7thRj6kafQ" interface="http://www.tibco.com/CLE/SecurityManagement/GUIServices#wsdl.interface(Services)" scaext:wsdlLocation="../Service%20Descriptors/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_VLULANuREeWm4_0Vsjvzlw" name="ComponentIntfLogLevelParameters" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_VLULAduREeWm4_0Vsjvzlw" processName="Logging.GUIServices.LogLevel.IntfLogLevelParameters"/>
+    <sca:service xmi:id="_VLw28NuREeWm4_0Vsjvzlw" name="portType">
+      <sca:interface.wsdl xmi:id="_VL6A4NuREeWm4_0Vsjvzlw" interface="http://www.tibco.com/CommonLE2/namespace/Logging/LogLevel/GUIServices#wsdl.interface(portType)" scaext:wsdlLocation="../Service%20Descriptors/Logging/GUIServices/LogLevel/IntfLogLevelParameters.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_uIkzkN7jEeWu07Hq7mDjwQ" name="ComponentMonitorResolutionEvents" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_uIkzkd7jEeWu07Hq7mDjwQ" processName="ExceptionManagement.ExceptionServices.MonitorResolutionEvents"/>
+  </sca:component>
+  <sca:component xmi:id="_p0GCAOHVEeWYV4JzL4AScg" name="ComponentOnUpdateExceptionConfiguration" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_p0GCAeHVEeWYV4JzL4AScg" processName="ExceptionManagement.Logic.OnUpdateExceptionConfiguration"/>
+  </sca:component>
+  <sca:component xmi:id="_zFjiIOHcEeWYV4JzL4AScg" name="ComponentScheduler" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zFjiIeHcEeWYV4JzL4AScg" processName="ExceptionManagement.Logic.Scheduler"/>
+  </sca:component>
+  <sca:component xmi:id="_8byQsORYEeWMGLLcUnoIpQ" name="ComponentOnGetExceptionRequest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_8byQseRYEeWMGLLcUnoIpQ" processName="ExceptionManagement.WorkflowServices.OnGetExceptionRequest"/>
+  </sca:component>
+  <sca:component xmi:id="_-UyZsORYEeWMGLLcUnoIpQ" name="ComponentOnHandlingComplete" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-UyZseRYEeWMGLLcUnoIpQ" processName="ExceptionManagement.WorkflowServices.OnHandlingComplete"/>
+  </sca:component>
+  <sca:component xmi:id="_-BZYcOv_EeWutOhqNrXrlA" name="ComponentUserManagementService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-BZYcev_EeWutOhqNrXrlA" processName="SecurityManagement.GUIServices.UserManagementService"/>
+    <sca:service xmi:id="_QpUgYOwBEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-create">
+      <sca:interface.wsdl xmi:id="_QpUgYewBEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-create)"/>
+    </sca:service>
+    <sca:service xmi:id="_s9m1YOwBEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-Update">
+      <sca:interface.wsdl xmi:id="_s9m1YewBEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-Update)"/>
+    </sca:service>
+    <sca:service xmi:id="_Ve6g4OwCEeWutOhqNrXrlA" name="CommonLE-Services-UserManagement-users">
+      <sca:interface.wsdl xmi:id="_Ve6g4ewCEeWutOhqNrXrlA" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-users)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_702kMOwGEeWUtv9Kta-QCw" name="CommonLE-Services-UserManagement-delete">
+      <sca:interface.wsdl xmi:id="_703LQOwGEeWUtv9Kta-QCw" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement-delete)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_WWdvoPJzEeWOCbbk59leww" name="CommonLE-Services-UserManagement">
+      <sca:interface.wsdl xmi:id="_WWfk0PJzEeWOCbbk59leww" interface="http://xmlns.example.com/20160317105031PLT#wsdl.interface(CommonLE-Services-UserManagement)" scaext:wsdlLocation="../Processes/SecurityManagement/GUIServices/UserManagementService.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_FP4KgO_0EeWSsbj6cTcgFA" name="ComponentLogLevelService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FP4Kge_0EeWSsbj6cTcgFA" processName="Logging.GUIServices.LogLevel.LogLevelService"/>
+  </sca:component>
+  <sca:component xmi:id="_BQxwMCCUEeiZJoDrI0p6bA" name="ComponentSaveAsJSONFile" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_BQxwMSCUEeiZJoDrI0p6bA" processName="Logging.DataAccess.File.SaveAsJSONFile"/>
+  </sca:component>
+  <sca:component xmi:id="_KrKWwCk2EeiFuc1uarJNkA" name="ComponentReceiveNotification" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_KrKWwSk2EeiFuc1uarJNkA" processName="Plugins.Notification.Communication.ReceiveNotification"/>
+  </sca:component>
+</sca:composite>

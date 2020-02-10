@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ExceptionConfiguration/CreateExceptionConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateExceptionConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ExceptionConfiguration/CreateExceptionConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ExceptionConfiguration/CreateExceptionConfiguration.wsdl">
+	<xsd:element name="createExceptionConfig">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createExceptionConfigResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createExceptionConfigFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="createExceptionConfigFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createExceptionConfigFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="createExceptionConfigFault1"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createExceptionConfigFault2">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="createExceptionConfigFault2"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    			schemaLocation="../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="createExceptionConfigRequest">
+		<wsdl:part name="parameters" element="xsd1:ExceptionConfigurationUpdate"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="createExceptionConfigResponse">
+    	<wsdl:part name="parameters" element="tns:createExceptionConfigResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createExceptionConfigFault">
+    	<wsdl:part name="parameters" element="xsd2:InvalidInputParameter"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createExceptionConfigFault1">
+    	<wsdl:part name="parameters" element="xsd2:ReferencialIntegrityViolation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createExceptionConfigFault2">
+    	<wsdl:part name="parameters" element="xsd2:IDNotUnique"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CreateExceptionConfiguration">
+    	<wsdl:operation name="createExceptionConfig">
+    		<wsdl:input message="tns:createExceptionConfigRequest"></wsdl:input>
+    		<wsdl:output message="tns:createExceptionConfigResponse"></wsdl:output>
+            <wsdl:fault name="InvalidInputParameter" message="tns:createExceptionConfigFault"></wsdl:fault>
+            <wsdl:fault name="ReferencialIntegrityViolation" message="tns:createExceptionConfigFault1"></wsdl:fault>
+            <wsdl:fault name="IDNotUnique" message="tns:createExceptionConfigFault2"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

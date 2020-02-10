@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:pin="http://xmlns.example.com/1257321223735/SuperUserCheck-End-Output.xsd" xmlns:ref="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" xmlns:tns="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface" name="SuperUserCheck-Interface" targetNamespace="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface">
+    <types>
+    <xsd:schema xmlns:ns="http://www.tibco.com/pe/DeployedVarsType" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1257321223735/SuperUserCheck-End-Output.xsd">
+    <xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/AllRolesRetrieval.xsd"/>
+    <xsd:element name="isSuperUser" type="xsd:boolean"/>
+</xsd:schema>
+  </types>
+  <message name="Input-Msg">
+    <part element="ref:AllRoles" name="Input-Msg-Part"/>
+  </message>
+  <message name="Output-Msg">
+    <part element="pin:isSuperUser" name="Output-Msg-Part"/>
+  </message>
+  <portType name="SuperUserCheck-PortType">
+    <operation name="SuperUserCheck-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+    </operation>
+  </portType>
+</definitions>

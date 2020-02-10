@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Users" elementFormDefault="qualified" targetNamespace="http://www.example.org/Users">
+
+    <element name="User">
+    	<complexType>
+    		<sequence>
+    			<element name="Username" type="string"/>
+    			<element name="Password" type="string"/>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="Response">
+    	<complexType>
+    		<sequence>
+    			<element name="Success" type="boolean"/>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="DeleteUser">
+    	<complexType>
+    		<sequence>
+    			<element name="Username" type="string"/>
+            </sequence>
+    	</complexType>
+    </element>
+
+    <element name="Users">
+    	<complexType>
+    		<sequence>
+    			<element maxOccurs="unbounded" minOccurs="0" name="User" type="string"/>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="UserRole">
+    	<complexType>
+    		<sequence>
+    			<element name="UserName" type="string"/>
+    			<element maxOccurs="unbounded" minOccurs="1" name="RoleName" type="string"/>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="UserWithRole">
+    	<complexType>
+    		<sequence>
+                <element name="UserName" type="string"/>
+                <element name="Passwd" type="string"/>
+                <element maxOccurs="unbounded" minOccurs="1" name="RoleName" type="string">
+    			</element>
+            </sequence>
+    	</complexType>
+    </element>
+    <element name="UpdateUserWithRole">
+    	<complexType>
+    		<sequence>
+    			<element name="UserName" type="string"/>
+    			<element name="Passwd" type="string"/>
+
+    			<element name="CurrentPasswd" type="string"/>
+    			<element maxOccurs="unbounded" minOccurs="1" name="RoleName" type="string">
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="Req_UserWithRole">
+    	<complexType>
+    		<sequence>
+                <element name="Request_Username" type="string"></element>
+                <element ref="tns:UserWithRole"></element>
+            </sequence>
+    	</complexType>
+    </element>
+</schema>

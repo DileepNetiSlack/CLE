@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/RetrieveExceptionConfigurationList.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigList" name="RetrieveExceptionConfigurationList" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/RetrieveExceptionConfigurationList.wsdl">
+    <wsdl:import location="../../../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+    <wsdl:import location="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ExceptionConfigurationList.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigList"/>
+    <wsdl:types>
+    	<xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/RetrieveExceptionConfigurationList.wsdl">
+    		<xsd:element name="retrieveResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+    	</xsd:schema>
+    	<xsd:schema>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/private/Common" schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/Private/Administration" schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigList" schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ExceptionConfigurationList.xsd">
+    		</xsd:import>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/Private/Administration" schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import>
+    </xsd:schema>
+    		</wsdl:types>
+    
+    <wsdl:message name="ApplicationID">
+    <wsdl:part element="extns:ApplicationID" name="parameters"/>
+    </wsdl:message>
+  <wsdl:message name="operationfault">
+    <wsdl:part element="part:DBRecordNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+  	<wsdl:part element="xsd1:ExceptionConfigList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="RetrieveExceptionConfigurationList">
+    <wsdl:operation name="retrieve">
+      <wsdl:input message="tns:ApplicationID" name="operationinput"/>
+
+      <wsdl:output message="tns:retrieveResponse"/>
+      <wsdl:fault message="tns:operationfault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/ServiceDescriptors/Logging/Logic/LogLevel/ReqLogLevel.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReqLogLevel" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logic/LogLevel/ReqLogLevel.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd" xmlns:xsd2="http://www.tibco.com/CommonLE2/Public/Common/Dummy" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logic/LogLevel/ReqLogLevel.wsdl">
+	<xsd:element name="ReqLogLevel">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ReqLogLevelResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ReqLogLevelFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="ReqLogLevelFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd"
+    			schemaLocation="../../../../Schemas/Public/Logging/LogLevelRequest.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Public/Common/Dummy"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/DummyReturnMessage.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="ReqLogLevelRequest">
+		<wsdl:part name="parameters" element="xsd1:LogLevelRequest"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="ReqLogLevelResponse">
+    	<wsdl:part name="parameters" element="xsd2:Dummy"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ReqLogLevelFault">
+    	<wsdl:part name="parameters" element="xsd3:JMSError"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ReqLogLevel">
+    	<wsdl:operation name="ReqLogLevel">
+    		<wsdl:input message="tns:ReqLogLevelRequest"></wsdl:input>
+    		<wsdl:output message="tns:ReqLogLevelResponse"></wsdl:output>
+            <wsdl:fault name="JMSError" message="tns:ReqLogLevelFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

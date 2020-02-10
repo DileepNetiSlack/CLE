@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/RetrieveRecordCount.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common" name="RetrieveRecordCount" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/RetrieveRecordCount.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/RetrieveRecordCount/">
+      <xsd:element name="retrieve">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema>
+    	<xsd:import namespace="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd" schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Common/ListQuery.xsd">
+    	</xsd:import>
+    	<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/private/Common" schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/RetrieveRecordCount.wsdl">
+	<xsd:element name="NewOperation">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+      <xsd:element name="out" type="xsd:string"/>
+	<xsd:element name="retrieveFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="retrieveFault" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="retrieveFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="retrieveFault1" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="retrieveResponce" type="tns:retrieveResponce"/>
+	<xsd:complexType name="retrieveResponce">
+		<xsd:sequence/>
+	</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveRequest">
+    <wsdl:part element="xsd1:ListQuery" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+    <wsdl:part element="tns:retrieveResponce" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationRequest">
+  	<wsdl:part element="tns:NewOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+  	<wsdl:part element="tns:out" name="NewOperationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveFault">
+  	<wsdl:part element="xsd2:DBRecordNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveFault1">
+  	<wsdl:part element="xsd2:TooManyRecords" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="RetrieveRecordCount">
+    <wsdl:operation name="retrieve">
+      <wsdl:input message="tns:retrieveRequest"/>
+      <wsdl:output message="tns:retrieveResponse"/>
+            <wsdl:fault message="tns:retrieveFault" name="fault"/>
+            <wsdl:fault message="tns:retrieveFault1" name="fault1"/>
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+
+</wsdl:definitions>

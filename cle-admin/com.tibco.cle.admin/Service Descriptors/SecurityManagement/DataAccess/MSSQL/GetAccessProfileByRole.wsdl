@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetAccessProfileByRole" targetNamespace="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl">
+      <xsd:element name="GetAccessProfileByRole">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetAccessProfileByRoleResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../Schemas/Private/Administration/QueryResults.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"
+    		schemaLocation="../../../../Schemas/Private/SecurityConfiguration/AccessControl.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="GetAccessProfileByRoleRequest">
+    <wsdl:part element="xsd1:RoleName" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAccessProfileByRoleResponse">
+    <wsdl:part element="xsd2:RoleAccessProfile" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="GetAccessProfileByRole">
+    <wsdl:operation name="GetAccessProfileByRole">
+      <wsdl:input message="tns:GetAccessProfileByRoleRequest"/>
+      <wsdl:output message="tns:GetAccessProfileByRoleResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetAccessProfileByRoleSOAP" type="tns:GetAccessProfileByRole">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetAccessProfileByRole">
+      <soap:operation soapAction="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetAccessProfileByRole">
+    <wsdl:port binding="tns:GetAccessProfileByRoleSOAP" name="GetAccessProfileByRoleSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/schemas/CLE-Handlers/SharedResources/SchemaDefinitions/Private/Notification/NotificationParameters.xsd" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/InsertNotificationTime.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InsertNotificationTime" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/InsertNotificationTime.wsdl">
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.tibco.com/schemas/CLE-Handlers/SharedResources/SchemaDefinitions/Private/Notification/NotificationParameters.xsd"
+  			schemaLocation="../../../../Schemas/Private/Notification/NotificationParameters.xsd">
+  		</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="NotificationUpdate">
+    <wsdl:part element="extns:NotificationUpdate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="InsertNotificationTime">
+    <wsdl:operation name="insert">
+      <wsdl:input message="tns:NotificationUpdate" name="operationinput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

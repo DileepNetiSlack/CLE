@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Logging/Logic/LogLevel/GetSetLogLevelSharedVariable.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetSetLogLevelSharedVariable" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logic/LogLevel/GetSetLogLevelSharedVariable.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelResponse.xsd" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/GetSetLogLevelSharedVariable/">
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelRequest.xsd"
+    		schemaLocation="../../../../Schemas/Public/Logging/LogLevelRequest.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/CLEExtension/LogLevelResponse.xsd"
+    		schemaLocation="../../../../Schemas/Public/Logging/LogLevelResponse.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="getsetRequest">
+    <wsdl:part element="xsd1:EngineLogLevel" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getsetResponse">
+    <wsdl:part element="xsd2:EngineLogLevelDetails" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getsetFault">
+  	<wsdl:part name="parameters" element="xsd3:InvalidInputParameter"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GetSetLogLevelSharedVariable">
+    <wsdl:operation name="getset">
+      <wsdl:input message="tns:getsetRequest"/>
+      <wsdl:output message="tns:getsetResponse"/>
+      <wsdl:fault name="fault" message="tns:getsetFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

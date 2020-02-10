@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Public/Notification" xmlns:tns="http://www.example.org/wsdl/1457347155321" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SendNotificationAgent" targetNamespace="http://www.example.org/wsdl/1457347155321">
+  <wsdl:import location="../../../Schemas/Public/Pluggable/Notification/NotificationMessage.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Notification"/>
+  <wsdl:message name="NotificationMessage">
+    <wsdl:part element="extns:NotificationMessage" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SendNotificationAgent">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:NotificationMessage" name="operationinput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

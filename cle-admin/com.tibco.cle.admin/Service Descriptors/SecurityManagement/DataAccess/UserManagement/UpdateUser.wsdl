@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/UpdateUser.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.example.org/Users" name="UpdateUser" targetNamespace="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/UpdateUser.wsdl">
+    <wsdl:import location="../../../../Schemas/Private/SecurityConfiguration/Users.xsd" namespace="http://www.example.org/Users"/>
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/UpdateUser.wsdl">
+      <xsd:element name="Update">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema>
+    	<xsd:import namespace="http://www.example.org/Users" schemaLocation="../../../../Schemas/Private/SecurityConfiguration/Users.xsd">
+    	</xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateRequest">
+    <wsdl:part element="xsd1:User" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateResponse">
+    <wsdl:part element="xsd1:Response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateUser">
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateRequest"/>
+      <wsdl:output message="tns:UpdateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UpdateUserSOAP" type="tns:UpdateUser">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/UpdateUser.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateUser">
+    <wsdl:port binding="tns:UpdateUserSOAP" name="UpdateUserSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

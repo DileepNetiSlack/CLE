@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Public/Notification" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.example.org/wsdl/1457332673623" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SendNotification" targetNamespace="http://www.example.org/wsdl/1457332673623">
+  <wsdl:import location="../../../Schemas/Public/Pluggable/Notification/NotificationMessage.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Notification"/>
+    <wsdl:import location="../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+    <wsdl:message name="NotificationMessage">
+    <wsdl:part element="extns:NotificationMessage" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SendNotificationfault">
+    <wsdl:part element="part:ExceptionRecordNotFound" name="parameters"/>
+        <wsdl:part element="part:JMSError" name="parameters1"/>
+    </wsdl:message>
+  <wsdl:portType name="SendNotification">
+    <wsdl:operation name="SendNotification">
+      <wsdl:input message="tns:NotificationMessage" name="SendNotificationinput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

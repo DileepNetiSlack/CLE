@@ -1,0 +1,217 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/CommonLE/Services/UserManagement/create" : {
+      "post" : {
+        "summary" : "Creates User with Respective Roles",
+        "description" : "",
+        "operationId" : "post-CommonLE-Services-UserManagement-create",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UserWithRole"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/Update" : {
+      "put" : {
+        "summary" : "Updates User with Roles",
+        "description" : "",
+        "operationId" : "put-CommonLE-Services-UserManagement-Update",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UpdateUserWithRole"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/delete/{username}" : {
+      "delete" : {
+        "summary" : "Deletes specified username",
+        "description" : "",
+        "operationId" : "delete-CommonLE-Services-UserManagement-delete",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/{username}/Roles" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-CommonLE-Services-UserManagement-UserRolesRetrieval",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a AllRoles to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/AllRoles"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/users" : {
+      "get" : {
+        "summary" : "Get All Users",
+        "description" : "",
+        "operationId" : "get-CommonLE-Services-UserManagement-users",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Users to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Users"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Response" : {
+      "type" : "object",
+      "required" : [ "Success" ],
+      "properties" : {
+        "Success" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Role" : {
+      "type" : "object",
+      "required" : [ "rolename" ],
+      "properties" : {
+        "rolename" : {
+          "type" : "string"
+        }
+      }
+    },
+    "UpdateUserWithRole" : {
+      "type" : "object",
+      "required" : [ "RoleName", "UserName", "CurrentPasswd", "Passwd" ],
+      "properties" : {
+        "UserName" : {
+          "type" : "string"
+        },
+        "Passwd" : {
+          "type" : "string"
+        },
+        "CurrentPasswd" : {
+          "type" : "string"
+        },
+        "RoleName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "UserWithRole" : {
+      "type" : "object",
+      "required" : [ "RoleName", "UserName", "Passwd" ],
+      "properties" : {
+        "UserName" : {
+          "type" : "string"
+        },
+        "Passwd" : {
+          "type" : "string"
+        },
+        "RoleName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Users" : {
+      "type" : "object",
+      "properties" : {
+        "User" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "AllRoles" : {
+      "type" : "object",
+      "required" : [ "Role" ],
+      "properties" : {
+        "Role" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Role",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Severity/MSSQL/CreateSeverity.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateSeverity" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Severity/MSSQL/CreateSeverity.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/CreateSeverity/">
+      <xsd:element name="create">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Severity/MSSQL/CreateSeverity.wsdl">
+	<xsd:element name="createFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="createFault" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createResponce" type="tns:createResponce"></xsd:element>
+	<xsd:complexType name="createResponce">
+		<xsd:sequence></xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="createFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="createFault1" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema></wsdl:types>
+  <wsdl:message name="createRequest">
+    <wsdl:part element="xsd1:SeverityUpdate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part element="tns:createResponce" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createFault">
+  	<wsdl:part name="parameters" element="xsd2:ApplicationIDNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createFault1">
+  	<wsdl:part name="parameters" element="xsd2:DBError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CreateSeverity">
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createRequest"/>
+      <wsdl:output message="tns:createResponse"/>
+            <wsdl:fault name="fault" message="tns:createFault"></wsdl:fault>
+            <wsdl:fault name="fault1" message="tns:createFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

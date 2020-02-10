@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="intfInterfaceConfiguration" targetNamespace="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail" xmlns:xsd2="http://www.tibco.com/schemas/COMMONLE2011/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/Schema.xsd" xmlns:xsd3="http://www.tibco.com/CommonLE2/Public/Common" xmlns:xsd4="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Common/DeleteQuery" xmlns:xsd5="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query" xmlns:xsd6="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigDetailQuery" xmlns:xsd7="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigList" xmlns:xsd8="http://www.tibco.com/CommonLE2/Public/Common/Dummy" xmlns:xsd9="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/WSDL/Administration/intfInterfaceConfiguration.wsdl">
+	<xsd:element name="wsCreateInterfaceConfiguration">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsCreateInterfaceConfigurationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsCreateInterfaceConfigurationFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsCreateInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfiguration">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfigurationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfigurationFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsDeleteInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigList">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigListFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsRetrieveInterfaceConfigListFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigurationDetail">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigurationDetailResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigurationDetailFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element
+					name="wsRetrieveInterfaceConfigurationDetailFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveParentInterfaceList">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveParentInterfaceListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveParentInterfaceListFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsRetrieveParentInterfaceListFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsUpdateInterfaceConfiguration">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsUpdateInterfaceConfigurationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsUpdateInterfaceConfigurationFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsUpdateInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsCreateInterfaceConfigurationResponse1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigListFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsRetrieveInterfaceConfigListFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsRetrieveInterfaceConfigurationDetailFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element
+					name="wsRetrieveInterfaceConfigurationDetailFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsUpdateInterfaceConfigurationFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsUpdateInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfigurationFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsDeleteInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfigurationFault11">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsDeleteInterfaceConfigurationFault1"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsCreateInterfaceConfigurationFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsCreateInterfaceConfigurationFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsCreateInterfaceConfigurationFault11">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="wsCreateInterfaceConfigurationFault1"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="wsDeleteInterfaceConfigurationResponse1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/InterfaceConfigDetail.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/schemas/COMMONLE2011/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/Schema.xsd"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/StatusMessage.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Public/Common"
+    			schemaLocation="../../../../Schemas/Public/Common/ErrorMessage.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Common/DeleteQuery"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/DeleteQuery.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ConfigurationQuery.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/ExceptionConfigDetailQuery"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ExceptionConfigDetailQuery.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigList"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/InterfaceConfigList.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Public/Common/Dummy"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/DummyReturnMessage.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="wsCreateInterfaceConfigurationRequest">
+		<wsdl:part name="parameters" element="xsd1:InterfaceConfig"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="wsCreateInterfaceConfigurationResponse">
+    </wsdl:message>
+    <wsdl:message name="wsCreateInterfaceConfigurationFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationRequest">
+    	<wsdl:part name="parameters" element="xsd4:DeleteQueries"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationResponse">
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigListRequest">
+    	<wsdl:part name="parameters" element="xsd5:Query"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigListResponse">
+    	<wsdl:part name="parameters" element="xsd1:InterfaceList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigListFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigurationDetailRequest">
+    	<wsdl:part name="parameters" element="xsd6:Query"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigurationDetailResponse">
+    	<wsdl:part name="parameters" element="xsd1:InterfaceConfig"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigurationDetailFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveParentInterfaceListRequest">
+    	<wsdl:part name="parameters" element="xsd5:Query"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveParentInterfaceListResponse">
+    	<wsdl:part name="parameters" element="xsd7:InterfaceParentList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveParentInterfaceListFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsUpdateInterfaceConfigurationRequest">
+    	<wsdl:part name="parameters" element="xsd1:InterfaceConfig"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsUpdateInterfaceConfigurationResponse">
+    	<wsdl:part name="parameters" element="xsd8:Dummy"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsUpdateInterfaceConfigurationFault">
+    	<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsCreateInterfaceConfigurationResponse1">
+    	<wsdl:part name="parameters" element="xsd2:StatusMessage"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigListFault1">
+    	<wsdl:part name="parameters" element="xsd9:DBRecordNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsRetrieveInterfaceConfigurationDetailFault1">
+    	<wsdl:part name="parameters" element="xsd9:IDNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsUpdateInterfaceConfigurationFault1">
+    	<wsdl:part name="parameters" element="xsd9:DBRecordNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationFault1">
+    	<wsdl:part name="parameters" element="xsd9:DBRecordNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationFault11">
+    	<wsdl:part name="parameters" element="xsd9:ReferencialIntegrityViolation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsCreateInterfaceConfigurationFault1">
+    	<wsdl:part name="parameters" element="xsd9:IDNotUnique"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsCreateInterfaceConfigurationFault11">
+    	<wsdl:part name="parameters" element="xsd9:ReferencialIntegrityViolation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="wsDeleteInterfaceConfigurationResponse1">
+    	<wsdl:part name="parameters" element="xsd2:StatusMessage"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="intfInterfaceConfiguration">
+    	<wsdl:operation name="wsCreateInterfaceConfiguration">
+    		<wsdl:input message="tns:wsCreateInterfaceConfigurationRequest"></wsdl:input>    		<wsdl:output
+    			message="tns:wsCreateInterfaceConfigurationResponse1">
+    		</wsdl:output>
+    		<wsdl:fault name="Error" message="tns:wsCreateInterfaceConfigurationFault"></wsdl:fault>
+            <wsdl:fault name="fault" message="tns:wsCreateInterfaceConfigurationFault1"></wsdl:fault>
+            <wsdl:fault name="fault1" message="tns:wsCreateInterfaceConfigurationFault11"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="wsDeleteInterfaceConfiguration">
+    		<wsdl:input message="tns:wsDeleteInterfaceConfigurationRequest"></wsdl:input>
+    		<wsdl:output
+    			message="tns:wsDeleteInterfaceConfigurationResponse1">
+    		</wsdl:output>
+    		<wsdl:fault name="Error" message="tns:wsDeleteInterfaceConfigurationFault"></wsdl:fault>
+            <wsdl:fault name="DBRecordNotFound" message="tns:wsDeleteInterfaceConfigurationFault1"></wsdl:fault>
+            <wsdl:fault name="RefereencialIntegrityViolation" message="tns:wsDeleteInterfaceConfigurationFault11"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="wsRetrieveInterfaceConfigList">
+    		<wsdl:input message="tns:wsRetrieveInterfaceConfigListRequest"></wsdl:input>
+    		<wsdl:output message="tns:wsRetrieveInterfaceConfigListResponse"></wsdl:output>
+            <wsdl:fault name="Error" message="tns:wsRetrieveInterfaceConfigListFault"></wsdl:fault>
+            <wsdl:fault name="DBRecordNotFound" message="tns:wsRetrieveInterfaceConfigListFault1"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="wsRetrieveInterfaceConfigurationDetail">
+    		<wsdl:input message="tns:wsRetrieveInterfaceConfigurationDetailRequest"></wsdl:input>
+    		<wsdl:output message="tns:wsRetrieveInterfaceConfigurationDetailResponse"></wsdl:output>
+            <wsdl:fault name="Error" message="tns:wsRetrieveInterfaceConfigurationDetailFault"></wsdl:fault>
+            <wsdl:fault name="IDNotFound" message="tns:wsRetrieveInterfaceConfigurationDetailFault1"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="wsRetrieveParentInterfaceList">
+    		<wsdl:input message="tns:wsRetrieveParentInterfaceListRequest"></wsdl:input>
+    		<wsdl:output message="tns:wsRetrieveParentInterfaceListResponse"></wsdl:output>
+            <wsdl:fault name="Error" message="tns:wsRetrieveParentInterfaceListFault"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="wsUpdateInterfaceConfiguration">
+    		<wsdl:input message="tns:wsUpdateInterfaceConfigurationRequest"></wsdl:input>
+    		<wsdl:output message="tns:wsUpdateInterfaceConfigurationResponse"></wsdl:output>
+            <wsdl:fault name="Error" message="tns:wsUpdateInterfaceConfigurationFault"></wsdl:fault>
+            <wsdl:fault name="DBRecordNotFound" message="tns:wsUpdateInterfaceConfigurationFault1"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

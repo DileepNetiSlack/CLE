@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequest.xsd" xmlns:Common="http://www.tibco.com/CommonLE2/namespace/Public/Common/RequestHeader.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequest.xsd">
+	<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/Public/Common/RequestHeader.xsd" schemaLocation="../Common/RequestHeader.xsd"/>
+	<xsd:element name="LogRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Common:Header"/>
+				<xsd:element minOccurs="0" name="TimeDuration" type="xsd:integer"/>
+				<xsd:element minOccurs="0" name="Category" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Status" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="FileSize" type="xsd:unsignedLong"/>
+				<xsd:element name="Audit" type="xsd:boolean"/>
+			</xsd:sequence>
+            <xsd:attribute name="elementFormDefault" type="xsd:string"/>
+        </xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Messages">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Name" type="xsd:string"/>
+				<xsd:element name="Value" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

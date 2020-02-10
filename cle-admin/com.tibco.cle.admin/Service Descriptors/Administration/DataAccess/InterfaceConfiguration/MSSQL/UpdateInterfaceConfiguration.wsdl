@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/UpdateInterfaceConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateInterfaceConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/UpdateInterfaceConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/Public/Common/Dummy" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/UpdateInterfaceConfiguration.wsdl">
+      <xsd:element name="updateInterface">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateInterfaceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateInterfaceFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="updateInterfaceFault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Public/Common/Dummy"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Common/DummyReturnMessage.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="updateInterfaceRequest">
+    <wsdl:part element="xsd1:InterfaceConfiguration" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateInterfaceResponse">
+    <wsdl:part element="xsd2:Dummy" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateInterfaceFault">
+  	<wsdl:part name="parameters" element="xsd3:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UpdateInterfaceConfiguration">
+    <wsdl:operation name="updateInterface">
+      <wsdl:input message="tns:updateInterfaceRequest"/>
+      <wsdl:output message="tns:updateInterfaceResponse"/>
+            <wsdl:fault name="fault" message="tns:updateInterfaceFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="AuthenticateUser-Interface" targetNamespace="http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:pin="http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd" xmlns:pin2="http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd" xmlns:tns="http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface">
+  <types>
+    <xsd:schema xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd">
+    <xsd:element name="UserDetails">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="username" type="xsd:string"/>
+                <xsd:element name="password" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+    <xsd:schema xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd">
+    <xsd:element name="AuthenticationResult">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Result" type="xsd:boolean"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Input-Msg">
+    <part element="pin:UserDetails" name="Input-Msg-Part"/>
+  </message>
+  <message name="Output-Msg">
+    <part element="pin2:AuthenticationResult" name="Output-Msg-Part"/>
+  </message>
+  <portType name="AuthenticateUser-PortType">
+    <operation name="AuthenticateUser">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+    </operation>
+  </portType>
+</definitions>

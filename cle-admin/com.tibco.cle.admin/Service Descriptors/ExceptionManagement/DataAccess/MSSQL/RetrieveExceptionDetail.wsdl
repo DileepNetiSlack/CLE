@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Private/Exception" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveExceptionDetail.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveExceptionDetail" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveExceptionDetail.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement" xmlns:xsd2="http://www.tibco.com/CommonLE2/Private/Exception">
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement"
+  			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/ExceptionManagement/ExceptionDetail.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+  			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/Private/Exception"
+  			schemaLocation="../../../../Schemas/Private/Exception/QueryUpdate.xsd">
+  		</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="ExceptionDetailQuery">
+    <wsdl:part element="xsd2:ExceptionDetailQuery" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+    <wsdl:part element="xsd1:ExceptionDetail" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="operationfault">
+    <wsdl:part element="part:ExceptionRecordNotFound" name="parameters" />
+  </wsdl:message>
+  <wsdl:portType name="RetrieveExceptionDetail">
+    <wsdl:operation name="retrieve">
+      <wsdl:input message="tns:ExceptionDetailQuery" name="operationinput"/>
+      <wsdl:output message="tns:retrieveResponse" name="operationoutput"/>
+      <wsdl:fault message="tns:operationfault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

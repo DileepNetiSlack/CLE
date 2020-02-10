@@ -1,0 +1,1682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="SecurityManagement.Logic.AccessControl.GetAccessProfileByRoles"
+    suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20160223141245"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://xmlns.example.com/20160223141245PLT"
+    xmlns:ns0="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns1="http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles"
+    xmlns:ns10="http://tns.tibco.com/bw/palette/internal/accumulateoutput+2b7e9275-1c60-479d-b4b0-2f42a914eb04"
+    xmlns:ns11="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface"
+    xmlns:ns12="http://tns.tibco.com/bw/model/addressing"
+    xmlns:ns2="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"
+    xmlns:ns3="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/SuperUserCheck/Interface"
+    xmlns:ns4="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/RetrieveApplicationConfigurationList.wsdl"
+    xmlns:ns5="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/MSSQL/RetrieveApplicationsWithUserPermissions"
+    xmlns:ns6="http://www.tibco.com/SecurityManagement/Logic/RetrieveACL"
+    xmlns:ns7="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/UserApplicationIDList"
+    xmlns:ns8="http://www.tibco.com/SecurityManagement/DataAccess/MSSQL/RetrieveACL"
+    xmlns:ns9="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl"
+    xmlns:pin="http://xmlns.example.com/1257321223735/SuperUserCheck-End-Output.xsd"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
+        </schema>
+        <xs:schema elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/accumulateoutput+2b7e9275-1c60-479d-b4b0-2f42a914eb04"
+            xmlns:Q1="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"
+            xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+2b7e9275-1c60-479d-b4b0-2f42a914eb04" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"/>
+            <xs:element name="AccumulatedOutput" type="tns:AccumulatedOutputType"/>
+            <xs:complexType name="AccumulatedOutputType">
+                <xs:sequence maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="Q1:RoleAccessProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <schema elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/model/addressing"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/model/addressing">
+            <complexType name="Address">
+                <simpleContent>
+                    <extension base="string"/>
+                </simpleContent>
+            </complexType>
+            <element name="Address" type="tns:Address"/>
+            <complexType name="SimpleEndpointReference">
+                <sequence>
+                    <element ref="tns:Address"/>
+                </sequence>
+            </complexType>
+            <element name="SimpleEndpointReference" type="tns:SimpleEndpointReference"/>
+            <complexType name="EndpointReference">
+                <complexContent>
+                    <extension base="tns:SimpleEndpointReference">
+                        <sequence>
+                            <element minOccurs="0" name="Interface" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="EndpointReference" type="tns:EndpointReference"/>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20160223141245PLT"
+            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+            xmlns:ptyp="http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles"
+            xmlns:ptyp2="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/SuperUserCheck/Interface"
+            xmlns:ptyp3="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/RetrieveApplicationConfigurationList.wsdl"
+            xmlns:ptyp4="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/MSSQL/RetrieveApplicationsWithUserPermissions"
+            xmlns:ptyp5="http://www.tibco.com/SecurityManagement/Logic/RetrieveACL"
+            xmlns:ptyp6="http://www.tibco.com/SecurityManagement/DataAccess/MSSQL/RetrieveACL"
+            xmlns:ptyp7="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl"
+            xmlns:ptyp8="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface"
+            xmlns:tns="http://xmlns.example.com/20160223141245PLT"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <plnk:partnerLinkType name="partnerLinkType">
+                <plnk:role name="use" portType="ptyp:GetAccessProfileByRoles"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType2">
+                <plnk:role name="use" portType="ptyp3:RetrieveApplicationConfigurationList"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType3">
+                <plnk:role name="use" portType="ptyp7:GetAccessProfileByRole"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType1">
+                <plnk:role name="use" portType="ptyp8:SuperUserCheck-PortType"/>
+            </plnk:partnerLinkType>
+            <wsdl:import namespace="http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles"/>
+            <wsdl:import namespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/RetrieveApplicationConfigurationList.wsdl"/>
+            <wsdl:import namespace="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl"/>
+            <wsdl:import namespace="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface"/>
+        </wsdl:definitions>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="vkadam"
+        createdOn="Tue Feb 23 14:12:45 IST 2016" description=""
+        extraErrorVars="false" modifiers="public"
+        productVersion="6.3.1 V12 2016-01-27" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3001">
+                <children type="4001">
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="40011"/>
+                    <children type="3006">
+                        <styles xsi:type="notation:DrawerStyle"/>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <styles xsi:type="bwnotation:BackgroundStyle"/>
+                        <styles xsi:type="bwnotation:ResizingStyle"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@partnerLinks/@children.0"/>
+                    <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint x="-3"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint x="972"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="134"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Invoke">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="229"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="375"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint x="616"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.6"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="746"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <children type="4018">
+                                    <children type="3018">
+                                    <children type="4020">
+                                    <children type="3020">
+                                    <children type="4005">
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint
+                                    x="133"
+                                    xsi:type="notation:Bounds" y="81"/>
+                                    </children>
+
+                                    <children type="4002 bw.generalactivities.bwassign">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="251"
+                                    xsi:type="notation:Bounds" y="81"/>
+                                    </children>
+
+                                    <children type="4002 bw.generalactivities.bwassign">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="355"
+                                    xsi:type="notation:Bounds" y="81"/>
+                                    </children>
+
+                                    <children type="4002 bw.internal.setEPR">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="25"
+                                    xsi:type="notation:Bounds" y="80"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="218"
+                                    width="516" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7"/>
+                                    <layoutConstraint
+                                    height="218"
+                                    width="519"
+                                    x="15"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7"/>
+                                    <layoutConstraint
+                                    height="262" width="559"
+                                    x="401"
+                                    xsi:type="notation:Bounds" y="237"/>
+                                    </children>
+                                    <children type="4002 bw.internal.setEPR">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.8"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="493"
+                                    xsi:type="notation:Bounds" y="129"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="527"
+                                    width="1124" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="527" width="1127" xsi:type="notation:Bounds"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="551" width="1127" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="603" width="1469" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, 0, -175, 19]$[176, 0, -24, 19]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, -5, -172, 0]$[173, 0, -24, 5]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.5"/>
+            <bendpoints points="[25, 10, -101, 10]$[102, 10, -24, 10]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.6"/>
+            <bendpoints
+                points="[25, 0, -324, -208]$[69, 0, -280, -208]$[69, 215, -280, 7]$[122, 215, -227, 7]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.7"/>
+            <bendpoints
+                points="[227, 7, -115, 215]$[294, 7, -48, 215]$[294, -208, -48, 0]$[318, -208, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.8"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.7/@activity/@activities.1/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/model/addressing" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xpath/bw-custom-functions" prefix="bw"/>
+    </tibex:NamespaceRegistry>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/UserApplicationIDList"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
+        location="../../../../Service%20Descriptors/SecurityManagement/Logic/AccessControl/GetAccessProfileByRoles.wsdl" namespace="http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
+        location="../../../../Service%20Descriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/RetrieveApplicationConfigurationList.wsdl" namespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/RetrieveApplicationConfigurationList.wsdl"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
+        location="../../../../Service%20Descriptors/SecurityManagement/DataAccess/MSSQL/GetAccessProfileByRole.wsdl" namespace="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink myRole="use" name="GetAccessProfileByRoles"
+            partnerLinkType="ns:partnerLinkType" sca-bpel:ignore="false" sca-bpel:service="GetAccessProfileByRoles"/>
+        <bpws:partnerLink name="RetrieveApplicationConfigurationList"
+            partnerLinkType="ns:partnerLinkType2" partnerRole="use"
+            sca-bpel:ignore="true"
+            sca-bpel:reference="RetrieveApplicationConfigurationList" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="true" inline="true"
+                processConfigurationName="" processName="" serviceName=""/>
+        </bpws:partnerLink>
+        <bpws:partnerLink name="GetAccessProfileByRole"
+            partnerLinkType="ns:partnerLinkType3" partnerRole="use"
+            sca-bpel:ignore="true"
+            sca-bpel:reference="GetAccessProfileByRole" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="true" inline="true"
+                processConfigurationName="" processName="" serviceName=""/>
+        </bpws:partnerLink>
+        <bpws:partnerLink name="SuperUserCheck"
+            partnerLinkType="ns:partnerLinkType1" partnerRole="use"
+            sca-bpel:ignore="true" sca-bpel:reference="SuperUserCheck" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="false" inline="false"
+                processConfigurationName=""
+                processName="SecurityManagement.Logic.Common.SuperUserCheck" serviceName="SuperUserCheck-PortType"/>
+        </bpws:partnerLink>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable element="ns0:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:GetAccessProfileByRolesRequest"
+            name="GetAccessProfileByRolesIn" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:GetAccessProfileByRolesResponse"
+            name="GetAccessProfileByRolesOut-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:Permission" name="CombinedPermissions"/>
+        <bpws:variable messageType="ns11:Input-Msg"
+            name="SuperUserCheck-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns11:Output-Msg"
+            name="SuperUserCheck" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns4:Code"
+            name="RetrieveApplicationConfigurationList-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns4:retrieveResponse"
+            name="RetrieveApplicationConfigurationList" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ApplicationIDs" name="CombinedApplicationIDs"/>
+        <bpws:variable messageType="ns9:GetAccessProfileByRoleRequest"
+            name="GetAccessProfileByRole-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns9:GetAccessProfileByRoleResponse"
+            name="GetAccessProfileByRole" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:AccumulatedOutput"
+            name="Accumulate" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:SimpleEndpointReference"
+            name="SetEPR_RetrieveApplicationConfigurationList-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:EndpointReference"
+            name="SetEPR_RetrieveApplicationConfigurationList" sca-bpel:internal="true"/>
+        <bpws:variable name="DBType" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="Database/MIG_DatabaseType" type="xsd:string"/>
+        <bpws:variable element="ns12:SimpleEndpointReference"
+            name="SetEPR_GetAccessProfileByRole-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:EndpointReference"
+            name="SetEPR_GetAccessProfileByRole" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link name="StartToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AssignToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="SuperUserCheckToAssign1" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Assign1ToInvoke" tibex:linkType="SUCCESS"/>
+                <bpws:link
+                    name="RetrieveApplicationConfigurationListToAssign2" tibex:linkType="SUCCESS"/>
+                <bpws:link name="Assign2ToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="SuperUserCheckToForEach" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="ForEachToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link
+                    name="SetEPRToRetrieveApplicationConfigurationList" tibex:linkType="SUCCESS"/>
+            </bpws:links>
+            <bpws:receive createInstance="yes" name="Start"
+                operation="GetAccessProfileByRoles"
+                partnerLink="GetAccessProfileByRoles"
+                portType="ns1:GetAccessProfileByRoles"
+                tibex:xpdlId="d4732b9b-294e-43bd-8e65-e9903e119543" variable="GetAccessProfileByRolesIn">
+                <bpws:sources>
+                    <bpws:source linkName="StartToEnd"/>
+                </bpws:sources>
+            </bpws:receive>
+            <bpws:reply name="End" operation="GetAccessProfileByRoles"
+                partnerLink="GetAccessProfileByRoles"
+                portType="ns1:GetAccessProfileByRoles"
+                tibex:xpdlId="bf1b2bf4-a037-4665-8f29-df905cb54f63" variable="GetAccessProfileByRolesOut-input">
+                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:pin="http://xmlns.example.com/1257321223735/SuperUserCheck-End-Output.xsd" version="2.0"&gt;
+    &lt;xsl:param name="CombinedPermissions"/&gt;
+    &lt;xsl:param name="GetAccessProfileByRolesIn"/&gt;
+    &lt;xsl:param name="CombinedApplicationIDs"/&gt;
+    &lt;xsl:param name="SuperUserCheck"/&gt;
+    &lt;xsl:param name="Accumulate"/&gt;
+    &lt;xsl:template name="GetAccessProfileByRolesOut-input" match="/"&gt;
+        &lt;tns1:GetAccessProfileByRolesResponse&gt;
+            &lt;parameters&gt;
+                &lt;xsl:choose&gt;
+                    &lt;xsl:when test="string($SuperUserCheck/Output-Msg-Part/pin:isSuperUser)=&amp;quot;true&amp;quot;"&gt;
+                        &lt;ns:RoleAccessProfile&gt;
+                            &lt;ns:Role&gt;
+                                &lt;xsl:value-of select="$GetAccessProfileByRolesIn/parameters/ns:Roles/ns:Rolename"/&gt;
+                            &lt;/ns:Role&gt;
+                            &lt;xsl:copy-of select="$CombinedPermissions"/&gt;
+                            &lt;ns:ApplicationIDs&gt;
+                                &lt;xsl:for-each select="$CombinedApplicationIDs/ns:ApplicationID"&gt;
+                                    &lt;ns:ApplicationID&gt;
+                                        &lt;xsl:value-of select="."/&gt;
+                                    &lt;/ns:ApplicationID&gt;
+                                &lt;/xsl:for-each&gt;
+                            &lt;/ns:ApplicationIDs&gt;
+                        &lt;/ns:RoleAccessProfile&gt;
+                    &lt;/xsl:when&gt;
+                    &lt;xsl:otherwise&gt;
+                        &lt;xsl:for-each select="$Accumulate/ns:RoleAccessProfile"&gt;
+                            &lt;ns:RoleAccessProfile&gt;
+                                &lt;ns:Role&gt;
+                                    &lt;xsl:value-of select="ns:Role"/&gt;
+                                &lt;/ns:Role&gt;
+                                &lt;xsl:copy-of select="ns:Permission"/&gt;
+                                &lt;xsl:copy-of select="ns:ApplicationIDs"/&gt;
+                            &lt;/ns:RoleAccessProfile&gt;
+                        &lt;/xsl:for-each&gt;
+                    &lt;/xsl:otherwise&gt;
+                &lt;/xsl:choose&gt;
+            &lt;/parameters&gt;
+        &lt;/tns1:GetAccessProfileByRolesResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/cle/gui/security/GetAccessProfileByRoles&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:pin=&quot;http://xmlns.example.com/1257321223735/SuperUserCheck-End-Output.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SuperUserCheck.Output-Msg-Part&quot;/>&#xa;    &lt;xsl:param name=&quot;GetAccessProfileByRolesIn.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;CombinedPermissions&quot;/>&#xa;    &lt;xsl:param name=&quot;CombinedApplicationIDs&quot;/>&#xa;    &lt;xsl:param name=&quot;Accumulate&quot;/>&#xa;    &lt;xsl:template name=&quot;GetAccessProfileByRolesOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:choose>&#xa;            &lt;xsl:when test=&quot;string($SuperUserCheck.Output-Msg-Part)=&amp;quot;true&amp;quot;&quot;>&#xa;                &lt;ns:RoleAccessProfile>&#xa;                    &lt;ns:Role>&#xa;                        &lt;xsl:value-of select=&quot;$GetAccessProfileByRolesIn.parameters/ns:Rolename&quot;/>&#xa;                    &lt;/ns:Role>&#xa;                    &lt;xsl:copy-of select=&quot;$CombinedPermissions&quot;/>&#xa;                    &lt;ns:ApplicationIDs>&#xa;                        &lt;xsl:for-each select=&quot;$CombinedApplicationIDs/ns:ApplicationID&quot;>&#xa;                            &lt;ns:ApplicationID>&#xa;                                &lt;xsl:value-of select=&quot;.&quot;/>&#xa;                            &lt;/ns:ApplicationID>&#xa;                        &lt;/xsl:for-each>&#xa;                    &lt;/ns:ApplicationIDs>&#xa;                &lt;/ns:RoleAccessProfile>&#xa;            &lt;/xsl:when>&#xa;            &lt;xsl:otherwise>&#xa;                &lt;xsl:for-each select=&quot;$Accumulate/ns:RoleAccessProfile&quot;>&#xa;                    &lt;ns:RoleAccessProfile>&#xa;                        &lt;ns:Role>&#xa;                            &lt;xsl:value-of select=&quot;ns:Role&quot;/>&#xa;                        &lt;/ns:Role>&#xa;                        &lt;xsl:copy-of select=&quot;ns:Permission&quot;/>&#xa;                        &lt;xsl:copy-of select=&quot;ns:ApplicationIDs&quot;/>&#xa;                    &lt;/ns:RoleAccessProfile>&#xa;                &lt;/xsl:for-each>&#xa;            &lt;/xsl:otherwise>&#xa;        &lt;/xsl:choose>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="Assign2ToEnd"/>
+                    <bpws:target linkName="ForEachToEnd"/>
+                </bpws:targets>
+            </bpws:reply>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="CombinedPermissions"
+                    name="Initialize"
+                    outputVariable="CombinedPermissions"
+                    tibex:xpdlId="ab109b4c-39d0-4671-89b6-857f6690135a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToEnd"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AssignToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;CombinedPermissions&quot; match=&quot;/&quot;>&#xa;        &lt;ns:Permission>&#xa;            &lt;ns:Configuration>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Add>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Add>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Configuration>&#xa;            &lt;ns:Log>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Log>&#xa;            &lt;ns:Exception>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Resolve>&#xa;                    &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                &lt;/ns:Resolve>&#xa;            &lt;/ns:Exception>&#xa;        &lt;/ns:Permission>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="CombinedPermissions" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:invoke inputVariable="SuperUserCheck-input"
+                name="SuperUserCheck"
+                operation="SuperUserCheck-Operation"
+                outputVariable="SuperUserCheck"
+                partnerLink="SuperUserCheck"
+                portType="ns11:SuperUserCheck-PortType" tibex:xpdlId="24b1b364-6761-4d92-9723-2e7f4958ed1d">
+                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/SuperUserCheck/Interface" xmlns:ns1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" version="2.0"&gt;&lt;xsl:param name="GetAccessProfileByRolesIn"/&gt;&lt;xsl:template name="SuperUserCheck-input" match="/"&gt;&lt;ns0:Input-Msg xmlns:ns0="http://xmlns.example.com/1257321223735/SecurityManagement/Logic/Common/SuperUserCheck/Interface"&gt;&lt;Input-Msg-Part&gt;&lt;ns1:AllRoles&gt;&lt;xsl:for-each select="$GetAccessProfileByRolesIn/parameters/ns:Roles/ns:Rolename"&gt;&lt;ns1:Role&gt;&lt;ns1:rolename&gt;&lt;xsl:value-of select="."/&gt;&lt;/ns1:rolename&gt;&lt;/ns1:Role&gt;&lt;/xsl:for-each&gt;&lt;/ns1:AllRoles&gt;&lt;/Input-Msg-Part&gt;&lt;/ns0:Input-Msg&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns=&quot;http://xmlns.example.com/1257321223735/SecurityManagement/Logic/SuperUserCheck/Interface&quot; xmlns:ns1=&quot;http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetAccessProfileByRolesIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;SuperUserCheck-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns1:AllRoles>&#xa;            &lt;xsl:for-each select=&quot;$GetAccessProfileByRolesIn.parameters/ns:Rolename&quot;>&#xa;                &lt;ns1:Role>&#xa;                    &lt;ns1:rolename>&#xa;                        &lt;xsl:value-of select=&quot;.&quot;/>&#xa;                    &lt;/ns1:rolename>&#xa;                &lt;/ns1:Role>&#xa;            &lt;/xsl:for-each>&#xa;        &lt;/ns1:AllRoles>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="AssignToEnd"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="SuperUserCheckToAssign1">
+                        <tibex:DesignExpression>
+                            <tibex:expression
+                                expression="string($SuperUserCheck/Output-Msg-Part/pin:isSuperUser)='true'" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[string($SuperUserCheck.Output-Msg-Part)='true']]></bpws:transitionCondition>
+                    </bpws:source>
+                    <bpws:source linkName="SuperUserCheckToForEach">
+                        <tibex:DesignExpression>
+                            <tibex:expression expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                    </bpws:source>
+                </bpws:sources>
+            </bpws:invoke>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="CombinedPermissions" name="AssignAll"
+                    outputVariable="CombinedPermissions"
+                    tibex:xpdlId="e9d53f75-1e62-4d7e-84c9-e8362fb5d6ed" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="SuperUserCheckToAssign1"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Assign1ToInvoke"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;CombinedPermissions&quot; match=&quot;/&quot;>&#xa;        &lt;ns:Permission>&#xa;            &lt;ns:Configuration>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Add>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Add>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Configuration>&#xa;            &lt;ns:Log>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Log>&#xa;            &lt;ns:Exception>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Delete>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Resolve>&#xa;                    &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                &lt;/ns:Resolve>&#xa;            &lt;/ns:Exception>&#xa;        &lt;/ns:Permission>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="CombinedPermissions" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:invoke
+                inputVariable="RetrieveApplicationConfigurationList-input"
+                name="RetrieveApplicationConfigurationList"
+                operation="retrieve"
+                outputVariable="RetrieveApplicationConfigurationList"
+                partnerLink="RetrieveApplicationConfigurationList"
+                portType="ns4:RetrieveApplicationConfigurationList" tibex:xpdlId="1f4d7ae7-0e69-46b7-b186-888cf91d9231">
+                <bpws:targets>
+                    <bpws:target linkName="SetEPRToRetrieveApplicationConfigurationList"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="RetrieveApplicationConfigurationListToAssign2"/>
+                </bpws:sources>
+                <bpws:correlations/>
+            </bpws:invoke>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Applications&quot; xmlns:ns1=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;RetrieveApplicationConfigurationList&quot;/>&lt;xsl:template name=&quot;CombinedApplicationIDs&quot; match=&quot;/&quot;>&lt;ns1:ApplicationIDs>&lt;xsl:for-each select=&quot;$RetrieveApplicationConfigurationList/retrieveResponse/ns:Applications/ns:Application&quot;>&lt;ns1:ApplicationID>&lt;xsl:value-of select=&quot;ns:ApplicationID&quot;/>&lt;/ns1:ApplicationID>&lt;/xsl:for-each>&lt;/ns1:ApplicationIDs>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="CombinedApplicationIDs"
+                    name="AppList"
+                    outputVariable="CombinedApplicationIDs"
+                    tibex:xpdlId="0c530ec1-20bd-448b-94c2-52df47bd5bfb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="RetrieveApplicationConfigurationListToAssign2"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="Assign2ToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Applications&quot; xmlns:ns1=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;RetrieveApplicationConfigurationList.retrieveResponse&quot;/>&#xa;    &lt;xsl:template name=&quot;CombinedApplicationIDs&quot; match=&quot;/&quot;>&#xa;        &lt;ns1:ApplicationIDs>&#xa;            &lt;xsl:for-each select=&quot;$RetrieveApplicationConfigurationList.retrieveResponse/ns:Application&quot;>&#xa;                &lt;ns1:ApplicationID>&#xa;                    &lt;xsl:value-of select=&quot;ns:ApplicationID&quot;/>&#xa;                &lt;/ns1:ApplicationID>&#xa;            &lt;/xsl:for-each>&#xa;        &lt;/ns1:ApplicationIDs>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="CombinedApplicationIDs" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:scope name="ForEach" tibex:group="foreach" tibex:xpdlId="108327ee-3ce7-49ec-8f2e-9b870dcca664">
+                <bpws:targets>
+                    <bpws:target linkName="SuperUserCheckToForEach"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="ForEachToEnd"/>
+                </bpws:sources>
+                <bpws:sequence name="sequence" tibex:group="foreach">
+                    <bpws:assign name="GroupInit"
+                        tibex:group="groupInit"
+                        tibex:xpdlId="db1211a6-f18f-4fdd-b8d7-36fa0d2def55" validate="no">
+                        <bpws:copy>
+                            <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"><![CDATA[<?xml version="1.0" encoding="UTF-8"?> <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+2b7e9275-1c60-479d-b4b0-2f42a914eb04" version="2.0"> <xsl:template name="Accumulate" match="/"> <tns:AccumulatedOutput/> </xsl:template> </xsl:stylesheet>]]></bpws:from>
+                            <bpws:to variable="Accumulate"/>
+                        </bpws:copy>
+                    </bpws:assign>
+                    <bpws:forEach counterName="index" name="forEach"
+                        parallel="no" tibex:group="foreach">
+                        <tibex:DesignExpression name="final">
+                            <tibex:expression
+                                expression="count($GetAccessProfileByRolesIn/parameters/ns2:Roles/ns2:Rolename)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:startCounterValue><![CDATA[1]]></bpws:startCounterValue>
+                        <bpws:finalCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($GetAccessProfileByRolesIn.parameters/ns2:Rolename)]]></bpws:finalCounterValue>
+                        <bpws:scope name="innerScope">
+                            <bpws:flow name="flow1">
+                                <bpws:links>
+                                    <bpws:link
+                                    name="GroupStartToGetAccessProfileByRole" tibex:linkType="SUCCESS"/>
+                                    <bpws:link
+                                    name="GetAccessProfileByRoleToGroupEnd" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="AssignToAccumulate" tibex:linkType="SUCCESS"/>
+                                    <bpws:link
+                                    name="Assign1ToAccumulate" tibex:linkType="SUCCESS"/>
+                                    <bpws:link
+                                    name="SetEPRToGetAccessProfileByRole" tibex:linkType="SUCCESS"/>
+                                </bpws:links>
+                                <bpws:empty name="GroupStart"
+                                    tibex:group="groupStart" tibex:xpdlId="b41c14e5-1fb0-4b68-bce6-859d84bd2981">
+                                    <bpws:sources>
+                                    <bpws:source linkName="GroupStartToGetAccessProfileByRole"/>
+                                    </bpws:sources>
+                                </bpws:empty>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    name="Accumulate"
+                                    outputVariable="Accumulate"
+                                    tibex:group="groupEnd"
+                                    tibex:xpdlId="2b7e9275-1c60-479d-b4b0-2f42a914eb04" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Assign1ToAccumulate"/>
+                                    </bpws:targets>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.internal.accumulateend"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//AccumulateEnd"/>
+                                    <value
+                                    partName="parameters" xsi:type="internalactivities:AccumulateEnd">
+                                    <activityNames>GetAccessProfileByRole</activityNames>
+                                    </value>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                                <bpws:invoke
+                                    inputVariable="GetAccessProfileByRole-input"
+                                    name="GetAccessProfileByRole"
+                                    operation="GetAccessProfileByRole"
+                                    outputVariable="GetAccessProfileByRole"
+                                    partnerLink="GetAccessProfileByRole"
+                                    portType="ns9:GetAccessProfileByRole" tibex:xpdlId="2aa09403-b936-48bf-b44f-34f05728b671">
+                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns1="http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl" xmlns:ns1="http://www.tibco.com/CommonLE2/Private/Administration" version="2.0"&gt;
+    &lt;xsl:param name="index"/&gt;
+    &lt;xsl:param name="GetAccessProfileByRolesIn"/&gt;
+    &lt;xsl:template name="GetAccessProfileByRole-input" match="/"&gt;
+        &lt;tns1:GetAccessProfileByRoleRequest&gt;
+            &lt;parameters&gt;
+                &lt;ns1:RoleName&gt;
+                    &lt;xsl:value-of select="$GetAccessProfileByRolesIn/parameters/ns:Roles/ns:Rolename[number($index)]"/&gt;
+                &lt;/ns1:RoleName&gt;
+            &lt;/parameters&gt;
+        &lt;/tns1:GetAccessProfileByRoleRequest&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns1=&quot;http://www.tibco.com/SecurityManagement/DataAccess/GetAccessProfileByRole.wsdl&quot; xmlns:ns1=&quot;http://www.tibco.com/CommonLE2/Private/Administration&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetAccessProfileByRolesIn.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;index&quot;/>&#xa;    &lt;xsl:template name=&quot;GetAccessProfileByRole-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns1:RoleName>&#xa;            &lt;xsl:value-of select=&quot;$GetAccessProfileByRolesIn.parameters/ns:Rolename[number($index)]&quot;/>&#xa;        &lt;/ns1:RoleName>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <bpws:targets>
+                                    <bpws:target linkName="SetEPRToGetAccessProfileByRole"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="GetAccessProfileByRoleToGroupEnd"/>
+                                    </bpws:sources>
+                                </bpws:invoke>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CombinedApplicationIDs&quot;/>&lt;xsl:param name=&quot;GetAccessProfileByRole&quot;/>&lt;xsl:template name=&quot;CombinedApplicationIDs&quot; match=&quot;/&quot;>&lt;ns:ApplicationIDs>&lt;xsl:for-each select=&quot;$CombinedApplicationIDs/ns:ApplicationID&quot;>&lt;ns:ApplicationID>&lt;xsl:value-of select=&quot;.&quot;/>&lt;/ns:ApplicationID>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:ApplicationIDs/ns:ApplicationID&quot;>&lt;ns:ApplicationID>&lt;xsl:value-of select=&quot;.&quot;/>&lt;/ns:ApplicationID>&lt;/xsl:for-each>&lt;/ns:ApplicationIDs>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="CombinedApplicationIDs"
+                                    name="CombineAppIDs"
+                                    outputVariable="CombinedApplicationIDs"
+                                    tibex:xpdlId="8c44bccb-7814-4e94-9367-1ac594a7bca2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="GetAccessProfileByRoleToGroupEnd"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="AssignToAccumulate"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;CombinedApplicationIDs&quot;/>&#xa;    &lt;xsl:template name=&quot;CombinedApplicationIDs&quot; match=&quot;/&quot;>&#xa;        &lt;ns:ApplicationIDs>&#xa;            &lt;xsl:for-each select=&quot;$CombinedApplicationIDs/ns:ApplicationID&quot;>&#xa;                &lt;ns:ApplicationID>&#xa;                    &lt;xsl:value-of select=&quot;.&quot;/>&#xa;                &lt;/ns:ApplicationID>&#xa;            &lt;/xsl:for-each>&#xa;            &lt;xsl:for-each select=&quot;$GetAccessProfileByRole.parameters/ns:ApplicationIDs/ns:ApplicationID&quot;>&#xa;                &lt;ns:ApplicationID>&#xa;                    &lt;xsl:value-of select=&quot;.&quot;/>&#xa;                &lt;/ns:ApplicationID>&#xa;            &lt;/xsl:for-each>&#xa;        &lt;/ns:ApplicationIDs>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.bwassign"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="CombinedApplicationIDs" xsi:type="generalactivities:BWAssign"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CombinedPermissions&quot;/>&lt;xsl:param name=&quot;GetAccessProfileByRole&quot;/>&lt;xsl:template name=&quot;CombinedPermissions&quot; match=&quot;/&quot;>&lt;ns:Permission>&lt;ns:Configuration>&lt;ns:View>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:View or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Configuration/ns:View&quot;/>&lt;/ns:View>&lt;ns:Add>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Add or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Configuration/ns:Add&quot;/>&lt;/ns:Add>&lt;ns:Edit>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Edit or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Configuration/ns:Edit&quot;/>&lt;/ns:Edit>&lt;ns:Delete>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Delete or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Configuration/ns:Delete&quot;/>&lt;/ns:Delete>&lt;/ns:Configuration>&lt;ns:Log>&lt;ns:View>&lt;xsl:value-of select=&quot;$GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Log/ns:View or $CombinedPermissions/ns:Log/ns:View&quot;/>&lt;/ns:View>&lt;ns:Delete>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Log/ns:Delete or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Log/ns:Delete&quot;/>&lt;/ns:Delete>&lt;/ns:Log>&lt;ns:Exception>&lt;ns:View>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:View or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Exception/ns:View&quot;/>&lt;/ns:View>&lt;ns:Delete>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Delete or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Exception/ns:Delete&quot;/>&lt;/ns:Delete>&lt;ns:Edit>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Edit or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Exception/ns:Edit&quot;/>&lt;/ns:Edit>&lt;ns:Resolve>&lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Resolve or $GetAccessProfileByRole/parameters/ns:RoleAccessProfile/ns:Permission/ns:Exception/ns:Resolve&quot;/>&lt;/ns:Resolve>&lt;/ns:Exception>&lt;/ns:Permission>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="CombinedPermissions"
+                                    name="CombinedPermissions"
+                                    outputVariable="CombinedPermissions"
+                                    tibex:xpdlId="eb5b70e4-5cb3-49f0-b52a-6ca4f12c3bb9" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="AssignToAccumulate"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Assign1ToAccumulate"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;CombinedPermissions&quot;/>&#xa;    &lt;xsl:template name=&quot;CombinedPermissions&quot; match=&quot;/&quot;>&#xa;        &lt;ns:Permission>&#xa;            &lt;ns:Configuration>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:View or $GetAccessProfileByRole.parameters/ns:Permission/ns:Configuration/ns:View&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Add>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Add or $GetAccessProfileByRole.parameters/ns:Permission/ns:Configuration/ns:Add&quot;/>&#xa;                &lt;/ns:Add>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Edit or $GetAccessProfileByRole.parameters/ns:Permission/ns:Configuration/ns:Edit&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Configuration/ns:Delete or $GetAccessProfileByRole.parameters/ns:Permission/ns:Configuration/ns:Delete&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Configuration>&#xa;            &lt;ns:Log>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;$GetAccessProfileByRole.parameters/ns:Permission/ns:Log/ns:View or $CombinedPermissions/ns:Log/ns:View&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Log/ns:Delete or $GetAccessProfileByRole.parameters/ns:Permission/ns:Log/ns:Delete&quot;/>&#xa;                &lt;/ns:Delete>&#xa;            &lt;/ns:Log>&#xa;            &lt;ns:Exception>&#xa;                &lt;ns:View>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:View or $GetAccessProfileByRole.parameters/ns:Permission/ns:Exception/ns:View&quot;/>&#xa;                &lt;/ns:View>&#xa;                &lt;ns:Delete>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Delete or $GetAccessProfileByRole.parameters/ns:Permission/ns:Exception/ns:Delete&quot;/>&#xa;                &lt;/ns:Delete>&#xa;                &lt;ns:Edit>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Edit or $GetAccessProfileByRole.parameters/ns:Permission/ns:Exception/ns:Edit&quot;/>&#xa;                &lt;/ns:Edit>&#xa;                &lt;ns:Resolve>&#xa;                    &lt;xsl:value-of select=&quot;$CombinedPermissions/ns:Exception/ns:Resolve or $GetAccessProfileByRole.parameters/ns:Permission/ns:Exception/ns:Resolve&quot;/>&#xa;                &lt;/ns:Resolve>&#xa;            &lt;/ns:Exception>&#xa;        &lt;/ns:Permission>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.bwassign"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="CombinedPermissions" xsi:type="generalactivities:BWAssign"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    inputVariable="SetEPR_GetAccessProfileByRole-input"
+                                    name="SetEPR_GetAccessProfileByRole"
+                                    outputVariable="SetEPR_GetAccessProfileByRole"
+                                    tibex:xpdlId="f957d5a3-3a87-4e8e-a972-baf6af9f93eb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="GroupStartToGetAccessProfileByRole"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="SetEPRToGetAccessProfileByRole"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_GetAccessProfileByRole-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), bw:getModuleProperty(&amp;quot;BW.APPLICATION.VERSION&amp;quot;), concat($DBType ,&amp;quot;_GetAccessProfileByRole&amp;quot;))&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.internal.setEPR"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//SetEPR"/>
+                                    <value
+                                    referenceName="GetAccessProfileByRole" xsi:type="internalactivities:SetEPR"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                            </bpws:flow>
+                        </bpws:scope>
+                    </bpws:forEach>
+                </bpws:sequence>
+            </bpws:scope>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="SetEPR_RetrieveApplicationConfigurationList-input"
+                    name="SetEPR_RetrieveApplicationConfigurationList"
+                    outputVariable="SetEPR_RetrieveApplicationConfigurationList"
+                    tibex:xpdlId="d5560e5d-83d5-4281-81cc-4abdf9c73ed8" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="Assign1ToInvoke"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="SetEPRToRetrieveApplicationConfigurationList"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_RetrieveApplicationConfigurationList-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), bw:getModuleProperty(&amp;quot;BW.APPLICATION.VERSION&amp;quot;), concat($DBType ,&amp;quot;_RetrieveApplicationConfigurationList&amp;quot;))&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.internal.setEPR"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//SetEPR"/>
+                                    <value
+                                    referenceName="RetrieveApplicationConfigurationList" xsi:type="internalactivities:SetEPR"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" version="5.0">
+	<xs:element name="Permission">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="Configuration">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" ref="View"/>
+							<xs:element minOccurs="0" ref="Add"/>
+							<xs:element minOccurs="0" ref="Edit"/>
+							<xs:element minOccurs="0" ref="Delete"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="Log">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" ref="View"/>
+							<xs:element minOccurs="0" ref="Delete"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="Exception">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" ref="View"/>
+							<xs:element minOccurs="0" ref="Delete"/>
+							<xs:element minOccurs="0" ref="Edit"/>
+							<xs:element minOccurs="0" name="Resolve" type="xs:boolean"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="View" type="xs:boolean"/>
+	<xs:element name="Add" type="xs:boolean"/>
+	<xs:element name="Edit" type="xs:boolean"/>
+	<xs:element name="Delete" type="xs:boolean"/>
+	<xs:element name="Permissions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="Permission"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Roles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="Rolename" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ApplicationIDs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="ApplicationID" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserCredential">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Username" type="xs:string"/>
+				<xs:element name="Password" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserAccessProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="User" type="xs:string"/>
+				<xs:element ref="Permission"/>
+				<xs:element ref="ApplicationIDs"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RoleAccessProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Role" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" ref="Permission"/>
+				<xs:element ref="ApplicationIDs"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

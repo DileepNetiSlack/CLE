@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/DeleteApplicationConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeleteApplicationConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/DeleteApplicationConfiguration.wsdl">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ApplicationConfiguration/MSSQL/DeleteApplicationConfiguration.wsdl">
+	<xsd:element name="deleteResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+	<xsd:schema>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/private/Common" schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Query" schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/ConfigurationQuery.xsd">
+    		</xsd:import>
+    </xsd:schema>
+    		</wsdl:types>
+    <wsdl:message name="Query">
+    <wsdl:part element="extns:Query" name="parameters"/>
+    </wsdl:message>
+  <wsdl:message name="deleteFault">
+    <wsdl:part element="part:DBRecordNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+
+    </wsdl:message>
+  <wsdl:message name="deleteFault1">
+  	<wsdl:part element="part:SystemIDDeletionError" name="parameters">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteFault2">
+  	<wsdl:part element="part:ReferencialIntegrityViolation" name="parameters">
+  	</wsdl:part>
+  </wsdl:message>
+    <wsdl:message name="operationRequest">
+    <wsdl:part element="extns:operationRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="operationResponse">
+    <wsdl:part element="extns:operationResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="DeleteApplicationConfiguration">
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:Query" name="operationinput"/>
+      <wsdl:output message="tns:deleteResponse"/>
+      <wsdl:fault message="tns:deleteFault" name="fault"/>
+            <wsdl:fault message="tns:deleteFault1" name="fault1"/>
+            <wsdl:fault message="tns:deleteFault2" name="fault2"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

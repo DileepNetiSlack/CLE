@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="UserRolesRetrieval-Interface" targetNamespace="http://xmlns.example.com/1257284180093/SecurityManagement/Logic/AccessControl/UserRolesRetrieval/Interface" xmlns:ref="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserRolesRequest" xmlns:ref2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" xmlns:ref3="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://xmlns.example.com/1257284180093/SecurityManagement/Logic/AccessControl/UserRolesRetrieval/Interface" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import location="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/UserRolesRequest.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserRolesRequest"/>
+  <import location="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/AllRolesRetrieval.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse"/>
+  <import location="../../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+  <message name="Input-Msg">
+    <part element="ref:UserRolesRequest" name="Input-Msg-Part"/>
+  </message>
+  <message name="Output-Msg">
+    <part element="ref2:AllRoles" name="Output-Msg-Part"/>
+  </message>
+  <message name="Fault-AdminConnectError-Msg">
+    <part element="ref3:AdministratorConnectError" name="Fault-AdminConnectError-Msg-Part"/>
+  </message>
+  <message name="Fault-RoleRetrievalError-Msg">
+    <part element="ref3:RoleRetrievalError" name="Fault-RoleRetrievalError-Msg-Part"/>
+  </message>
+  <portType name="UserRolesRetrieval-PortType">
+    <operation name="UserRolesRetrieval-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+      <fault message="tns:Fault-AdminConnectError-Msg" name="Fault-AdminConnectError"/>
+      <fault message="tns:Fault-RoleRetrievalError-Msg" name="Fault-RoleRetrievalError"/>
+    </operation>
+  </portType>
+</definitions>

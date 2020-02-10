@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Exception" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/CheckExceptionWithTTL.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CheckExceptionWithTTL" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/CheckExceptionWithTTL.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE/namespace/Common" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/CheckExceptionWithTTL.wsdl">
+	<xsd:element name="checkResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="Exist" type="xsd:boolean"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="checkFault" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="checkFault" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Exception"
+    			schemaLocation="../../../../Schemas/Private/Exception/QueryUpdate.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE/namespace/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/Error.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="ExceptionTTLQuery">
+    <wsdl:part element="extns:ExceptionTTLQuery" name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="checkResponse">
+  	<wsdl:part name="parameters" element="tns:checkResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkFault">
+  </wsdl:message>
+  <wsdl:message name="checkFault1">
+  	<wsdl:part name="parameters" element="xsd2:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CheckExceptionWithTTL">
+    <wsdl:operation name="check">
+      <wsdl:input message="tns:ExceptionTTLQuery" name="checkinput"/>
+      <wsdl:output message="tns:checkResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:checkFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

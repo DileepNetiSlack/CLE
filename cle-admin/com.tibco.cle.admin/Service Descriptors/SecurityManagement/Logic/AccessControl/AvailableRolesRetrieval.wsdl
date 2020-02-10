@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="AvailableRolesRetrieval-Interface" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://xmlns.example.com/1257283315894/SecurityManagement/Logic/AccessControl/AvailableRolesRetrieval/Interface" xmlns:ref="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse" xmlns:ref2="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://xmlns.example.com/1257283315894/SecurityManagement/Logic/AccessControl/AvailableRolesRetrieval/Interface">
+  <import location="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/AllRolesRetrieval.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/AllRolesRetrievalResponse"/>
+  <import location="../../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+  <message name="Input-Msg"/>
+  <message name="Output-Msg">
+    <part element="ref:AllRoles" name="Output-Msg-Part"/>
+  </message>
+  <message name="Fault-Schema0-Msg">
+    <part element="ref2:AdministratorConnectError" name="Fault-Schema0-Msg-Part"/>
+  </message>
+  <portType name="AvailableRolesRetrieval-PortType">
+    <operation name="AvailableRolesRetrieval-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+      <fault message="tns:Fault-Schema0-Msg" name="Fault-Schema0"/>
+    </operation>
+  </portType>
+</definitions>

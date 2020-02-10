@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/CommonLE2/Private/Administration">
+	<xsd:element name="ID" type="xsd:string"/>
+	<xsd:element name="Description" type="xsd:string"/>
+	<xsd:element name="ExceptionCode" type="xsd:string"/>
+	<xsd:element name="ApplicationUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ID"/>
+				<xsd:element ref="Name"/>
+				<xsd:element ref="Description"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Name" type="xsd:string"/>
+	<xsd:element name="CategoryUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ID"/>
+				<xsd:element ref="Name"/>
+				<xsd:element ref="Description"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExceptionConfigurationQuery">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ApplicationID"/>
+				<xsd:element ref="ExceptionCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ProcedureUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ID"/>
+				<xsd:element ref="Name"/>
+				<xsd:element ref="Description"/>
+				<xsd:element ref="Destination"/>
+				<xsd:element ref="PhysicalName"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TypeUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ID"/>
+				<xsd:element ref="Name"/>
+				<xsd:element ref="Description"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SeverityUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ID"/>
+				<xsd:element ref="Name"/>
+				<xsd:element ref="Description"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExceptionConfigurationUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ApplicationID" type="xsd:string"/>
+				<xsd:element name="ExceptionCode" type="xsd:string"/>
+				<xsd:element name="CategoryID" type="xsd:integer"/>
+				<xsd:element name="TypeID" type="xsd:integer"/>
+				<xsd:element name="SeverityID" type="xsd:integer"/>
+				<xsd:element minOccurs="0" name="ProcedureID" type="xsd:integer"/>
+				<xsd:element name="Description" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ReplyDestination" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="RoleName" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NotificationChannel" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="EmailTo" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="EmailCC" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Exceptionttl" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Instruction" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="EventType" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ResolveDelayInterval" type="xsd:integer"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Destination" type="xsd:string"/>
+	<xsd:element name="PhysicalName" type="xsd:string"/>
+	<xsd:element name="ApplicationID" type="xsd:string"/>
+	<xsd:element name="Query">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ApplicationID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="InterfaceConfiguration">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ApplicationID"/>
+				<xsd:element ref="ID"/>
+				<xsd:element minOccurs="0" ref="Name"/>
+				<xsd:element name="Type" type="xsd:string"/>
+				<xsd:element name="dbUse" type="xsd:boolean"/>
+				<xsd:element name="TransComplexity" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Owner" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="SourceSystem" type="xsd:string"/>
+				<xsd:element name="TargetSystem" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Protocol" type="xsd:string"/>
+				<xsd:element name="Status" type="xsd:string"/>
+				<xsd:element minOccurs="0" ref="Description"/>
+				<xsd:element minOccurs="0" name="ParentID" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

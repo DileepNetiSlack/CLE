@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1456827886041" xmlns:tns="http://xmlns.example.com/20160301155446" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotifyHandlingProcedureByScheduleService" targetNamespace="http://xmlns.example.com/20160301155446">
+  <wsdl:import location="../../../Schemas/NotifyHandlingProcedureByScheduleSchema.xsd" namespace="http://www.example.org/schema/1456827886041"/>
+  <wsdl:message name="operationRequest">
+    <wsdl:part element="extns:operationRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationResponse">
+  </wsdl:message>
+  <wsdl:message name="operationFault">
+  </wsdl:message>
+    <wsdl:message name="operation1Request">
+    <wsdl:part element="extns:operation1Request" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="Service">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

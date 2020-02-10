@@ -1,0 +1,7 @@
+{
+    "records": [],
+    "resources": [{
+        "location": "Service Descriptors/SecurityManagement.GUIServices.UserManagementService-UserManagementService.json",
+        "type": "generated"
+    }]
+}

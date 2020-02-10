@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveInterfaceConfigurationList.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveInterfaceConfigurationList" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveInterfaceConfigurationList.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveInterfaceConfigurationList.wsdl">
+      <xsd:element name="retrieveList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="retrieveListFault" type="xsd:string"></xsd:element>
+        </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../../Schemas/Private/Administration/QueryResults.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/InterfaceConfigDetail.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="retrieveListRequest">
+    <wsdl:part element="xsd1:ApplicationID" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveListResponse">
+    <wsdl:part element="xsd2:InterfaceList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveListFault">
+  	<wsdl:part name="fault" element="xsd3:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RetrieveInterfaceConfigurationList">
+    <wsdl:operation name="retrieveList">
+      <wsdl:input message="tns:retrieveListRequest"/>
+      <wsdl:output message="tns:retrieveListResponse"/>
+            <wsdl:fault name="fault" message="tns:retrieveListFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

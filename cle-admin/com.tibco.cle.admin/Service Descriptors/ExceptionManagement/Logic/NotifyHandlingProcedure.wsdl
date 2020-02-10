@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1456818522567" xmlns:extns1="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:extns2="http://www.tibco.com/CommonLE2/Public/Pluggable/Workflow" xmlns:extns3="http://www.tibco.com/CommonLE2/namespace/Private/Exception" xmlns:tns="http://www.example.org/wsdl/1456818522483" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotifyHandlingProcedure" targetNamespace="http://www.example.org/wsdl/1456818522483">
+    <wsdl:import location="../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+    <wsdl:import location="../../../Schemas/Public/Pluggable/Workflow/ProcedureMessage.xsd" namespace="http://www.tibco.com/CommonLE2/Public/Pluggable/Workflow"/>
+    <wsdl:import location="../../../Schemas/Private/Exception/ExceptionParameters.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Private/Exception"/>
+    <wsdl:message name="operationRequest">
+    <wsdl:part element="extns2:ProcedureInfo" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationFault">
+        <wsdl:part element="extns1:ExceptionRecordNotFound" name="parameters"/>
+    </wsdl:message>
+  <wsdl:portType name="NotifyHandlingProcedure">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

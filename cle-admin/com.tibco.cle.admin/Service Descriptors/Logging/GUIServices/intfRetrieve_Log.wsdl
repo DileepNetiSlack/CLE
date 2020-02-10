@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="intfRetrieve_Log"
+	targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetailQuery"
+	xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetail"
+	xmlns:xsd3="http://www.tibco.com/CommonLE2/Public/Common"
+	xmlns:xsd4="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogListQuery"
+	xmlns:xsd5="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogList"
+	xmlns:xsd6="http://www.tibco.com/CommonLE2/namespace/Public//Pluggable/GUI/Common" xmlns:xsd7="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd">
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/GUIServices/intfRetrieve_Log.wsdl">
+			<xsd:element name="DeleteLogOpResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="out" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Dummy" type="xsd:string"></xsd:element>
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import
+				namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetailQuery"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Log/LogDetailQuery.xsd">
+			</xsd:import>
+			<xsd:import
+				namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogDetail"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Log/LogDetail.xsd">
+			</xsd:import>
+			<xsd:import namespace="http://www.tibco.com/CommonLE2/Public/Common"
+				schemaLocation="../../../Schemas/Public/Common/ErrorMessage.xsd">
+			</xsd:import>
+			<xsd:import
+				namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogListQuery"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Log/LogListQuery.xsd">
+			</xsd:import>
+			<xsd:import
+				namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Log/LogList"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Log/LogList.xsd">
+			</xsd:import>
+			<xsd:import
+				namespace="http://www.tibco.com/CommonLE2/namespace/Public//Pluggable/GUI/Common"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Common/IDQuery.xsd">
+			</xsd:import>
+			<xsd:import
+				namespace="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd"
+				schemaLocation="../../../Schemas/Public/Pluggable/GUI/Common/ListQuery.xsd">
+			</xsd:import></xsd:schema>
+	</wsdl:types>
+	<wsdl:message name = "Error">
+		<wsdl:part element = "xsd3:Error" name = "parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="Retrieve_sp_Log_sp_DetailOpRequest">
+		<wsdl:part name="parameters" element="xsd1:LogDetailQuery"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Retrieve_sp_Log_sp_DetailOpResponse">
+		<wsdl:part name="parameters" element="xsd2:LogDetail">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Retrieve_sp_Log_sp_DetailOpFault">
+		<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Retrieve_sp_Log_sp_ListOpRequest">
+		<wsdl:part name="parameters" element="xsd7:ListQuery"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Retrieve_sp_Log_sp_ListOpResponse">
+		<wsdl:part name="parameters" element="xsd5:LogList"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Retrieve_sp_Log_sp_ListOpFault">
+		<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="LogDeleteQuery">
+		<wsdl:part name="parameters" element="xsd6:Query"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Dummy">
+
+        <wsdl:part name="NewPart" element="tns:Dummy"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="DeleteLogOpFault">
+		<wsdl:part name="parameters" element="xsd3:Error"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="RetrieveLog">
+		<wsdl:operation name="Retrieve_sp_Log_sp_DetailOp">
+			<wsdl:input message="tns:Retrieve_sp_Log_sp_DetailOpRequest"></wsdl:input>
+			<wsdl:output message="tns:Retrieve_sp_Log_sp_DetailOpResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault1" message="tns:Retrieve_sp_Log_sp_DetailOpFault"></wsdl:fault>
+			<wsdl:fault name="fault2" message="tns:Error"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Retrieve_sp_Log_sp_ListOp">
+			<wsdl:input message="tns:Retrieve_sp_Log_sp_ListOpRequest"></wsdl:input>
+			<wsdl:output message="tns:Retrieve_sp_Log_sp_ListOpResponse"></wsdl:output>
+			<wsdl:fault name="fault1" message="tns:Retrieve_sp_Log_sp_ListOpFault"></wsdl:fault>
+			<wsdl:fault name="fault2" message="tns:Error"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteLogOp">
+			<wsdl:input message="tns:LogDeleteQuery"></wsdl:input>
+			<wsdl:output message="tns:Dummy"></wsdl:output>
+			<wsdl:fault name="fault1" message="tns:DeleteLogOpFault"></wsdl:fault>
+			<wsdl:fault name="fault2" message="tns:Error"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/DeleteRenderConfig.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeleteRenderConfig" targetNamespace="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/DeleteRenderConfig.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfigDelete" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/DeleteRenderConfig.wsdl">
+      <xsd:element name="delete">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="deleteFault" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteFault1">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="deleteFault1" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/RenderConfigDelete"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/RenderConfigDelete.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part element="xsd1:DeleteQueries" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part element="tns:deleteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteFault">
+  	<wsdl:part name="parameters" element="xsd2:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteFault1">
+  	<wsdl:part name="parameters"
+  		element="xsd2:ReferencialIntegrityViolation">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DeleteRenderConfig">
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteRequest"/>
+      <wsdl:output message="tns:deleteResponse"/>
+            <wsdl:fault name="fault" message="tns:deleteFault"></wsdl:fault>
+            <wsdl:fault name="fault1" message="tns:deleteFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DeleteRenderConfigSOAP" type="tns:DeleteRenderConfig">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://www.tibco.com/Administration/DataAccess/RenderConfiguration/DeleteRenderConfig.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeleteRenderConfig">
+    <wsdl:port binding="tns:DeleteRenderConfigSOAP" name="DeleteRenderConfigSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

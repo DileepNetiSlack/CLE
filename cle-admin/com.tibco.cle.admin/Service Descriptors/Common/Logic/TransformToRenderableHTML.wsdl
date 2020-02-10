@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Common/Logic/TransformToRenderableHTML.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TransformToRenderableHTML" targetNamespace="http://www.tibco.com/Common/Logic/TransformToRenderableHTML.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Common/Logic/TransformToRenderableHTML.wsdl" xmlns:Q1="http://www.tibco.com/CommonLE2/namespace/private/Common">
+            <xsd:import schemaLocation="../../../Schemas/Private/Common/Rendering.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"></xsd:import>
+            <xsd:element name="transformInputparams">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="RenderingImp" type="tns:RenderingImp" />
+
+          	<xsd:element name="xmlString" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="transformResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="HTMLString" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+    
+      <xsd:complexType name="RenderingImp">
+      	<xsd:sequence>
+      		<xsd:element ref="Q1:RenderingImp"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="transformFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="transformFault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="transformRequest">
+    <wsdl:part name="parameters" element="tns:transformInputparams" />
+  </wsdl:message>
+  <wsdl:message name="transformResponse">
+    <wsdl:part name="parameters" element="tns:transformResponse" />
+  </wsdl:message>
+  <wsdl:message name="transformFault">
+  	<wsdl:part name="parameters" element="tns:transformFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransformToRenderableHTML">
+    <wsdl:operation name="transform">
+      <wsdl:input message="tns:transformRequest"/>
+      <wsdl:output message="tns:transformResponse"/>
+            <wsdl:fault name="fault" message="tns:transformFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

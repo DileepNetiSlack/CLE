@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/UpdateExceptionConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateExceptionConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/UpdateExceptionConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Public/Common/Dummy">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/ExceptionConfiguration/MSSQL/UpdateExceptionConfiguration.wsdl">
+	<xsd:element name="updateResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    			schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Public/Common/Dummy"
+    			schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Common/DummyReturnMessage.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="InterfaceConfiguration">
+    <wsdl:part element="extns:ExceptionConfigurationUpdate"
+    	name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="updatefault">
+    <wsdl:part element="part:DBRecordNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+  	<wsdl:part name="parameters" element="xsd1:Dummy"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UpdateExceptionConfiguration">
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:InterfaceConfiguration" name="updateinput"/>
+      <wsdl:output message="tns:updateResponse"></wsdl:output>
+      <wsdl:fault message="tns:updatefault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

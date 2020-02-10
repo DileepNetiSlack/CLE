@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/Logic/HandleExceptionRequest.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HandleExceptionRequest" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/Logic/HandleExceptionRequest.wsdl">
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+  			schemaLocation="../../../Schemas/Private/Common/LocalExceptions.xsd">
+  		</xsd:import></xsd:schema>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  		targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/Logic/HandleExceptionRequest.wsdl">
+  		<xsd:element name="ExceptionRequest" type="xsd:string"></xsd:element>
+  		<xsd:element name="out"><xsd:complexType></xsd:complexType></xsd:element>
+            <xsd:element name="handleFault1" type="xsd:string"></xsd:element>
+            <xsd:element name="handleFault2" type="xsd:string"></xsd:element>
+            <xsd:element name="handleFault3" type="xsd:string"></xsd:element>
+            <xsd:element name="handleFault4" type="xsd:string"></xsd:element>
+        </xsd:schema></wsdl:types>
+  <wsdl:message name="ExceptionCode">
+    <wsdl:part name="parameters" element="tns:ExceptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="handlefault">
+    <wsdl:part element="part:DBError" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="handleResponse">
+  	<wsdl:part name="handleResponse" element="tns:out"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="handleFault1">
+  	<wsdl:part name="fault1"
+  		element="part:ExceptionConfigurationNotFound">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="handleFault2">
+  	<wsdl:part name="fault2" element="part:IDNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="handleFault3">
+  	<wsdl:part name="fault3" element="part:XMLError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="handleFault4">
+  	<wsdl:part name="fault4" element="part:JMSError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HandleExceptionRequest">
+    <wsdl:operation name="handle">
+      <wsdl:input message="tns:ExceptionCode" name="handleinput"/>
+      <wsdl:output message="tns:handleResponse"></wsdl:output>
+      <wsdl:fault message="tns:handlefault" name="fault"/>
+            <wsdl:fault name="fault1" message="tns:handleFault1"></wsdl:fault>
+            <wsdl:fault name="fault2" message="tns:handleFault2"></wsdl:fault>
+            <wsdl:fault name="fault3" message="tns:handleFault3"></wsdl:fault>
+            <wsdl:fault name="fault4" message="tns:handleFault4"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

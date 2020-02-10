@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="UserAuthentication-Interface" targetNamespace="http://xmlns.example.com/1257283308222/SecurityManagement/Logic/AccessControl/UserAuthentication/Interface" xmlns:ref="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationRequest" xmlns:ref2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationResponse" xmlns:ref3="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://xmlns.example.com/1257283308222/SecurityManagement/Logic/AccessControl/UserAuthentication/Interface" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import location="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/UserAuthenticationRequest.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationRequest"/>
+  <import location="../../../../Schemas/Public/Pluggable/GUI/Administration/SecurityConfiguration/UserAuthenticationResponse.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/SecurityConfiguration/UserAuthenticationResponse"/>
+  <import location="../../../../Schemas/Private/Common/LocalExceptions.xsd" namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"/>
+  <message name="Input-Msg">
+    <part element="ref:UserAuthenticationRequest" name="Input-Msg-Part"/>
+  </message>
+  <message name="Output-Msg">
+    <part element="ref2:UserAuthenticationResponse" name="Output-Msg-Part"/>
+  </message>
+  <message name="Fault-AuthenticationError-Msg">
+    <part element="ref3:RoleRetrievalError" name="Fault-AuthenticationError-Msg-Part"/>
+  </message>
+  <message name="Fault-AdminConnectError-Msg">
+    <part element="ref3:AdministratorConnectError" name="Fault-AdminConnectError-Msg-Part"/>
+  </message>
+  <message name="Fault-AuthorizationError-Msg">
+    <part element="ref3:AuthorizationError" name="Fault-AuthorizationError-Msg-Part"/>
+  </message>
+  <message name="Fault-RoleRetrivealError-Msg">
+    <part element="ref3:AuthenticationError" name="Fault-RoleRetrivealError-Msg-Part"/>
+  </message>
+  <portType name="UserAuthentication-PortType">
+    <operation name="UserAuthentication-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+      <fault message="tns:Fault-AuthenticationError-Msg" name="Fault-AuthenticationError"/>
+      <fault message="tns:Fault-AdminConnectError-Msg" name="Fault-AdminConnectError"/>
+      <fault message="tns:Fault-AuthorizationError-Msg" name="Fault-AuthorizationError"/>
+      <fault message="tns:Fault-RoleRetrivealError-Msg" name="Fault-RoleRetrivealError"/>
+    </operation>
+  </portType>
+</definitions>

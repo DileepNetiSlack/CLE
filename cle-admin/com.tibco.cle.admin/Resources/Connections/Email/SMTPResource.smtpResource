@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:smtp="http://xsd.tns.tibco.com/bw/models/sharedresource/smtp" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_z6QBMdCTEeWE_dXcvc1iLg" name="Connections.Email.SMTPResource" type="smtp:SmtpConfiguration">
+  <jndi:reference xmi:id="_z7cUANCTEeWE_dXcvc1iLg" key="identityJNDIName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="smtp:SmtpConfiguration" xmi:id="_z7cUAdCTEeWE_dXcvc1iLg">
+    <tcpDetails xmi:id="_z7cUAtCTEeWE_dXcvc1iLg" connectionTimeout="60000">
+      <substitutionBindings xmi:id="_vZdOMCk3EeiFuc1uarJNkA" template="host" propName="Notification/Email/MIG_Host"/>
+      <substitutionBindings xmi:id="_vnhfYCk3EeiFuc1uarJNkA" template="port" propName="Notification/Email/MIG_PortNumber"/>
+      <substitutionBindings xmi:id="_vzjJMCk3EeiFuc1uarJNkA" template="soTimeout" propName="Notification/Email/MIG_Timeout"/>
+    </tcpDetails>
+    <userCredentials xmi:id="_z7cUA9CTEeWE_dXcvc1iLg">
+      <substitutionBindings xmi:id="_v-z-ACk3EeiFuc1uarJNkA" template="username" propName="Notification/Email/MIG_UserName"/>
+      <substitutionBindings xmi:id="_wtAgwCk3EeiFuc1uarJNkA" template="password" propName="Notification/Email/MIG_Password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

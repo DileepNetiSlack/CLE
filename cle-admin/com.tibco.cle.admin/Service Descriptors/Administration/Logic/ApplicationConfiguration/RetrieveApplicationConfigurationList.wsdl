@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ApplicationConfiguration/RetrieveApplicationConfigurationList.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveApplicationConfigurationList" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ApplicationConfiguration/RetrieveApplicationConfigurationList.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Applications" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/ApplicationConfiguration/RetrieveApplicationConfigurationList.wsdl">
+	<xsd:element name="retrieve">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="retrieveResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element><xsd:element name="retrieveFault" type="xsd:string"></xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    			schemaLocation="../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/Applications"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/Applications.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="retrieveRequest">
+		<wsdl:part name="parameters" element="xsd1:Name"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="retrieveResponse">
+    	<wsdl:part name="parameters" element="xsd2:Applications"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="retrieveFault">
+    	<wsdl:part name="fault" element="xsd3:ApplicationRecordsNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="RetrieveApplicationConfigurationList">
+    	<wsdl:operation name="retrieve">
+    		<wsdl:input message="tns:retrieveRequest"></wsdl:input>
+    		<wsdl:output message="tns:retrieveResponse"></wsdl:output>
+            <wsdl:fault name="ApplicationRecordsNotFound" message="tns:retrieveFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

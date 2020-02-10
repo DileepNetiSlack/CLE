@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://www.example.com/namespaces/tns/1440573351560" elementFormDefault="qualified" targetNamespace="http://www.example.com/namespaces/tns/1440573351560">
+  <element name="Query">
+    <complexType>
+      <sequence>
+                <element name="SqlStatement" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+</schema>

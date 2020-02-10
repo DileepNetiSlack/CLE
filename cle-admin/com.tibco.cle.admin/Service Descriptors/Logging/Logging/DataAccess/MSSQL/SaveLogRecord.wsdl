@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequest.xsd" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/SaveLogRecord.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SaveLogRecord" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/SaveLogRecord.wsdl">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Logging/Logging/DataAccess/MSSQL/SaveLogRecord.wsdl">
+	<xsd:element name="saveResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveFault1">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="saveFault1" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequest.xsd"
+    			schemaLocation="../../../../../Schemas/Public/Logging/LogRequest.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="LogRequest">
+    <wsdl:part element="extns:LogRequest" name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="savefault">
+    <wsdl:part element="part:DBError" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+  	<wsdl:part name="parameters" element="tns:saveResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveFault1">
+  	<wsdl:part name="parameters" element="part:IDNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SaveLogRecord">
+    <wsdl:operation name="save">
+      <wsdl:input message="tns:LogRequest" name="saveinput"/>
+      <wsdl:output message="tns:saveResponse"></wsdl:output>
+      <wsdl:fault message="tns:savefault" name="fault"/>
+            <wsdl:fault name="fault1" message="tns:saveFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

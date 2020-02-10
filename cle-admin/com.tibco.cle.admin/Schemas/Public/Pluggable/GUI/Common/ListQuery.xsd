@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd">
+	<xs:element name="ListQuery">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="Applications"/>
+				<xs:element minOccurs="0" ref="Criteria"/>
+				<xs:element minOccurs="0" ref="OrderBy"/>
+				<xs:element minOccurs="0" name="Range">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FromRow" type="xs:unsignedInt"/>
+							<xs:element name="ToRow" type="xs:unsignedInt"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Criterion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="FieldName"/>
+				<xs:element minOccurs="0" ref="FromValue"/>
+				<xs:element minOccurs="0" ref="ToValue"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FieldName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="TransactionID"/>
+				<xs:enumeration value="ComponentName"/>
+				<xs:enumeration value="Time_Stamp"/>
+				<xs:enumeration value="TransactionDomain"/>
+				<xs:enumeration value="CorrelationID"/>
+				<xs:enumeration value="FileName"/>
+				<xs:enumeration value="TransactionType"/>
+				<xs:enumeration value="Status"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FromValue" type="xs:string"/>
+	<xs:element name="ToValue" type="xs:string"/>
+	<xs:element name="OrderBy">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="TransactionID"/>
+				<xs:enumeration value="ComponentName"/>
+				<xs:enumeration value="Time_Stamp"/>
+				<xs:enumeration value="TransactionDomain"/>
+				<xs:enumeration value="CorrelationID"/>
+				<xs:enumeration value="FileName"/>
+				<xs:enumeration value="TransactionType"/>
+				<xs:enumeration value="Status"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Applications">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="Application"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ApplicationID" type="xs:string"/>
+	<xs:element name="Criteria">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="Criterion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Application">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ApplicationID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="operationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="in" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="operationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="out" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

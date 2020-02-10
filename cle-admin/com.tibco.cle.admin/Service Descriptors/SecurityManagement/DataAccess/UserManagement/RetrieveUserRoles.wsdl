@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:extns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:part="http://www.w3.org/2001/XMLSchema" xmlns:pin="http://xmlns.example.com/1257284184139/RetrieveUserRoles-Start-Input.xsd" xmlns:pin2="http://xmlns.example.com/1257284184139/RetrieveUserRoles-End-Output.xsd" xmlns:tns="http://xmlns.example.com/1257284184139/SecurityManagement/DataAccess/UserManagement/RetrieveUserRoles/Interface" name="RetrieveUserRoles-Interface" targetNamespace="http://xmlns.example.com/1257284184139/SecurityManagement/DataAccess/UserManagement/RetrieveUserRoles/Interface">
+    <import location="../../../../Schemas/Private/SecurityConfiguration/AccessControl.xsd" namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"/>
+    <types>
+    <xsd:schema xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1257284184139/RetrieveUserRoles-Start-Input.xsd">
+    <xsd:element name="RoleRetrievalInput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="username" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+    <xsd:schema xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1257284184139/RetrieveUserRoles-End-Output.xsd">
+    <xsd:element name="UserRolesResult">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UserRoles" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Input-Msg">
+    <part element="pin:RoleRetrievalInput" name="Input-Msg-Part"/>
+  </message>
+  <message name="Output-Msg">
+        <part element="extns:Roles" name="parameters"/>
+    </message>
+  <portType name="RetrieveUserRoles-PortType">
+    <operation name="RetrieveUserRoles-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+    </operation>
+  </portType>
+</definitions>

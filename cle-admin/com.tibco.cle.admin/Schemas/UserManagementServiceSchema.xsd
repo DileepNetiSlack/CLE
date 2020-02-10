@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:source="bw.rest" xmlns:tns="http://xmlns.example.com/20160317105031PLT/ConceptSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160317105031PLT/ConceptSchema">
+  <element name="CommonLE-Services-UserManagement-deleteGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="CommonLE-Services-UserManagement-deletePutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="CommonLE-Services-UserManagement-deletePostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="CommonLE-Services-UserManagement-deleteDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="CommonLE-Services-UserManagementGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="CommonLE-Services-UserManagementPutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="CommonLE-Services-UserManagementPostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="CommonLE-Services-UserManagementDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="0" name="username" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

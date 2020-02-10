@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/UpdateResolvedExceptions.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Private/Exception" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common" name="UpdateResolvedExceptions" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/UpdateResolvedExceptions.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/UpdateResolvedExceptions.wsdl">
+      <xsd:element name="UpdateResolvedExceptions">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateResolvedExceptionsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateResolvedExceptionsFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="UpdateResolvedExceptionsFault" type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema>
+    	<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/Private/Exception" schemaLocation="../../../../Schemas/Private/Exception/ExceptionResolution.xsd">
+    	</xsd:import>
+    	<xsd:import namespace="http://www.tibco.com/CommonLE2/namespace/private/Common" schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateResolvedExceptionsRequest">
+    <wsdl:part element="xsd1:ExceptionResolutionRecords" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateResolvedExceptionsResponse">
+    <wsdl:part element="tns:UpdateResolvedExceptionsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateResolvedExceptionsFault">
+  	<wsdl:part element="xsd2:ExceptionRecordNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateResolvedExceptions">
+    <wsdl:operation name="UpdateResolvedExceptions">
+      <wsdl:input message="tns:UpdateResolvedExceptionsRequest"/>
+      <wsdl:output message="tns:UpdateResolvedExceptionsResponse"/>
+            <wsdl:fault message="tns:UpdateResolvedExceptionsFault" name="fault"/>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UpdateResolvedExceptionsSOAP" type="tns:UpdateResolvedExceptions">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UpdateResolvedExceptions">
+      <soap:operation soapAction="http://www.tibco.com/cle/exception/UpdateResolvedExceptions.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateResolvedExceptions">
+    <wsdl:port binding="tns:UpdateResolvedExceptionsSOAP" name="UpdateResolvedExceptionsSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

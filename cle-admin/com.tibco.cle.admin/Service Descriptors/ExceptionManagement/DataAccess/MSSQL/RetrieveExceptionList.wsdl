@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveExceptionList.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveExceptionList" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveExceptionList.wsdl" xmlns:xsd1="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Exception/ExceptionList" xmlns:xsd3="http://www.tibco.com/CommonLE2/namespace/private/Common">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveExceptionList.wsdl">
+      <xsd:element name="retrieveExceptionList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveExceptionListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveExceptionListFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="retrieveExceptionListFault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveExceptionListFault1">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="retrieveExceptionListFault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sqlStatement" type="xsd:string"></xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/schemas/COMMONLENEW/SharedResources/SchemaDefinitions/Public/Pluggable/GUI/Common/ListQuery.xsd"
+    		schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Common/ListQuery.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Exception/ExceptionList"
+    		schemaLocation="../../../../Schemas/Public/Pluggable/GUI/ExceptionManagement/ExceptionList.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    		schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="retrieveExceptionListRequest">
+    <wsdl:part element="xsd1:ListQuery" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveExceptionListResponse">
+    <wsdl:part element="xsd2:ExceptionList" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="retrieveExceptionListFault">
+  	<wsdl:part name="parameters" element="xsd3:DBRecordNotFound"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveExceptionListFault1">
+  	<wsdl:part name="parameters" element="xsd3:TooManyRecords"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RetrieveExceptionList">
+    <wsdl:operation name="retrieveExceptionList">
+      <wsdl:input message="tns:retrieveExceptionListRequest"/>
+      <wsdl:output message="tns:retrieveExceptionListResponse"/>
+            <wsdl:fault name="DBRecordNotFoundFault" message="tns:retrieveExceptionListFault"></wsdl:fault>
+            <wsdl:fault name="TooManyRecordsFault" message="tns:retrieveExceptionListFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

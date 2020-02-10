@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/CommonLE2/Public/Common" xmlns:ns2="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/CLE/SecurityManagement/GUIServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/CLE/SecurityManagement/GUIServices" tibex:src="file:/D:/Projects/CommonLE/New%20UI/commonle-r5242-New/commonle-r5242/bw/CLE/SharedResources/WSDL/GUI/SecurityManagement/SecurityManagementServices.wsdl">
+    
+    <types>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd"
+    			schemaLocation="../../../../Schemas/Private/SecurityConfiguration/AccessControl.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Public/Common"
+    			schemaLocation="../../../../Schemas/Public/Common/ErrorMessage.xsd">
+    		</xsd:import>
+    		</xsd:schema></types>
+    <message name="Role">
+        <part name="Role" type="xsd:string"/>
+    </message>
+    <message name="Error">
+        <part element="ns:Error" name="Error"/>
+    </message>
+    <message name="Username">
+        <part name="username" type="xsd:string"/>
+    </message>
+    <message name="RoleAccessProfile">
+        <part element="ns2:RoleAccessProfile" name="RoleAccessProfile"/>
+    </message>
+    <message name="UserCredential">
+        <part element="ns2:UserCredential" name="UserCredential"/>
+    </message>
+    <message name="UserAccessProfile">
+        <part element="ns2:UserAccessProfile" name="UserAccessProfile"/>
+    </message>
+    <message name="Authentication">
+        <part name="Granted" type="xsd:boolean"/>
+    </message>
+    <message name="Success">
+        <part name="Success" type="xsd:boolean"/>
+    </message>
+    <message name="Roles">
+        <part element="ns2:Roles" name="Roles"/>
+    </message>
+    <message name="AnyInput">
+        <part name="Any" type="xsd:string"/>
+    </message>
+    <portType name="Services">
+        <operation name="UpSertAccessProfileByRoleOp">
+            <input message="tns:RoleAccessProfile"/>
+            <output message="tns:Success"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+        <operation name="GetAccessProfileByRoleOp">
+            <input message="tns:Role"/>
+            <output message="tns:RoleAccessProfile"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+        <operation name="RemoveAccessProfileByRoleOp">
+            <input message="tns:Role"/>
+            <output message="tns:Success"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+        <operation name="AuthenticateUserOp">
+            <input message="tns:UserCredential"/>
+            <output message="tns:Authentication"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+        <operation name="GetAllRolesOp">
+            <input message="tns:AnyInput"/>
+            <output message="tns:Roles"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+        <operation name="GetAccessProfileByUserOp">
+            <input message="tns:Username"/>
+            <output message="tns:UserAccessProfile"/>
+            <fault message="tns:Error" name="fault1"/>
+        </operation>
+    </portType>
+</definitions>

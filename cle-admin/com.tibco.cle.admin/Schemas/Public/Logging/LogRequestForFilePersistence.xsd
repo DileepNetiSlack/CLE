@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema
+	xmlns="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequestForFilePersistence.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://www.tibco.com/CommonLE2/namespace/Public/Logging/LogRequestForFilePersistence.xsd">
+	<xsd:element name="LogRequestForFilePersistence">
+		<xsd:complexType>
+			<xsd:sequence>
+	<xsd:element name="Header">
+		<xsd:complexType>
+					<xsd:sequence>
+				<xsd:element name="ApplicationID" type="xsd:string"/>
+				<xsd:element name="ComponentName" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Hostname" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Timestamp" type="xsd:dateTime"/>
+				<xsd:element name="TransactionDomain" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="TransactionType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="InterfaceID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Filename" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="RenderID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DataEncoding" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Transaction" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+			</xsd:complexType>
+	</xsd:element>
+				<xsd:element minOccurs="0" name="TimeDuration"
+					type="xsd:integer" />
+				<xsd:element minOccurs="0" name="Category"
+					type="xsd:string" />
+				<xsd:element minOccurs="0" name="Status"
+					type="xsd:string" />
+				<xsd:element minOccurs="0" name="FileSize"
+					type="xsd:unsignedLong" />
+				<xsd:element name="Audit" type="xsd:boolean" />
+			</xsd:sequence>
+			<xsd:attribute name="elementFormDefault" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

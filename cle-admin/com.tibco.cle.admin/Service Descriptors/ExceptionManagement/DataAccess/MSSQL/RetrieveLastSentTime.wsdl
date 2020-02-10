@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/schemas/CLE-Handlers/SharedResources/SchemaDefinitions/Private/Notification/NotificationParameters.xsd" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveLastSentTime.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveLastSentTime" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/RetrieveLastSentTime.wsdl">
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+  			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.tibco.com/schemas/CLE-Handlers/SharedResources/SchemaDefinitions/Private/Notification/NotificationParameters.xsd"
+  			schemaLocation="../../../../Schemas/Private/Notification/NotificationParameters.xsd">
+  		</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="NotificationQuery">
+    <wsdl:part element="extns:NotificationQuery" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+    <wsdl:part element="extns:ResultTimeNotified" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="retrievefault">
+    <wsdl:part element="part:NotificationRecordNotFound"
+    	name="parameters" />
+  </wsdl:message>
+  <wsdl:portType name="RetrieveLastSentTime">
+    <wsdl:operation name="retrieve">
+      <wsdl:input message="tns:NotificationQuery" name="retrieveinput"/>
+      <wsdl:output message="tns:retrieveResponse" name="retrieveoutput"/>
+      <wsdl:fault message="tns:retrievefault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

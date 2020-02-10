@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveParentnterfaceList.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RetrieveParentnterfaceList" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveParentnterfaceList.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigList">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/InterfaceConfiguration/MSSQL/RetrieveParentnterfaceList.wsdl">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    		schemaLocation="../../../../../Schemas/Private/Administration/QueryResults.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigList"
+    		schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/InterfaceConfigList.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="retrieveParentInterfaceListRequest">
+    <wsdl:part element="xsd1:ApplicationID" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveParentInterfaceListResponse">
+    <wsdl:part element="xsd2:InterfaceParentList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="RetrieveParentnterfaceList">
+    <wsdl:operation name="retrieveParentInterfaceList">
+      <wsdl:input message="tns:retrieveParentInterfaceListRequest"/>
+      <wsdl:output message="tns:retrieveParentInterfaceListResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

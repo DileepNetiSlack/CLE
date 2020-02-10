@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/Logic/InterfaceConfiguration/UpdateInterfaceConfiguration.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdateInterfaceConfiguration" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/InterfaceConfiguration/UpdateInterfaceConfiguration.wsdl" xmlns:xsd1="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail" xmlns:xsd2="http://www.tibco.com/CommonLE2/namespace/private/Common">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/Logic/InterfaceConfiguration/UpdateInterfaceConfiguration.wsdl">
+	<xsd:element name="updateInterfaceConfig">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateInterfaceConfigResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateInterfaceConfigFault">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="updateInterfaceConfigFault"
+					type="xsd:string">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/Configuration/InterfaceConfigDetail"
+    			schemaLocation="../../../../Schemas/Public/Pluggable/GUI/Administration/Configuration/InterfaceConfigDetail.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="updateInterfaceConfigRequest">
+		<wsdl:part name="parameters" element="xsd1:InterfaceConfig"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="updateInterfaceConfigResponse">
+    	<wsdl:part name="parameters" element="tns:updateInterfaceConfigResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateInterfaceConfigFault">
+    	<wsdl:part name="parameters" element="xsd2:DBRecordNotFound"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="UpdateInterfaceConfiguration">
+    	<wsdl:operation name="updateInterfaceConfig">
+    		<wsdl:input message="tns:updateInterfaceConfigRequest"></wsdl:input>
+    		<wsdl:output message="tns:updateInterfaceConfigResponse"></wsdl:output>
+            <wsdl:fault name="DBRecordNotFound" message="tns:updateInterfaceConfigFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

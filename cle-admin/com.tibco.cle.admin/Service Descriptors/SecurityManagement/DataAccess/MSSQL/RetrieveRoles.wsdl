@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:pin="http://xmlns.example.com/1257319583792/RetrieveRoles-End-Output.xsd" xmlns:tns="http://xmlns.example.com/1257319583792/SecurityManagement/DataAccess/RetrieveRoles/Interface" name="RetrieveRoles-Interface" targetNamespace="http://xmlns.example.com/1257319583792/SecurityManagement/DataAccess/RetrieveRoles/Interface">
+  <types>
+    <xsd:schema xmlns:ns="com/tibco/pe/commands" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/1257319583792/RetrieveRoles-End-Output.xsd">
+    <xsd:element name="RolesRetrieval">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="AllRoles" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Input-Msg"/>
+  <message name="Output-Msg">
+    <part element="pin:RolesRetrieval" name="Output-Msg-Part"/>
+  </message>
+  <portType name="RetrieveRoles-PortType">
+    <operation name="RetrieveRoles-Operation">
+      <input message="tns:Input-Msg"/>
+      <output message="tns:Output-Msg"/>
+    </operation>
+  </portType>
+</definitions>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/SecurityManagement/Logic/UserManagement/DeleteUserWithRole.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.example.org/Users" name="DeleteUserWithRole" targetNamespace="http://www.tibco.com/SecurityManagement/Logic/UserManagement/DeleteUserWithRole.wsdl">
+    <wsdl:import location="../../../../Schemas/Private/SecurityConfiguration/Users.xsd" namespace="http://www.example.org/Users"/>
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/SecurityManagement/Logic/UserManagement/DeleteUserWithRole.wsdl">
+      <xsd:element name="Delete">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema>
+    	<xsd:import namespace="http://www.example.org/Users" schemaLocation="../../../../Schemas/Private/SecurityConfiguration/Users.xsd">
+    	</xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteRequest">
+    <wsdl:part element="xsd1:DeleteUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteResponse">
+    <wsdl:part element="xsd1:Response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="DeleteUserWithRole">
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteRequest"/>
+      <wsdl:output message="tns:DeleteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DeleteUserWithRoleSOAP" type="tns:DeleteUserWithRole">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://www.tibco.com/SecurityManagement/Logic/UserManagement/DeleteUserWithRole.wsdl/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeleteUserWithRole">
+    <wsdl:port binding="tns:DeleteUserWithRoleSOAP" name="DeleteUserWithRoleSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

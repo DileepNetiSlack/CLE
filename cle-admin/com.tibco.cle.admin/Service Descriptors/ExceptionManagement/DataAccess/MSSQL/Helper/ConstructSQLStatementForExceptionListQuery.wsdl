@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement/ExceptionListQuery" xmlns:tns="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/Helper/ConstructSQLStatementForExceptionListQuery.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConstructSQLStatementForExceptionListQuery" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/Helper/ConstructSQLStatementForExceptionListQuery.wsdl">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/ExceptionManagement/DataAccess/MSSQL/Helper/ConstructSQLStatementForExceptionListQuery.wsdl">
+	<xsd:element name="operationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="WhereClause" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/Public/Pluggable/GUI/ExceptionManagement/ExceptionListQuery"
+    			schemaLocation="../../../../../Schemas/Public/Pluggable/GUI/ExceptionManagement/ExceptionListQuery.xsd">
+    		</xsd:import></xsd:schema></wsdl:types>
+    <wsdl:message name="ExceptionListQuery">
+    <wsdl:part element="extns:ExceptionListQuery" name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="operationResponse">
+  	<wsdl:part name="parameters" element="tns:operationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConstructSQLStatementForExceptionListQuery">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:ExceptionListQuery" name="operationinput"/>
+      <wsdl:output message="tns:operationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

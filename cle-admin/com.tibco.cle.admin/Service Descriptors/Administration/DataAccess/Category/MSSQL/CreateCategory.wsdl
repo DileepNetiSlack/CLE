@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.tibco.com/CommonLE2/Private/Administration" xmlns:part="http://www.tibco.com/CommonLE2/namespace/private/Common" xmlns:tns="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Category/MSSQL/CreateCategory.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateCategory" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Category/MSSQL/CreateCategory.wsdl">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ServiceDescriptors/Administration/DataAccess/Category/MSSQL/CreateCategory.wsdl">
+	<xsd:element name="createResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	</xsd:schema>
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/namespace/private/Common"
+    			schemaLocation="../../../../../Schemas/Private/Common/LocalExceptions.xsd">
+    		</xsd:import>
+    		<xsd:import
+    			namespace="http://www.tibco.com/CommonLE2/Private/Administration"
+    			schemaLocation="../../../../../Schemas/Private/Administration/QueryUpdate.xsd">
+    		</xsd:import></xsd:schema>
+	</wsdl:types>
+    <wsdl:message name="CategoryUpdate">
+    <wsdl:part element="extns:CategoryUpdate" name="parameters" />
+    </wsdl:message>
+  <wsdl:message name="createfault">
+    <wsdl:part element="part:ApplicationIDNotFound" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+  	<wsdl:part name="parameters" element="tns:createResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createFault1">
+  	<wsdl:part name="parameters" element="part:DBError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CreateCategory">
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:CategoryUpdate" name="createinput"/>
+      <wsdl:output message="tns:createResponse"></wsdl:output>
+      <wsdl:fault message="tns:createfault" name="fault"/>
+            <wsdl:fault name="fault1" message="tns:createFault1"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

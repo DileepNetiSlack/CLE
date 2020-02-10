@@ -1,0 +1,174 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/CommonLE/Services/UserManagement/create" : {
+      "post" : {
+        "description" : "Creates User with Respective Roles",
+        "operationId" : "post-CommonLE-Services-UserManagement-create",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UserWithRole"
+          },
+          "required" : true,
+          "allowMultiple" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/Update" : {
+      "put" : {
+        "description" : "Updates User with Roles",
+        "operationId" : "put-CommonLE-Services-UserManagement-Update",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UpdateUserWithRole"
+          },
+          "required" : true,
+          "allowMultiple" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Response to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/delete/{username}" : {
+      "delete" : {
+        "description" : "Deletes specified username",
+        "operationId" : "delete-CommonLE-Services-UserManagement-delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true,
+          "allowMultiple" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/CommonLE/Services/UserManagement/users" : {
+      "get" : {
+        "description" : "Get All Users",
+        "operationId" : "get-CommonLE-Services-UserManagement-users",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Users to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Users"
+            }
+          }
+        }
+      }
+    }
+  },
+  "authorizations" : { },
+  "definitions" : {
+    "Response" : {
+      "type" : "object",
+      "required" : [ "Success" ],
+      "properties" : {
+        "Success" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "UpdateUserWithRole" : {
+      "type" : "object",
+      "required" : [ "RoleName", "UserName", "CurrentPasswd", "Passwd" ],
+      "properties" : {
+        "UserName" : {
+          "type" : "string"
+        },
+        "Passwd" : {
+          "type" : "string"
+        },
+        "CurrentPasswd" : {
+          "type" : "string"
+        },
+        "RoleName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "UserWithRole" : {
+      "type" : "object",
+      "required" : [ "RoleName", "UserName", "Passwd" ],
+      "properties" : {
+        "UserName" : {
+          "type" : "string"
+        },
+        "Passwd" : {
+          "type" : "string"
+        },
+        "RoleName" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Users" : {
+      "type" : "object",
+      "required" : [ ],
+      "properties" : {
+        "User" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}
