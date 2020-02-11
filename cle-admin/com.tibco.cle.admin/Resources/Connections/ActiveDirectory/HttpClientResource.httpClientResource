@@ -3,6 +3,7 @@
   <jndi:configuration xsi:type="http:HttpClientConfiguration" xmi:id="_0L8UchtPEeifKuiv6XH_ZQ" httpClientVersion="httpcomponents" retryCount="3" idleConnectionTimeout="3000">
     <tcpDetails xmi:id="_0L8UcxtPEeifKuiv6XH_ZQ">
       <substitutionBindings xmi:id="_AZuAIEvqEeqGYc0st52O-Q" template="port" propName="/ActiveDirectory/AuthenticateUserHTTPPort"/>
+      <substitutionBindings xmi:id="_9sLpUEyNEeq1tM5WR01Kxg" template="host" propName="BW.HOST.NAME"/>
     </tcpDetails>
   </jndi:configuration>
 </jndi:namedResource>
