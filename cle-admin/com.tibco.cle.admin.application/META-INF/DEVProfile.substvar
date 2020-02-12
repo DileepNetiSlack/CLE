@@ -675,11 +675,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_DBURL</name>
-			<value>jdbc:oracle:thin:@localhost:1521:xe</value>
+			<value>jdbc:oracle:thin:@esbadm1d:1521:ESBD</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_Timeout</name>
@@ -715,11 +715,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Database/MIG_User</name>
-			<value>system</value>
+			<value>tib_cle</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Security/PrimaryAuthType</name>
@@ -1203,43 +1203,43 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_ClientID</name>
-			<value>CLEAdministrator</value>
+			<value>CLE</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIUser</name>
-			<value>admin</value>
+			<value>CLEDevID</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_TopicConnectionFactory</name>
-			<value>TopicConnectionFactory</value>
+			<value>TibcoCleStandardTopicConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIContextURL</name>
-			<value>tibjmsnaming://localhost:7222</value>
+			<value>tibjmsnaming://esbems1d:17223</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_QueueConnectionFactory</name>
-			<value>QueueConnectionFactory</value>
+			<value>TibcoCleStandardQueueConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JMSExpiration</name>
@@ -1251,27 +1251,27 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_Password</name>
-			<value>#!u2G2LacalbiM/dE1wWcdag==</value>
+			<value>#!PW1Vba7ro3p5zjtjMLi2xyCN9TyRJL/RSILR8psZp4Y=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_JNDIPassword</name>
-			<value>#!pA8LXxGntqd0qZAp4an76A==</value>
+			<value>#!nkgIpTHfOw/3ImozM9ooXBPBx8c19mWBnel2AoZ0Cqk=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///JMSServer/MIG_UserName</name>
-			<value>admin</value>
+			<value>CLEDevID</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///SOAPServer/GUIServices/MIG_AdministrationPort</name>
@@ -1283,11 +1283,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///SOAPServer/GUIServices/MIG_AdministrationHost</name>
-			<value>localhost</value>
+			<value>esbbw5d</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin///Utilities/ConfigMigrationFileName</name>
