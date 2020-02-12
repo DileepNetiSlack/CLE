@@ -1019,11 +1019,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Notification/Email/MIG_From</name>
-			<value>CLE@tibco.com</value>
+			<value>cyannam@tibco.com</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Notification/Email/MIG_SubjectPrefix</name>
@@ -1035,11 +1035,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Notification/Email/MIG_UserName</name>
-			<value>pranjain@tibco.com</value>
+			<value>cyannam@tibco.com</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Notification/Email/MIG_Timeout</name>
@@ -1059,11 +1059,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Notification/Email/MIG_Password</name>
-			<value>#!s6E2FbHeY7ojMAs5qXGWDQ==</value>
+			<value>#!xOTZnK0hxo9+M0SWdN8Ni+n4vqIjiYFqngiZsztUvYU=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//Rendering/HTMLHeadClose</name>
