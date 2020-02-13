@@ -763,27 +763,27 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//JMSDestinationNames/MIG_LogLevelRequestTopic</name>
-			<value>CLE.LogLevelRequest.Q</value>
+			<value>CLE.LogLevelRequest.T</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//JMSDestinationNames/MIG_InterfaceCache</name>
-			<value>CLE.InterfaceCache.Q</value>
+			<value>CLE.InterfaceCache.T</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//JMSDestinationNames/MIG_ExceptionCache</name>
-			<value>CLE.ExceptionCache.Q</value>
+			<value>CLE.ExceptionCache.T</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//com.tibco.cle.admin//JMSDestinationNames/MIG_EventHandler</name>

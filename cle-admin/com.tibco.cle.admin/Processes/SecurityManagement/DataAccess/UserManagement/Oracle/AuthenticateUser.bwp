@@ -518,6 +518,14 @@
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f2a0d135-dadd-4e9f-bd8b-f85baf1e2a86+input" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd" prefix="pin"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
     <bpws:documentation/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface"/>
     <bpws:partnerLinks>
@@ -576,10 +584,10 @@
                 portType="ns5:AuthenticateUser-PortType"
                 tibex:xpdlId="4173030e-7ad1-40a7-9263-93c3aad9f572" variable="End">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface" xmlns:pin2="http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd" version="2.0"&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface" xmlns:pin2="http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd" version="2.0"&gt;
     &lt;xsl:param name="AutheniticateUser"/&gt;
     &lt;xsl:template name="End" match="/"&gt;
-        &lt;tns:Output-Msg&gt;
+        &lt;tns1:Output-Msg&gt;
             &lt;Output-Msg-Part&gt;
                 &lt;pin2:AuthenticationResult&gt;
                     &lt;xsl:choose&gt;
@@ -596,12 +604,12 @@
                     &lt;/xsl:choose&gt;
                 &lt;/pin2:AuthenticationResult&gt;
             &lt;/Output-Msg-Part&gt;
-        &lt;/tns:Output-Msg&gt;
+        &lt;/tns1:Output-Msg&gt;
     &lt;/xsl:template&gt;
 &lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface&quot; xmlns:pin2=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;AutheniticateUser&quot;/>&#xa;    &lt;xsl:template name=&quot;End&quot; match=&quot;/&quot;>&#xa;        &lt;pin2:AuthenticationResult>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;count($AutheniticateUser/Record) = 1&quot;>&#xa;                    &lt;Result>&#xa;                        &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                    &lt;/Result>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;Result>&#xa;                        &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                    &lt;/Result>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/pin2:AuthenticationResult>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/1256582495423/SecurityManagement/DataAccess/UserManagement/AuthenticateUser/Interface&quot; xmlns:pin2=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-End-Output.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;AutheniticateUser&quot;/>&#xa;    &lt;xsl:template name=&quot;End&quot; match=&quot;/&quot;>&#xa;        &lt;pin2:AuthenticationResult>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;count($AutheniticateUser/Record) = 1&quot;>&#xa;                    &lt;Result>&#xa;                        &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                    &lt;/Result>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;Result>&#xa;                        &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                    &lt;/Result>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/pin2:AuthenticationResult>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="JDBCQueryToEnd"/>
@@ -609,7 +617,7 @@
             </bpws:reply>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f2a0d135-dadd-4e9f-bd8b-f85baf1e2a86+input&quot; xmlns:pin=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;USERNAME>&lt;xsl:value-of select=&quot;$Start/Input-Msg-Part/pin:UserDetails/username&quot;/>&lt;/USERNAME>&lt;PASSWD>&lt;xsl:value-of select=&quot;$Start/Input-Msg-Part/pin:UserDetails/password&quot;/>&lt;/PASSWD>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f2a0d135-dadd-4e9f-bd8b-f85baf1e2a86+input&quot; xmlns:pin=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;AutheniticateUser-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;USERNAME>&lt;xsl:value-of select=&quot;$Start/Input-Msg-Part/pin:UserDetails/username&quot;/>&lt;/USERNAME>&lt;PASSWD>&lt;xsl:value-of select=&quot;tib:string-to-base64($Start/Input-Msg-Part/pin:UserDetails/password)&quot;/>&lt;/PASSWD>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="AutheniticateUser-input"
                     name="AutheniticateUser"
@@ -623,7 +631,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f2a0d135-dadd-4e9f-bd8b-f85baf1e2a86+input&quot; xmlns:pin=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start.Input-Msg-Part&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcQueryActivityInput>&#xa;            &lt;USERNAME>&#xa;                &lt;xsl:value-of select=&quot;$Start.Input-Msg-Part/username&quot;/>&#xa;            &lt;/USERNAME>&#xa;            &lt;PASSWD>&#xa;                &lt;xsl:value-of select=&quot;$Start.Input-Msg-Part/password&quot;/>&#xa;            &lt;/PASSWD>&#xa;        &lt;/tns:jdbcQueryActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f2a0d135-dadd-4e9f-bd8b-f85baf1e2a86+input&quot; xmlns:pin=&quot;http://xmlns.example.com/1256582495423/AuthenticateUser-Start-Input.xsd&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start.Input-Msg-Part&quot;/>&#xa;    &lt;xsl:template name=&quot;AutheniticateUser-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcQueryActivityInput>&#xa;            &lt;USERNAME>&#xa;                &lt;xsl:value-of select=&quot;$Start.Input-Msg-Part/username&quot;/>&#xa;            &lt;/USERNAME>&#xa;            &lt;PASSWD>&#xa;                &lt;xsl:value-of select=&quot;tib:string-to-base64($Start.Input-Msg-Part/password)&quot;/>&#xa;            &lt;/PASSWD>&#xa;        &lt;/tns:jdbcQueryActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

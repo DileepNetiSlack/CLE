@@ -666,6 +666,12 @@
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/model/addressing" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xpath/bw-custom-functions" prefix="bw"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
         location="../../../../Service%20Descriptors/SecurityManagement/DataAccess/MSSQL/UpdateSertAccessProfileByRole.wsdl" namespace="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl"/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
@@ -775,10 +781,34 @@
                 portType="ns1:UpdateSertAccessProfileByRole"
                 tibex:xpdlId="e0517292-b51d-4e78-a0be-d62da19b1678" variable="UpdateSertAccessProfileByRoleOut-input">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl" xmlns:tns1="http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl" xmlns:tns2="http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl" version="2.0"&gt;&lt;xsl:param name="JDBCQuery"/&gt;&lt;xsl:param name="InsertAccessProfileByRole"/&gt;&lt;xsl:param name="UpdateAccessProfileByRole"/&gt;&lt;xsl:template name="UpdateSertAccessProfileByRoleOut-input" match="/"&gt;&lt;tns:UpdateSertAccessProfileByRoleResponse&gt;&lt;parameters&gt;&lt;tns:UpdateSertAccessProfileByRoleResponse&gt;&lt;xsl:choose&gt;&lt;xsl:when test="count($JDBCQuery/Record)&gt;0"&gt;&lt;Success&gt;&lt;xsl:value-of select="$UpdateAccessProfileByRole/parameters/tns1:UpdateAccessProfileByRoleResponse/Success"/&gt;&lt;/Success&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;Success&gt;&lt;xsl:value-of select="$InsertAccessProfileByRole/parameters/tns2:InsertAccessProfileByRoleResponse/Success"/&gt;&lt;/Success&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/tns:UpdateSertAccessProfileByRoleResponse&gt;&lt;/parameters&gt;&lt;/tns:UpdateSertAccessProfileByRoleResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns3="http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl" xmlns:tns1="http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl" xmlns:tns2="http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl" version="2.0"&gt;
+    &lt;xsl:param name="JDBCQuery"/&gt;
+    &lt;xsl:param name="InsertAccessProfileByRole"/&gt;
+    &lt;xsl:param name="UpdateAccessProfileByRole"/&gt;
+    &lt;xsl:template name="UpdateSertAccessProfileByRoleOut-input" match="/"&gt;
+        &lt;tns3:UpdateSertAccessProfileByRoleResponse&gt;
+            &lt;parameters&gt;
+                &lt;tns3:UpdateSertAccessProfileByRoleResponse&gt;
+                    &lt;xsl:choose&gt;
+                        &lt;xsl:when test="count($JDBCQuery/Record)&gt;0"&gt;
+                            &lt;Success&gt;
+                                &lt;xsl:value-of select="$UpdateAccessProfileByRole/parameters/tns1:UpdateAccessProfileByRoleResponse/Success"/&gt;
+                            &lt;/Success&gt;
+                        &lt;/xsl:when&gt;
+                        &lt;xsl:otherwise&gt;
+                            &lt;Success&gt;
+                                &lt;xsl:value-of select="$InsertAccessProfileByRole/parameters/tns2:InsertAccessProfileByRoleResponse/Success"/&gt;
+                            &lt;/Success&gt;
+                        &lt;/xsl:otherwise&gt;
+                    &lt;/xsl:choose&gt;
+                &lt;/tns3:UpdateSertAccessProfileByRoleResponse&gt;
+            &lt;/parameters&gt;
+        &lt;/tns3:UpdateSertAccessProfileByRoleResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl&quot; xmlns:tns1=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl&quot; xmlns:tns2=&quot;http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;InsertAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;UpdateAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;JDBCQuery&quot;/>&#xa;    &lt;xsl:template name=&quot;UpdateSertAccessProfileByRoleOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:UpdateSertAccessProfileByRoleResponse>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;count($JDBCQuery/Record)>0&quot;>&#xa;                    &lt;Success>&#xa;                        &lt;xsl:value-of select=&quot;$UpdateAccessProfileByRole.parameters/Success&quot;/>&#xa;                    &lt;/Success>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;Success>&#xa;                        &lt;xsl:value-of select=&quot;$InsertAccessProfileByRole.parameters/Success&quot;/>&#xa;                    &lt;/Success>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/tns:UpdateSertAccessProfileByRoleResponse>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com//SecurityManagement/DataAccess/UpdateSertAccessProfileByRole.wsdl&quot; xmlns:tns1=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl&quot; xmlns:tns2=&quot;http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;InsertAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;UpdateAccessProfileByRole.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;JDBCQuery&quot;/>&#xa;    &lt;xsl:template name=&quot;UpdateSertAccessProfileByRoleOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:UpdateSertAccessProfileByRoleResponse>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;count($JDBCQuery/Record)>0&quot;>&#xa;                    &lt;Success>&#xa;                        &lt;xsl:value-of select=&quot;$UpdateAccessProfileByRole.parameters/Success&quot;/>&#xa;                    &lt;/Success>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;Success>&#xa;                        &lt;xsl:value-of select=&quot;$InsertAccessProfileByRole.parameters/Success&quot;/>&#xa;                    &lt;/Success>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/tns3:UpdateSertAccessProfileByRoleResponse>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="UpdateAccessProfileByRoleToEnd"/>
@@ -792,10 +822,19 @@
                 partnerLink="InsertAccessProfileByRole"
                 portType="ns2:InsertAccessProfileByRole" tibex:xpdlId="2426c2d1-a526-4b65-9ce7-c71652281cc6">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns="http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl" version="2.0"&gt;&lt;xsl:param name="UpdateSertAccessProfileByRoleIn"/&gt;&lt;xsl:template name="InsertAccessProfileByRole-input" match="/"&gt;&lt;tns:InsertAccessProfileByRoleRequest&gt;&lt;parameters&gt;&lt;xsl:copy-of select="$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile"/&gt;&lt;/parameters&gt;&lt;/tns:InsertAccessProfileByRoleRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns1="http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl" version="2.0"&gt;
+    &lt;xsl:param name="UpdateSertAccessProfileByRoleIn"/&gt;
+    &lt;xsl:template name="InsertAccessProfileByRole-input" match="/"&gt;
+        &lt;tns1:InsertAccessProfileByRoleRequest&gt;
+            &lt;parameters&gt;
+                &lt;xsl:copy-of select="$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile"/&gt;
+            &lt;/parameters&gt;
+        &lt;/tns1:InsertAccessProfileByRoleRequest&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns=&quot;http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;InsertAccessProfileByRole-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns1=&quot;http://www.tibco.com/SecurityManagement/DataAccess/InsertAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;InsertAccessProfileByRole-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="SetEPR1ToInsertAccessProfileByRole"/>
@@ -811,10 +850,19 @@
                 partnerLink="UpdateAccessProfileByRole"
                 portType="ns3:UpdateAccessProfileByRole" tibex:xpdlId="274e4f90-ba93-4ca2-9f9a-0521869c4cde">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns="http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl" version="2.0"&gt;&lt;xsl:param name="UpdateSertAccessProfileByRoleIn"/&gt;&lt;xsl:template name="UpdateAccessProfileByRole-input" match="/"&gt;&lt;tns:UpdateAccessProfileByRoleRequest&gt;&lt;parameters&gt;&lt;xsl:copy-of select="$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile"/&gt;&lt;/parameters&gt;&lt;/tns:UpdateAccessProfileByRoleRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd" xmlns:tns1="http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl" version="2.0"&gt;
+    &lt;xsl:param name="UpdateSertAccessProfileByRoleIn"/&gt;
+    &lt;xsl:template name="UpdateAccessProfileByRole-input" match="/"&gt;
+        &lt;tns1:UpdateAccessProfileByRoleRequest&gt;
+            &lt;parameters&gt;
+                &lt;xsl:copy-of select="$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile"/&gt;
+            &lt;/parameters&gt;
+        &lt;/tns1:UpdateAccessProfileByRoleRequest&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;UpdateAccessProfileByRole-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; xmlns:tns1=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UpdateAccessProfileByRole.wsdl&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;UpdateAccessProfileByRole-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="SetEPRToUpdateAccessProfileByRole"/>
@@ -825,7 +873,7 @@
             </bpws:invoke>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3e2f93b7-d2d7-4f2c-808c-71dd3293f260+input&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn&quot;/>&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;Rolename>&lt;xsl:value-of select=&quot;$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile/ns:Role&quot;/>&lt;/Rolename>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3e2f93b7-d2d7-4f2c-808c-71dd3293f260+input&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:jdbcQueryActivityInput>&#xa;            &lt;Rolename>&#xa;                &lt;xsl:value-of select=&quot;$UpdateSertAccessProfileByRoleIn/parameters/ns:RoleAccessProfile/ns:Role&quot;/>&#xa;            &lt;/Rolename>&#xa;        &lt;/tns1:jdbcQueryActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="JDBCQuery-input" name="JDBCQuery"
                     outputVariable="JDBCQuery"
@@ -851,7 +899,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3e2f93b7-d2d7-4f2c-808c-71dd3293f260+input&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcQueryActivityInput>&#xa;            &lt;Rolename>&#xa;                &lt;xsl:value-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters/ns:Role&quot;/>&#xa;            &lt;/Rolename>&#xa;        &lt;/tns:jdbcQueryActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3e2f93b7-d2d7-4f2c-808c-71dd3293f260+input&quot; xmlns:ns=&quot;http://www.tibco.com/CLE/Schema/Private/SecurityConfiguration/AccessControl.xsd&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;UpdateSertAccessProfileByRoleIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:jdbcQueryActivityInput>&#xa;            &lt;Rolename>&#xa;                &lt;xsl:value-of select=&quot;$UpdateSertAccessProfileByRoleIn.parameters/ns:Role&quot;/>&#xa;            &lt;/Rolename>&#xa;        &lt;/tns1:jdbcQueryActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -906,7 +954,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_UpdateAccessProfileByRole-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(&amp;quot;CommonLE.application&amp;quot;, &amp;quot;1.0&amp;quot;, concat($DBType,&amp;quot;_UpdateAccessProfileByRole&amp;quot;))&amp;#xD;&amp;#xA;&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_UpdateAccessProfileByRole-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), bw:getModuleProperty(&amp;quot;BW.APPLICATION.VERSION&amp;quot;), concat($DBType ,&amp;quot;_UpdateAccessProfileByRole&amp;quot;))&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -939,7 +987,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_InsertAccessProfileByRole-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(&amp;quot;CommonLE.application&amp;quot;, &amp;quot;1.0&amp;quot;, concat($DBType,&amp;quot;_InsertAccessProfileByRole&amp;quot;))&amp;#xD;&amp;#xA;&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/model/addressing&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DBType&quot;/>&lt;xsl:template name=&quot;SetEPR_InsertAccessProfileByRole-input&quot; match=&quot;/&quot;>&lt;tns:SimpleEndpointReference>&lt;tns:Address>&lt;xsl:value-of select=&quot;bw:generateEPR(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), bw:getModuleProperty(&amp;quot;BW.APPLICATION.VERSION&amp;quot;), concat($DBType ,&amp;quot;_InsertAccessProfileByRole&amp;quot;))&amp;#xD;&amp;#xA;&quot;/>&lt;/tns:Address>&lt;/tns:SimpleEndpointReference>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

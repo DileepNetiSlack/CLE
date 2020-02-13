@@ -476,6 +476,13 @@
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem namespace="http://www.example.org/Users" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+3155f3b9-b49f-407e-b2b7-7b3dfab06d42+input" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/CreateUser.wsdl"/>
     <bpws:partnerLinks>
         <bpws:partnerLink myRole="use" name="Oracle_CreateUser"
@@ -530,10 +537,32 @@
                 portType="ns1:CreateUser"
                 tibex:xpdlId="4be19895-108a-42dc-bd75-4f35c1bcb229" variable="CreateOut-input">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/CreateUser.wsdl" xmlns:tns1="http://www.example.org/Users" version="2.0"&gt;&lt;xsl:param name="JDBCUpdate"/&gt;&lt;xsl:template name="CreateOut-input" match="/"&gt;&lt;tns:CreateResponse&gt;&lt;parameters&gt;&lt;tns1:Response&gt;&lt;xsl:choose&gt;&lt;xsl:when test="$JDBCUpdate/noOfUpdates=1"&gt;&lt;tns1:Success&gt;&lt;xsl:value-of select="true()"/&gt;&lt;/tns1:Success&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;tns1:Success&gt;&lt;xsl:value-of select="false()"/&gt;&lt;/tns1:Success&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/tns1:Response&gt;&lt;/parameters&gt;&lt;/tns:CreateResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns2="http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/CreateUser.wsdl" xmlns:tns1="http://www.example.org/Users" version="2.0"&gt;
+    &lt;xsl:param name="JDBCUpdate"/&gt;
+    &lt;xsl:template name="CreateOut-input" match="/"&gt;
+        &lt;tns2:CreateResponse&gt;
+            &lt;parameters&gt;
+                &lt;tns1:Response&gt;
+                    &lt;xsl:choose&gt;
+                        &lt;xsl:when test="$JDBCUpdate/noOfUpdates=1"&gt;
+                            &lt;tns1:Success&gt;
+                                &lt;xsl:value-of select="true()"/&gt;
+                            &lt;/tns1:Success&gt;
+                        &lt;/xsl:when&gt;
+                        &lt;xsl:otherwise&gt;
+                            &lt;tns1:Success&gt;
+                                &lt;xsl:value-of select="false()"/&gt;
+                            &lt;/tns1:Success&gt;
+                        &lt;/xsl:otherwise&gt;
+                    &lt;/xsl:choose&gt;
+                &lt;/tns1:Response&gt;
+            &lt;/parameters&gt;
+        &lt;/tns2:CreateResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/CreateUser.wsdl&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCUpdate&quot;/>&#xa;    &lt;xsl:template name=&quot;CreateOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:Response>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;$JDBCUpdate/noOfUpdates=1&quot;>&#xa;                    &lt;tns1:Success>&#xa;                        &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                    &lt;/tns1:Success>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;tns1:Success>&#xa;                        &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                    &lt;/tns1:Success>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/tns1:Response>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/SecurityManagement/DataAccess/UserManagement/CreateUser.wsdl&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCUpdate&quot;/>&#xa;    &lt;xsl:template name=&quot;CreateOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:Response>&#xa;            &lt;xsl:choose>&#xa;                &lt;xsl:when test=&quot;$JDBCUpdate/noOfUpdates=1&quot;>&#xa;                    &lt;tns1:Success>&#xa;                        &lt;xsl:value-of select=&quot;true()&quot;/>&#xa;                    &lt;/tns1:Success>&#xa;                &lt;/xsl:when>&#xa;                &lt;xsl:otherwise>&#xa;                    &lt;tns1:Success>&#xa;                        &lt;xsl:value-of select=&quot;false()&quot;/>&#xa;                    &lt;/tns1:Success>&#xa;                &lt;/xsl:otherwise>&#xa;            &lt;/xsl:choose>&#xa;        &lt;/tns1:Response>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="JDBCUpdateToEnd"/>
@@ -541,7 +570,7 @@
             </bpws:reply>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3155f3b9-b49f-407e-b2b7-7b3dfab06d42+input&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateIn&quot;/>&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&lt;tns:jdbcUpdateActivityInput>&lt;USERNAME>&lt;xsl:value-of select=&quot;$CreateIn/parameters/tns1:User/tns1:Username&quot;/>&lt;/USERNAME>&lt;PASSWORD>&lt;xsl:value-of select=&quot;$CreateIn/parameters/tns1:User/tns1:Password&quot;/>&lt;/PASSWORD>&lt;/tns:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3155f3b9-b49f-407e-b2b7-7b3dfab06d42+input&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateIn&quot;/>&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&lt;tns:jdbcUpdateActivityInput>&lt;USERNAME>&lt;xsl:value-of select=&quot;$CreateIn/parameters/tns1:User/tns1:Username&quot;/>&lt;/USERNAME>&lt;PASSWORD>&lt;xsl:value-of select=&quot;tib:string-to-base64($CreateIn/parameters/tns1:User/tns1:Password)&quot;/>&lt;/PASSWORD>&lt;/tns:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="JDBCUpdate-input" name="JDBCUpdate"
                     outputVariable="JDBCUpdate"
@@ -554,7 +583,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3155f3b9-b49f-407e-b2b7-7b3dfab06d42+input&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;CreateIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcUpdateActivityInput>&#xa;            &lt;USERNAME>&#xa;                &lt;xsl:value-of select=&quot;$CreateIn.parameters/tns1:Username&quot;/>&#xa;            &lt;/USERNAME>&#xa;            &lt;PASSWORD>&#xa;                &lt;xsl:value-of select=&quot;$CreateIn.parameters/tns1:Password&quot;/>&#xa;            &lt;/PASSWORD>&#xa;        &lt;/tns:jdbcUpdateActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3155f3b9-b49f-407e-b2b7-7b3dfab06d42+input&quot; xmlns:tns1=&quot;http://www.example.org/Users&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;CreateIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcUpdateActivityInput>&#xa;            &lt;USERNAME>&#xa;                &lt;xsl:value-of select=&quot;$CreateIn.parameters/tns1:Username&quot;/>&#xa;            &lt;/USERNAME>&#xa;            &lt;PASSWORD>&#xa;                &lt;xsl:value-of select=&quot;tib:string-to-base64($CreateIn.parameters/tns1:Password)&quot;/>&#xa;            &lt;/PASSWORD>&#xa;        &lt;/tns:jdbcUpdateActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
